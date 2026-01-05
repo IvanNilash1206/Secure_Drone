@@ -1,22 +1,22 @@
 {
-  "session": {
-    "key_type": "session",
-    "state": "active",
-    "created_at": 1767604787.877281,
-    "expires_at": 1767606587.877281,
-    "session_id": "121e3203b146c5c258b81c345989d67f",
-    "command_count": 40,
-    "last_rotation": 0.0,
-    "risk_level": "low"
-  },
   "root": {
     "key_type": "root",
     "state": "active",
-    "created_at": 1767604687.895276,
-    "expires_at": 1799140787.895276,
+    "created_at": 1767607458.077297,
+    "expires_at": 1799143458.077297,
     "session_id": "root",
     "command_count": 0,
     "last_rotation": 0.0,
     "risk_level": "low"
+  },
+  "session": {
+    "key_type": "session",
+    "state": "active",
+    "created_at": 1767607458.0782957,
+    "expires_at": 1767609258.0782957,
+    "session_id": "5c749fb33b1e5c0541d2594c03f8d7d8",
+    "command_count": 2,
+    "last_rotation": 0.0,
+    "risk_level": "high"
   }
 }

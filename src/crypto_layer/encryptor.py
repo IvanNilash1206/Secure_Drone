@@ -3,8 +3,7 @@ from src.crypto_layer.key_manager import key_manager
 from src.crypto_layer.nonce_manager import NonceManager
 from src.logging_config import logger
 
-# Initialize AES-GCM with session key from key manager
-aesgcm = AESGCM(key_manager.get_active_session_key())
+# Initialize nonce manager only
 nonce_mgr = NonceManager()
 
 def encrypt_payload(payload: bytes) -> tuple[bytes, bytes]:

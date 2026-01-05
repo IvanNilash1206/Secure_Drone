@@ -30,6 +30,18 @@ def crypto_stack(monkeypatch):
         import src.crypto_layer.key_manager as key_manager
         importlib.reload(key_manager)
 
+        # Force fresh key generation by ensuring no existing keys
+        # Delete any existing key files to force fresh generation
+        for key_file in [key_manager.ROOT_KEY_FILE, key_manager.SESSION_KEY_FILE, key_manager.KEY_METADATA_FILE]:
+            if os.path.exists(key_file):
+                os.remove(key_file)
+
+        # Initialize key manager (this will create fresh keys)
+        key_mgr = key_manager.KeyManager()
+
+        # Replace the global key_manager instance with our fresh one
+        key_manager.key_manager = key_mgr
+
         # Reload dependent modules
         encryptor = importlib.reload(importlib.import_module("src.crypto_layer.encryptor"))
         decryptor = importlib.reload(importlib.import_module("src.crypto_layer.decryptor"))
@@ -40,7 +52,7 @@ def crypto_stack(monkeypatch):
         encryptor.nonce_mgr = encryptor.NonceManager()
         decryptor.nonce_mgr = decryptor.NonceManager()
 
-        yield encryptor, decryptor, crypto_gate, key_manager.key_manager
+        yield encryptor, decryptor, crypto_gate, key_mgr
 
 
 def test_key_hierarchy_initialization(crypto_stack):
@@ -263,7 +275,37 @@ def test_timestamp_validation(crypto_stack):
     assert gate._validate_timestamp(no_timestamp_payload)
 
     logger.info("Timestamp validation test passed")
-    logger.info("Replay attack correctly rejected")
+
+
+def test_navigation_command_attack_mitigation(crypto_stack):
+    """Test that navigation commands (like SET_POSITION_TARGET_LOCAL_NED) are protected"""
+    encryptor, decryptor, crypto_gate, key_mgr = crypto_stack
+
+    logger.info("Testing navigation command attack mitigation")
+
+    # Simulate dangerous navigation command payload
+    nav_payload = b"SET_POSITION_TARGET_LOCAL_NED|x=1000|y=2000|z=-500|vx=10|vy=15|vz=-5"
+
+    # 1. Valid encrypted navigation command should work
+    nonce, ciphertext = encryptor.encrypt_payload(nav_payload)
+    success, decrypted = crypto_gate.crypto_gate.crypto_check(nonce, ciphertext)
+    assert success
+    assert decrypted == nav_payload
+
+    # 2. Tampered navigation command should be rejected
+    tampered = bytearray(ciphertext)
+    tampered[0] ^= 0xFF  # Flip a bit
+    success_tampered, _ = crypto_gate.crypto_gate.crypto_check(nonce, bytes(tampered))
+    assert not success_tampered  # ❌ ATTACK MITIGATED
+
+    # 3. Replay attack on navigation command should be rejected
+    success_replay, _ = crypto_gate.crypto_gate.crypto_check(nonce, ciphertext)
+    assert not success_replay  # ❌ ATTACK MITIGATED
+
+    # 4. Check risk escalation after attacks
+    assert key_mgr._metadata["session"].risk_level == "high"
+
+    logger.info("Navigation command attacks successfully mitigated")
 
 
 def test_tamper_attack_fails(crypto_stack):
