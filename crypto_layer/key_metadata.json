@@ -2,8 +2,8 @@
   "root": {
     "key_type": "root",
     "state": "active",
-    "created_at": 1767607458.077297,
-    "expires_at": 1799143458.077297,
+    "created_at": 1767607593.5567734,
+    "expires_at": 1799143593.5567734,
     "session_id": "root",
     "command_count": 0,
     "last_rotation": 0.0,
@@ -12,9 +12,9 @@
   "session": {
     "key_type": "session",
     "state": "active",
-    "created_at": 1767607458.0782957,
-    "expires_at": 1767609258.0782957,
-    "session_id": "5c749fb33b1e5c0541d2594c03f8d7d8",
+    "created_at": 1767607593.557775,
+    "expires_at": 1767609393.557775,
+    "session_id": "99205cab96e395d1a69053da61d25a02",
     "command_count": 2,
     "last_rotation": 0.0,
     "risk_level": "high"
