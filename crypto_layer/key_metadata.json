@@ -1,0 +1,22 @@
+{
+  "session": {
+    "key_type": "session",
+    "state": "active",
+    "created_at": 1767604787.877281,
+    "expires_at": 1767606587.877281,
+    "session_id": "121e3203b146c5c258b81c345989d67f",
+    "command_count": 40,
+    "last_rotation": 0.0,
+    "risk_level": "low"
+  },
+  "root": {
+    "key_type": "root",
+    "state": "active",
+    "created_at": 1767604687.895276,
+    "expires_at": 1799140787.895276,
+    "session_id": "root",
+    "command_count": 0,
+    "last_rotation": 0.0,
+    "risk_level": "low"
+  }
+}

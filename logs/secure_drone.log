@@ -7,3 +7,46 @@
 2026-01-05 13:06:35,242 - src.logging_config - INFO - Starting Secure Drone application
 2026-01-05 13:08:38,466 - src.logging_config - INFO - Logging system initialized
 2026-01-05 13:08:38,466 - src.logging_config - INFO - Project import test successful
+2026-01-05 14:09:06,139 - src.logging_config - INFO - Logging system initialized
+2026-01-05 14:09:06,140 - src.logging_config - INFO - Generating new AES-256 key
+2026-01-05 14:09:06,143 - src.logging_config - INFO - AES-256 key generated and saved
+2026-01-05 14:13:03,961 - src.logging_config - INFO - Logging system initialized
+2026-01-05 14:13:03,965 - src.logging_config - INFO - Encrypting payload
+2026-01-05 14:13:03,965 - src.logging_config - INFO - Payload encrypted successfully
+2026-01-05 14:13:03,966 - src.logging_config - INFO - Decrypting payload
+2026-01-05 14:13:03,966 - src.logging_config - INFO - Payload decrypted successfully
+2026-01-05 14:13:25,705 - src.logging_config - INFO - Logging system initialized
+2026-01-05 14:13:58,652 - src.logging_config - INFO - Logging system initialized
+2026-01-05 14:13:58,656 - src.logging_config - INFO - Encrypting payload
+2026-01-05 14:13:58,656 - src.logging_config - INFO - Payload encrypted successfully
+2026-01-05 14:14:08,929 - src.logging_config - INFO - Logging system initialized
+2026-01-05 14:16:11,285 - src.logging_config - INFO - Logging system initialized
+2026-01-05 14:16:11,286 - src.logging_config - INFO - Generating new AES-256 key
+2026-01-05 14:16:11,288 - src.logging_config - INFO - AES-256 key generated and saved
+2026-01-05 14:24:54,733 - src.logging_config - INFO - Logging system initialized
+2026-01-05 14:24:54,744 - src.logging_config - WARNING - No existing keys found, provisioning new root key
+2026-01-05 14:24:54,744 - src.logging_config - INFO - Provisioning new root key (KR)
+2026-01-05 14:24:54,746 - src.logging_config - INFO - Root key provisioned successfully
+2026-01-05 14:24:54,747 - src.logging_config - INFO - Deriving new session key for session: 6a3cbbecc0955699abd1551c85aaa9cc
+2026-01-05 14:24:54,748 - src.logging_config - INFO - Session key derived and activated
+2026-01-05 14:25:26,902 - src.logging_config - INFO - Logging system initialized
+2026-01-05 14:25:26,931 - src.logging_config - ERROR - Error loading/initializing keys: Expecting value: line 3 column 17 (char 30)
+2026-01-05 14:25:26,931 - src.logging_config - WARNING - Provisioning fresh keys due to error
+2026-01-05 14:25:26,931 - src.logging_config - INFO - Provisioning new root key (KR)
+2026-01-05 14:25:26,933 - src.logging_config - INFO - Root key provisioned successfully
+2026-01-05 14:25:26,933 - src.logging_config - INFO - Deriving new session key for session: a74bb7d8e0f219c32d0d6889c3f23a9c
+2026-01-05 14:25:26,934 - src.logging_config - INFO - Session key derived and activated
+2026-01-05 14:25:26,954 - src.logging_config - INFO - Keys loaded successfully
+2026-01-05 14:31:48,390 - src.logging_config - INFO - Logging system initialized
+2026-01-05 14:31:48,394 - src.logging_config - INFO - Keys loaded successfully
+2026-01-05 14:31:48,395 - src.logging_config - INFO - Keys loaded successfully
+2026-01-05 14:47:32,296 - src.logging_config - INFO - Logging system initialized
+2026-01-05 14:47:32,302 - src.logging_config - WARNING - Root key exists but metadata missing, recreating root metadata
+2026-01-05 14:47:32,303 - src.logging_config - INFO - Keys loaded successfully
+2026-01-05 14:47:32,311 - src.logging_config - INFO - Keys loaded successfully
+2026-01-05 14:48:54,937 - src.logging_config - INFO - Logging system initialized
+2026-01-05 14:48:54,943 - src.logging_config - INFO - Keys loaded successfully
+2026-01-05 14:48:54,947 - src.logging_config - INFO - Initiating session key rotation: demo_rotation
+2026-01-05 14:48:54,947 - src.logging_config - INFO - Deriving new session key for session: 6ea2087cdbcbeb84651f8da9873c9408
+2026-01-05 14:48:54,948 - src.logging_config - INFO - Session key derived and activated
+2026-01-05 14:48:54,949 - src.logging_config - INFO - Session key rotation completed successfully
