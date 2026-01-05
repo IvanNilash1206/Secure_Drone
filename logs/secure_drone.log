@@ -1,0 +1,9 @@
+2026-01-05 13:06:06,524 - src.logging_config - INFO - Logging system initialized
+2026-01-05 13:06:06,524 - src.logging_config - INFO - Test log message
+2026-01-05 13:06:25,522 - src.logging_config - INFO - Logging system initialized
+2026-01-05 13:06:25,797 - src.logging_config - INFO - Testing non-command message filtering
+2026-01-05 13:06:25,798 - src.logging_config - INFO - Non-command message correctly ignored
+2026-01-05 13:06:35,242 - src.logging_config - INFO - Logging system initialized
+2026-01-05 13:06:35,242 - src.logging_config - INFO - Starting Secure Drone application
+2026-01-05 13:08:38,466 - src.logging_config - INFO - Logging system initialized
+2026-01-05 13:08:38,466 - src.logging_config - INFO - Project import test successful

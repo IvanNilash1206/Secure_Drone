@@ -1,31 +1,39 @@
 #!/usr/bin/env python3
 
 import asyncio
+from src.logging_config import logger
 from mavsdk import System
 
 async def run():
+    logger.info("Starting arm and takeoff sequence")
     drone = System()
     # Use udpin:// instead of deprecated udp://
     await drone.connect(system_address="udpin://0.0.0.0:14550")
 
+    logger.info("Waiting for connection...")
     print("Waiting for connection...")
     async for state in drone.core.connection_state():
         if state.is_connected:
+            logger.info("Connected")
             print("✅ Connected")
             break
 
+    logger.info("Waiting for drone to be ready...")
     print("Waiting for drone to be ready...")
     async for health in drone.telemetry.health():
         if health.is_global_position_ok and health.is_home_position_ok:
+            logger.info("Drone ready")
             print("✅ Ready")
             break
 
     # Ensure drone is in a good state before arming
+    logger.info("Arming drone")
     print("Arming...")
     try:
         await drone.action.arm()
         await asyncio.sleep(1)  # Brief delay after arming
     except Exception as e:
+        logger.error(f"Arming failed: {e}")
         print(f"❌ Arming failed: {e}")
         return
 

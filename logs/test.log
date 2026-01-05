@@ -1,0 +1,115 @@
+13:07:59 - src.logging_config - INFO - Logging system initialized
+13:07:59 - src.logging_config - INFO - Testing non-command message filtering
+13:07:59 - src.logging_config - DEBUG - Parsing message type: HEARTBEAT
+13:07:59 - src.logging_config - DEBUG - Ignoring non-command message: HEARTBEAT
+13:07:59 - src.logging_config - INFO - Non-command message correctly ignored
+13:07:59 - src.logging_config - INFO - Testing COMMAND_LONG classification
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: RETURN from gcs
+13:07:59 - src.logging_config - INFO - COMMAND_LONG correctly classified and parsed
+13:07:59 - src.logging_config - INFO - Testing navigation command parsing
+13:07:59 - src.logging_config - DEBUG - Parsing message type: SET_POSITION_TARGET_LOCAL_NED
+13:07:59 - src.logging_config - INFO - Parsed command: NAVIGATION from companion
+13:07:59 - src.logging_config - INFO - Navigation command correctly parsed
+13:07:59 - src.logging_config - INFO - Testing command parsing latency
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
+13:07:59 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
+13:07:59 - src.logging_config - INFO - Latency test passed: 0.0002s average

@@ -8,6 +8,7 @@ from typing import Optional, Dict, Any
 from pymavlink import mavutil
 from dataclasses import dataclass, asdict
 import json
+from src.logging_config import logger
 
 
 @dataclass
@@ -70,6 +71,7 @@ class CommandIntake:
     
     def __init__(self, connection_string: str = 'udp:127.0.0.1:14550'):
         """Initialize MAVLink connection"""
+        logger.info(f"Initializing Command Intake Layer with connection: {connection_string}")
         self.master = mavutil.mavlink_connection(connection_string)
         print(f"✅ Command Intake Layer initialized: {connection_string}")
     
@@ -182,9 +184,11 @@ class CommandIntake:
         Returns None if not a command message
         """
         msg_type = msg.get_type()
+        logger.debug(f"Parsing message type: {msg_type}")
         
         # Skip non-command messages
         if not self.is_command(msg_type):
+            logger.debug(f"Ignoring non-command message: {msg_type}")
             return None
         
         msg_dict = msg.to_dict()
@@ -206,6 +210,7 @@ class CommandIntake:
             raw_msg=msg_dict
         )
         
+        logger.info(f"Parsed command: {cmd_obj.command_type} from {cmd_obj.source}")
         return cmd_obj
     
     def listen(self, callback=None) -> None:
@@ -213,6 +218,7 @@ class CommandIntake:
         Main listening loop
         Calls callback(CommandObject) for each command
         """
+        logger.info("Command Intake Layer active - listening for commands...")
         print("🔐 Command Intake Layer active - listening for commands...")
         
         while True:
@@ -223,6 +229,7 @@ class CommandIntake:
             
             # Skip bad data
             if msg.get_type() == "BAD_DATA":
+                logger.debug("Skipping BAD_DATA message")
                 continue
             
             # Parse command
@@ -241,9 +248,11 @@ class CommandIntake:
                 
                 # Send to next layer
                 if callback:
+                    logger.debug("Calling callback with parsed command")
                     callback(cmd_obj)
             else:
                 # Telemetry - just note it
+                logger.debug(f"Telemetry message: {msg.get_type()}")
                 print(f"📡 Telemetry: {msg.get_type()}", end='\r')
 
 
