@@ -1,0 +1,100 @@
+{
+  "total_tests": 13,
+  "successful_detections": 7,
+  "failed_detections": 3,
+  "false_positives": 0,
+  "false_negatives": 3,
+  "avg_detection_time_ms": 0.07706422072190505,
+  "detection_rate": 0.5384615384615384,
+  "results_by_attack": {
+    "DoS": {
+      "total": 4,
+      "detected": 1,
+      "false_positives": 0,
+      "false_negatives": 2,
+      "variants": [
+        {
+          "variant": "Normal Traffic (Baseline)",
+          "detected": false,
+          "confidence": 0.0
+        },
+        {
+          "variant": "Burst Attack",
+          "detected": true,
+          "confidence": 0.6
+        },
+        {
+          "variant": "Sustained Flooding",
+          "detected": false,
+          "confidence": 0.0
+        },
+        {
+          "variant": "Slow DoS",
+          "detected": false,
+          "confidence": 0.0
+        }
+      ]
+    },
+    "Replay": {
+      "total": 4,
+      "detected": 3,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "variants": [
+        {
+          "variant": "Normal Commands (Baseline)",
+          "detected": false,
+          "confidence": 0.0
+        },
+        {
+          "variant": "Nonce Reuse",
+          "detected": true,
+          "confidence": 1.0
+        },
+        {
+          "variant": "Old Timestamp",
+          "detected": true,
+          "confidence": 0.85
+        },
+        {
+          "variant": "Sequence Replay",
+          "detected": true,
+          "confidence": 0.7
+        }
+      ]
+    },
+    "Injection": {
+      "total": 5,
+      "detected": 3,
+      "false_positives": 0,
+      "false_negatives": 1,
+      "variants": [
+        {
+          "variant": "Normal Command (Baseline)",
+          "detected": false,
+          "confidence": 0.0
+        },
+        {
+          "variant": "Disarm in Flight",
+          "detected": true,
+          "confidence": 0.95
+        },
+        {
+          "variant": "Parameter Injection",
+          "detected": false,
+          "confidence": 0.0
+        },
+        {
+          "variant": "Privilege Escalation",
+          "detected": true,
+          "confidence": 0.95
+        },
+        {
+          "variant": "Mode Change During Landing",
+          "detected": true,
+          "confidence": 0.95
+        }
+      ]
+    }
+  }
+}
