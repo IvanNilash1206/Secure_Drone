@@ -1,0 +1,17 @@
+2026-01-06 03:02:49,832 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:02:49,834 - INFO - [IntegratedAttackTest] - Setting up integrated crypto + AI stack...
+2026-01-06 03:02:49,835 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:02:51,833 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:02:51,834 - INFO - [IntegratedAttackTest] - 
+================================================================================
+2026-01-06 03:02:51,835 - INFO - [IntegratedAttackTest] - TEST: Command Flooding Attack Detection
+2026-01-06 03:02:51,836 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:02:51,836 - INFO - [IntegratedAttackTest] - Phase 1: Normal traffic (2 commands in 1 second)
+2026-01-06 03:02:51,840 - INFO - [IntegratedAttackTest] -   Command 0: rate=0.00 cmds/sec, dos=False
+2026-01-06 03:02:51,844 - INFO - [IntegratedAttackTest] -   Command 1: rate=2.00 cmds/sec, dos=False
+2026-01-06 03:02:52,898 - INFO - [IntegratedAttackTest] -      Rate: 7.62 cmds/sec
+2026-01-06 03:02:52,900 - INFO - [IntegratedAttackTest] -      Burst score: 0.50
+2026-01-06 03:02:52,902 - INFO - [IntegratedAttackTest] -      Confidence: 0.60
+2026-01-06 03:02:52,903 - INFO - [IntegratedAttackTest] -      Explanation: Burst detected: 7.6 cmds/sec
+2026-01-06 03:02:52,904 - INFO - [IntegratedAttackTest] - 
+Attack detected in 0.054 seconds

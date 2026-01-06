@@ -1,0 +1,19 @@
+# GCS Configuration
+connection:
+  aegis_host: "192.168.1.100"  # AEGIS proxy IP
+  aegis_port: 14560             # AEGIS listening port
+  sitl_host: "127.0.0.1"        # SITL IP (for direct connection - not recommended)
+  sitl_port: 14550              # SITL port (for direct connection - not recommended)
+
+mission:
+  default_altitude: 10          # Default takeoff altitude (meters)
+  waypoint_radius: 5            # Waypoint acceptance radius (meters)
+  rtl_altitude: 20              # Return to launch altitude (meters)
+
+telemetry:
+  update_rate_hz: 1             # Telemetry update rate
+  timeout_seconds: 10           # Connection timeout
+
+logging:
+  log_file: "logs/gcs_client.log"
+  log_level: "INFO"             # DEBUG, INFO, WARNING, ERROR

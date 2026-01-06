@@ -1,115 +1,1321 @@
-15:38:17 - src.logging_config - INFO - Logging system initialized
-15:38:17 - src.logging_config - INFO - Testing non-command message filtering
-15:38:17 - src.logging_config - DEBUG - Parsing message type: HEARTBEAT
-15:38:17 - src.logging_config - DEBUG - Ignoring non-command message: HEARTBEAT
-15:38:17 - src.logging_config - INFO - Non-command message correctly ignored
-15:38:17 - src.logging_config - INFO - Testing COMMAND_LONG classification
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: RETURN from gcs
-15:38:17 - src.logging_config - INFO - COMMAND_LONG correctly classified and parsed
-15:38:17 - src.logging_config - INFO - Testing navigation command parsing
-15:38:17 - src.logging_config - DEBUG - Parsing message type: SET_POSITION_TARGET_LOCAL_NED
-15:38:17 - src.logging_config - INFO - Parsed command: NAVIGATION from companion
-15:38:17 - src.logging_config - INFO - Navigation command correctly parsed
-15:38:17 - src.logging_config - INFO - Testing command parsing latency
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - DEBUG - Parsing message type: COMMAND_LONG
-15:38:17 - src.logging_config - INFO - Parsed command: MODE_CHANGE from companion
-15:38:17 - src.logging_config - INFO - Latency test passed: 0.0002s average
+05:09:20 - src.logging_config - INFO - Logging system initialized
+05:09:20 - IntegratedAttackTest - INFO - ================================================================================
+05:09:20 - IntegratedAttackTest - INFO - Setting up integrated crypto + AI stack...
+05:09:20 - IntegratedAttackTest - INFO - ================================================================================
+05:09:20 - src.logging_config - DEBUG - Root key loaded
+05:09:20 - src.logging_config - DEBUG - Session key loaded
+05:09:20 - src.logging_config - INFO - Keys loaded successfully
+05:09:20 - src.logging_config - DEBUG - Root key loaded
+05:09:20 - src.logging_config - DEBUG - Session key loaded
+05:09:20 - src.logging_config - INFO - Keys loaded successfully
+05:09:20 - src.logging_config - DEBUG - Root key loaded
+05:09:20 - src.logging_config - DEBUG - Session key loaded
+05:09:20 - src.logging_config - INFO - Keys loaded successfully
+05:09:20 - src.logging_config - WARNING - No existing keys found, provisioning new root key
+05:09:20 - src.logging_config - INFO - Provisioning new root key (KR)
+05:09:20 - src.logging_config - INFO - Root key provisioned successfully
+05:09:20 - src.logging_config - INFO - Deriving new session key for session: 2ea18b786527d3cd2ad7849fceaf900a
+05:09:20 - src.logging_config - INFO - Session key derived and activated
+05:09:20 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:20 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:20 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:20 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:20 - src.logging_config - INFO - CryptoGate initialized
+05:09:20 - src.logging_config - INFO - CryptoGate initialized
+05:09:20 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:20 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:27 - IntegratedAttackTest - INFO - ✅ Crypto layer initialized: Encryptor, Decryptor, CryptoGate, KeyManager
+05:09:27 - IntegratedAttackTest - INFO - ✅ AI layer initialized: DoS, Replay, Injection detectors, Feature extractor, Intent labeler
+05:09:27 - IntegratedAttackTest - INFO - ================================================================================
+05:09:27 - IntegratedAttackTest - INFO - 
+================================================================================
+05:09:27 - IntegratedAttackTest - INFO - TEST: Crypto-level Replay Attack Detection
+05:09:27 - IntegratedAttackTest - INFO - ================================================================================
+05:09:27 - IntegratedAttackTest - INFO - Creating payload: b'ARM'
+05:09:27 - src.logging_config - INFO - Encrypting payload with session key
+05:09:27 - src.logging_config - DEBUG - Generated nonce for counter: 1
+05:09:27 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:27 - src.logging_config - DEBUG - Generated nonce with counter: 1
+05:09:27 - src.logging_config - INFO - Payload encrypted successfully
+05:09:27 - IntegratedAttackTest - INFO - ✅ Encrypted with nonce: 0000000000000000...
+05:09:27 - src.logging_config - INFO - Decrypting payload with session key
+05:09:27 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:27 - src.logging_config - DEBUG - Extracted counter: 1, last seen: 0
+05:09:27 - src.logging_config - INFO - Payload decrypted successfully
+05:09:27 - IntegratedAttackTest - INFO - ✅ First transmission successful: b'ARM'
+05:09:27 - IntegratedAttackTest - INFO - 
+🚨 Attempting replay attack with same nonce...
+05:09:27 - src.logging_config - INFO - Decrypting payload with session key
+05:09:27 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:27 - src.logging_config - DEBUG - Extracted counter: 1, last seen: 1
+05:09:27 - src.logging_config - WARNING - Replay attack detected - escalating risk
+05:09:27 - src.logging_config - INFO - Risk level updated to: high
+05:09:27 - src.logging_config - ERROR - Decryption failed: Replay attack detected
+05:09:27 - IntegratedAttackTest - INFO - ✅ Replay attack BLOCKED by crypto layer
+05:09:27 - IntegratedAttackTest - INFO - Risk level escalated to: high
+05:09:27 - IntegratedAttackTest - INFO - ✅ TEST PASSED: Crypto replay detection
+
+05:09:27 - IntegratedAttackTest - INFO - ✅ Test completed - cleaning up integrated stack
+05:09:27 - IntegratedAttackTest - INFO - ================================================================================
+05:09:27 - IntegratedAttackTest - INFO - Setting up integrated crypto + AI stack...
+05:09:27 - IntegratedAttackTest - INFO - ================================================================================
+05:09:27 - src.logging_config - DEBUG - Root key loaded
+05:09:27 - src.logging_config - DEBUG - Session key loaded
+05:09:27 - src.logging_config - INFO - Keys loaded successfully
+05:09:27 - src.logging_config - DEBUG - Root key loaded
+05:09:27 - src.logging_config - DEBUG - Session key loaded
+05:09:27 - src.logging_config - INFO - Keys loaded successfully
+05:09:27 - src.logging_config - WARNING - No existing keys found, provisioning new root key
+05:09:27 - src.logging_config - INFO - Provisioning new root key (KR)
+05:09:27 - src.logging_config - INFO - Root key provisioned successfully
+05:09:27 - src.logging_config - INFO - Deriving new session key for session: 78173f35ebeb96bd54e0bceaf051d062
+05:09:27 - src.logging_config - INFO - Session key derived and activated
+05:09:27 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:27 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:27 - src.logging_config - INFO - CryptoGate initialized
+05:09:27 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:27 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:27 - IntegratedAttackTest - INFO - ✅ Crypto layer initialized: Encryptor, Decryptor, CryptoGate, KeyManager
+05:09:27 - IntegratedAttackTest - INFO - ✅ AI layer initialized: DoS, Replay, Injection detectors, Feature extractor, Intent labeler
+05:09:27 - IntegratedAttackTest - INFO - ================================================================================
+05:09:27 - IntegratedAttackTest - INFO - 
+================================================================================
+05:09:27 - IntegratedAttackTest - INFO - TEST: AI-level Replay Attack Detection
+05:09:27 - IntegratedAttackTest - INFO - ================================================================================
+05:09:27 - IntegratedAttackTest - INFO - Command: nonce=746573745f6e6f6e..., timestamp=1767656367.2722301
+05:09:27 - IntegratedAttackTest - INFO - First attempt: replay=False, method=none
+05:09:27 - IntegratedAttackTest - INFO - ✅ First command accepted
+05:09:27 - IntegratedAttackTest - INFO - 
+🚨 Attempting replay with same nonce...
+05:09:27 - IntegratedAttackTest - INFO - Replay attempt: replay=True, confidence=1.00
+05:09:27 - IntegratedAttackTest - INFO - Detection method: nonce_duplicate
+05:09:27 - IntegratedAttackTest - INFO - Explanation: Cryptographic nonce reused (definitive replay)
+05:09:27 - IntegratedAttackTest - INFO - ✅ TEST PASSED: AI replay detection
+
+05:09:27 - IntegratedAttackTest - INFO - ✅ Test completed - cleaning up integrated stack
+05:09:27 - IntegratedAttackTest - INFO - ================================================================================
+05:09:27 - IntegratedAttackTest - INFO - Setting up integrated crypto + AI stack...
+05:09:27 - IntegratedAttackTest - INFO - ================================================================================
+05:09:27 - src.logging_config - DEBUG - Root key loaded
+05:09:27 - src.logging_config - DEBUG - Session key loaded
+05:09:27 - src.logging_config - INFO - Keys loaded successfully
+05:09:27 - src.logging_config - DEBUG - Root key loaded
+05:09:27 - src.logging_config - DEBUG - Session key loaded
+05:09:27 - src.logging_config - INFO - Keys loaded successfully
+05:09:27 - src.logging_config - WARNING - No existing keys found, provisioning new root key
+05:09:27 - src.logging_config - INFO - Provisioning new root key (KR)
+05:09:27 - src.logging_config - INFO - Root key provisioned successfully
+05:09:27 - src.logging_config - INFO - Deriving new session key for session: 4b5b48788d60b46df3cd0b92ed483f0b
+05:09:27 - src.logging_config - INFO - Session key derived and activated
+05:09:27 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:27 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:27 - src.logging_config - INFO - CryptoGate initialized
+05:09:27 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:27 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:27 - IntegratedAttackTest - INFO - ✅ Crypto layer initialized: Encryptor, Decryptor, CryptoGate, KeyManager
+05:09:27 - IntegratedAttackTest - INFO - ✅ AI layer initialized: DoS, Replay, Injection detectors, Feature extractor, Intent labeler
+05:09:27 - IntegratedAttackTest - INFO - ================================================================================
+05:09:27 - IntegratedAttackTest - INFO - 
+================================================================================
+05:09:27 - IntegratedAttackTest - INFO - TEST: Dual-Layer Replay Protection (Crypto + AI)
+05:09:27 - IntegratedAttackTest - INFO - ================================================================================
+05:09:27 - IntegratedAttackTest - INFO - Creating secure command: b'TAKEOFF'
+05:09:27 - src.logging_config - INFO - Encrypting payload with session key
+05:09:27 - src.logging_config - DEBUG - Generated nonce for counter: 1
+05:09:27 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:27 - src.logging_config - DEBUG - Generated nonce with counter: 1
+05:09:27 - src.logging_config - INFO - Payload encrypted successfully
+05:09:27 - IntegratedAttackTest - INFO - Encrypted command with nonce: 0000000000000000...
+05:09:27 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:27 - src.logging_config - INFO - Decrypting payload with session key
+05:09:27 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:27 - src.logging_config - DEBUG - Extracted counter: 1, last seen: 0
+05:09:27 - src.logging_config - INFO - Payload decrypted successfully
+05:09:27 - src.logging_config - INFO - Crypto validation passed
+05:09:27 - IntegratedAttackTest - INFO - ✅ First transmission: crypto_check=True, payload=b'TAKEOFF'
+05:09:27 - IntegratedAttackTest - INFO - ✅ First transmission: AI replay=False
+05:09:27 - IntegratedAttackTest - INFO - 
+🚨 ATTACK: Attempting replay with same nonce...
+05:09:27 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:27 - src.logging_config - INFO - Decrypting payload with session key
+05:09:27 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:27 - src.logging_config - DEBUG - Extracted counter: 1, last seen: 1
+05:09:27 - src.logging_config - WARNING - Replay attack detected - escalating risk
+05:09:27 - src.logging_config - INFO - Risk level updated to: high
+05:09:27 - src.logging_config - ERROR - Decryption failed: Replay attack detected
+05:09:27 - src.logging_config - WARNING - Replay attack detected
+05:09:27 - src.logging_config - INFO - Risk level updated to: high
+05:09:27 - IntegratedAttackTest - INFO - 🛡️ Crypto layer: blocked=True
+05:09:27 - IntegratedAttackTest - INFO - 🛡️ AI layer: replay_detected=True, confidence=1.00
+05:09:27 - IntegratedAttackTest - INFO - ✅ TEST PASSED: Both layers detected replay attack
+
+05:09:27 - IntegratedAttackTest - INFO - ✅ Test completed - cleaning up integrated stack
+05:09:27 - IntegratedAttackTest - INFO - ================================================================================
+05:09:27 - IntegratedAttackTest - INFO - Setting up integrated crypto + AI stack...
+05:09:27 - IntegratedAttackTest - INFO - ================================================================================
+05:09:27 - src.logging_config - DEBUG - Root key loaded
+05:09:27 - src.logging_config - DEBUG - Session key loaded
+05:09:27 - src.logging_config - INFO - Keys loaded successfully
+05:09:27 - src.logging_config - DEBUG - Root key loaded
+05:09:27 - src.logging_config - DEBUG - Session key loaded
+05:09:27 - src.logging_config - INFO - Keys loaded successfully
+05:09:27 - src.logging_config - WARNING - No existing keys found, provisioning new root key
+05:09:27 - src.logging_config - INFO - Provisioning new root key (KR)
+05:09:27 - src.logging_config - INFO - Root key provisioned successfully
+05:09:27 - src.logging_config - INFO - Deriving new session key for session: dc5a3ee342cdcd081f4b8ec37ec2a311
+05:09:27 - src.logging_config - INFO - Session key derived and activated
+05:09:27 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:27 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:27 - src.logging_config - INFO - CryptoGate initialized
+05:09:27 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:27 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:27 - IntegratedAttackTest - INFO - ✅ Crypto layer initialized: Encryptor, Decryptor, CryptoGate, KeyManager
+05:09:27 - IntegratedAttackTest - INFO - ✅ AI layer initialized: DoS, Replay, Injection detectors, Feature extractor, Intent labeler
+05:09:27 - IntegratedAttackTest - INFO - ================================================================================
+05:09:27 - IntegratedAttackTest - INFO - 
+================================================================================
+05:09:27 - IntegratedAttackTest - INFO - TEST: Command Flooding Attack Detection
+05:09:27 - IntegratedAttackTest - INFO - ================================================================================
+05:09:27 - IntegratedAttackTest - INFO - Phase 1: Normal traffic (2 commands in 1 second)
+05:09:27 - src.logging_config - INFO - Encrypting payload with session key
+05:09:27 - src.logging_config - DEBUG - Generated nonce for counter: 1
+05:09:27 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:27 - src.logging_config - DEBUG - Generated nonce with counter: 1
+05:09:27 - src.logging_config - INFO - Payload encrypted successfully
+05:09:27 - IntegratedAttackTest - INFO -   Command 0: rate=0.00 cmds/sec, dos=False
+05:09:27 - src.logging_config - INFO - Encrypting payload with session key
+05:09:27 - src.logging_config - DEBUG - Generated nonce for counter: 2
+05:09:27 - src.logging_config - DEBUG - Extracted counter: 2
+05:09:27 - src.logging_config - DEBUG - Generated nonce with counter: 2
+05:09:27 - src.logging_config - INFO - Payload encrypted successfully
+05:09:27 - IntegratedAttackTest - INFO -   Command 1: rate=2.00 cmds/sec, dos=False
+05:09:28 - IntegratedAttackTest - INFO - 
+🚨 Phase 2: DoS ATTACK (15 commands in 0.5 seconds)
+05:09:28 - src.logging_config - INFO - Encrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Generated nonce for counter: 3
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 3
+05:09:28 - src.logging_config - DEBUG - Generated nonce with counter: 3
+05:09:28 - src.logging_config - INFO - Payload encrypted successfully
+05:09:28 - src.logging_config - INFO - Encrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Generated nonce for counter: 4
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 4
+05:09:28 - src.logging_config - DEBUG - Generated nonce with counter: 4
+05:09:28 - src.logging_config - INFO - Payload encrypted successfully
+05:09:28 - src.logging_config - INFO - Encrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Generated nonce for counter: 5
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 5
+05:09:28 - src.logging_config - DEBUG - Generated nonce with counter: 5
+05:09:28 - src.logging_config - INFO - Payload encrypted successfully
+05:09:28 - src.logging_config - INFO - Encrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Generated nonce for counter: 6
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 6
+05:09:28 - src.logging_config - DEBUG - Generated nonce with counter: 6
+05:09:28 - src.logging_config - INFO - Payload encrypted successfully
+05:09:28 - src.logging_config - INFO - Encrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Generated nonce for counter: 7
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 7
+05:09:28 - src.logging_config - DEBUG - Generated nonce with counter: 7
+05:09:28 - src.logging_config - INFO - Payload encrypted successfully
+05:09:28 - src.logging_config - INFO - Encrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Generated nonce for counter: 8
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 8
+05:09:28 - src.logging_config - DEBUG - Generated nonce with counter: 8
+05:09:28 - src.logging_config - INFO - Payload encrypted successfully
+05:09:28 - IntegratedAttackTest - INFO -   🚨 DoS DETECTED at command 5:
+05:09:28 - IntegratedAttackTest - INFO -      Rate: 7.64 cmds/sec
+05:09:28 - IntegratedAttackTest - INFO -      Burst score: 0.50
+05:09:28 - IntegratedAttackTest - INFO -      Confidence: 0.60
+05:09:28 - IntegratedAttackTest - INFO -      Explanation: Burst detected: 7.6 cmds/sec
+05:09:28 - IntegratedAttackTest - INFO - 
+Attack detected in 0.027 seconds
+05:09:28 - IntegratedAttackTest - INFO - ✅ TEST PASSED: DoS attack detected
+
+05:09:28 - IntegratedAttackTest - INFO - ✅ Test completed - cleaning up integrated stack
+05:09:28 - IntegratedAttackTest - INFO - ================================================================================
+05:09:28 - IntegratedAttackTest - INFO - Setting up integrated crypto + AI stack...
+05:09:28 - IntegratedAttackTest - INFO - ================================================================================
+05:09:28 - src.logging_config - DEBUG - Root key loaded
+05:09:28 - src.logging_config - DEBUG - Session key loaded
+05:09:28 - src.logging_config - INFO - Keys loaded successfully
+05:09:28 - src.logging_config - DEBUG - Root key loaded
+05:09:28 - src.logging_config - DEBUG - Session key loaded
+05:09:28 - src.logging_config - INFO - Keys loaded successfully
+05:09:28 - src.logging_config - WARNING - No existing keys found, provisioning new root key
+05:09:28 - src.logging_config - INFO - Provisioning new root key (KR)
+05:09:28 - src.logging_config - INFO - Root key provisioned successfully
+05:09:28 - src.logging_config - INFO - Deriving new session key for session: b8c733ac4cbabdcb3ef550320e8dc8fa
+05:09:28 - src.logging_config - INFO - Session key derived and activated
+05:09:28 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:28 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:28 - src.logging_config - INFO - CryptoGate initialized
+05:09:28 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:28 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:28 - IntegratedAttackTest - INFO - ✅ Crypto layer initialized: Encryptor, Decryptor, CryptoGate, KeyManager
+05:09:28 - IntegratedAttackTest - INFO - ✅ AI layer initialized: DoS, Replay, Injection detectors, Feature extractor, Intent labeler
+05:09:28 - IntegratedAttackTest - INFO - ================================================================================
+05:09:28 - IntegratedAttackTest - INFO - 
+================================================================================
+05:09:28 - IntegratedAttackTest - INFO - TEST: Encrypted DoS Attack Detection
+05:09:28 - IntegratedAttackTest - INFO - ================================================================================
+05:09:28 - IntegratedAttackTest - INFO - 🚨 ATTACK: Sending encrypted command flood...
+05:09:28 - src.logging_config - INFO - Encrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Generated nonce for counter: 1
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:28 - src.logging_config - DEBUG - Generated nonce with counter: 1
+05:09:28 - src.logging_config - INFO - Payload encrypted successfully
+05:09:28 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:28 - src.logging_config - INFO - Decrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 1, last seen: 0
+05:09:28 - src.logging_config - INFO - Payload decrypted successfully
+05:09:28 - src.logging_config - INFO - Crypto validation passed
+05:09:28 - src.logging_config - INFO - Encrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Generated nonce for counter: 2
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 2
+05:09:28 - src.logging_config - DEBUG - Generated nonce with counter: 2
+05:09:28 - src.logging_config - INFO - Payload encrypted successfully
+05:09:28 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:28 - src.logging_config - INFO - Decrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 2
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 2, last seen: 1
+05:09:28 - src.logging_config - INFO - Payload decrypted successfully
+05:09:28 - src.logging_config - INFO - Crypto validation passed
+05:09:28 - src.logging_config - INFO - Encrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Generated nonce for counter: 3
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 3
+05:09:28 - src.logging_config - DEBUG - Generated nonce with counter: 3
+05:09:28 - src.logging_config - INFO - Payload encrypted successfully
+05:09:28 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:28 - src.logging_config - INFO - Decrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 3
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 3, last seen: 2
+05:09:28 - src.logging_config - INFO - Payload decrypted successfully
+05:09:28 - src.logging_config - INFO - Crypto validation passed
+05:09:28 - src.logging_config - INFO - Encrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Generated nonce for counter: 4
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 4
+05:09:28 - src.logging_config - DEBUG - Generated nonce with counter: 4
+05:09:28 - src.logging_config - INFO - Payload encrypted successfully
+05:09:28 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:28 - src.logging_config - INFO - Decrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 4
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 4, last seen: 3
+05:09:28 - src.logging_config - INFO - Payload decrypted successfully
+05:09:28 - src.logging_config - INFO - Crypto validation passed
+05:09:28 - src.logging_config - INFO - Encrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Generated nonce for counter: 5
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 5
+05:09:28 - src.logging_config - DEBUG - Generated nonce with counter: 5
+05:09:28 - src.logging_config - INFO - Payload encrypted successfully
+05:09:28 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:28 - src.logging_config - INFO - Decrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 5
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 5, last seen: 4
+05:09:28 - src.logging_config - INFO - Payload decrypted successfully
+05:09:28 - src.logging_config - INFO - Crypto validation passed
+05:09:28 - src.logging_config - INFO - Encrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Generated nonce for counter: 6
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 6
+05:09:28 - src.logging_config - DEBUG - Generated nonce with counter: 6
+05:09:28 - src.logging_config - INFO - Payload encrypted successfully
+05:09:28 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:28 - src.logging_config - INFO - Decrypting payload with session key
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 6
+05:09:28 - src.logging_config - DEBUG - Extracted counter: 6, last seen: 5
+05:09:28 - src.logging_config - INFO - Payload decrypted successfully
+05:09:28 - src.logging_config - INFO - Crypto validation passed
+05:09:28 - IntegratedAttackTest - INFO - 🛡️ AI layer detected DoS at command 5:
+05:09:28 - IntegratedAttackTest - INFO -    Valid encryptions: 6/6
+05:09:28 - IntegratedAttackTest - INFO -    Rate: 15.59 cmds/sec
+05:09:28 - IntegratedAttackTest - INFO -    Confidence: 0.60
+05:09:28 - IntegratedAttackTest - INFO - 
+Result: 6 commands had valid crypto
+05:09:29 - IntegratedAttackTest - INFO - But AI layer detected flooding pattern: True
+05:09:29 - IntegratedAttackTest - INFO - ✅ TEST PASSED: AI layer caught encrypted DoS
+
+05:09:29 - IntegratedAttackTest - INFO - ✅ Test completed - cleaning up integrated stack
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - IntegratedAttackTest - INFO - Setting up integrated crypto + AI stack...
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - src.logging_config - DEBUG - Root key loaded
+05:09:29 - src.logging_config - DEBUG - Session key loaded
+05:09:29 - src.logging_config - INFO - Keys loaded successfully
+05:09:29 - src.logging_config - DEBUG - Root key loaded
+05:09:29 - src.logging_config - DEBUG - Session key loaded
+05:09:29 - src.logging_config - INFO - Keys loaded successfully
+05:09:29 - src.logging_config - WARNING - No existing keys found, provisioning new root key
+05:09:29 - src.logging_config - INFO - Provisioning new root key (KR)
+05:09:29 - src.logging_config - INFO - Root key provisioned successfully
+05:09:29 - src.logging_config - INFO - Deriving new session key for session: 93cc1f21f8e4934c3a38f3e91c0ad982
+05:09:29 - src.logging_config - INFO - Session key derived and activated
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - INFO - CryptoGate initialized
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - IntegratedAttackTest - INFO - ✅ Crypto layer initialized: Encryptor, Decryptor, CryptoGate, KeyManager
+05:09:29 - IntegratedAttackTest - INFO - ✅ AI layer initialized: DoS, Replay, Injection detectors, Feature extractor, Intent labeler
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - IntegratedAttackTest - INFO - 
+================================================================================
+05:09:29 - IntegratedAttackTest - INFO - TEST: Dangerous Command Injection Detection
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - IntegratedAttackTest - INFO - Flight state: IN_FLIGHT, altitude=50m, armed=True
+05:09:29 - IntegratedAttackTest - INFO - 
+Phase 1: Normal navigation command
+05:09:29 - src.logging_config - INFO - Encrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Generated nonce for counter: 1
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:29 - src.logging_config - DEBUG - Generated nonce with counter: 1
+05:09:29 - src.logging_config - INFO - Payload encrypted successfully
+05:09:29 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:29 - src.logging_config - INFO - Decrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1, last seen: 0
+05:09:29 - src.logging_config - INFO - Payload decrypted successfully
+05:09:29 - src.logging_config - INFO - Crypto validation passed
+05:09:29 - IntegratedAttackTest - INFO -   Crypto check: True
+05:09:29 - IntegratedAttackTest - INFO -   AI injection check: False
+05:09:29 - IntegratedAttackTest - INFO -   Risk score: 0.000
+05:09:29 - IntegratedAttackTest - INFO -   ✅ Normal command accepted
+05:09:29 - IntegratedAttackTest - INFO - 
+🚨 Phase 2: ATTACK - Disarm command during flight
+05:09:29 - src.logging_config - INFO - Encrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Generated nonce for counter: 2
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 2
+05:09:29 - src.logging_config - DEBUG - Generated nonce with counter: 2
+05:09:29 - src.logging_config - INFO - Payload encrypted successfully
+05:09:29 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:29 - src.logging_config - INFO - Decrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 2
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 2, last seen: 1
+05:09:29 - src.logging_config - INFO - Payload decrypted successfully
+05:09:29 - src.logging_config - INFO - Crypto validation passed
+05:09:29 - IntegratedAttackTest - INFO -   Crypto check: True (encryption valid)
+05:09:29 - IntegratedAttackTest - INFO -   🛡️ AI injection check: True
+05:09:29 - IntegratedAttackTest - INFO -   Confidence: 0.65
+05:09:29 - IntegratedAttackTest - INFO -   Detection method: unauthorized
+05:09:29 - IntegratedAttackTest - INFO -   Unauthorized: True
+05:09:29 - IntegratedAttackTest - INFO -   Context violation: False
+05:09:29 - IntegratedAttackTest - INFO -   Risk score: 0.300
+05:09:29 - IntegratedAttackTest - INFO -   Explanation: Command not authorized in IN_FLIGHT state
+05:09:29 - IntegratedAttackTest - INFO -   ✅ Dangerous command BLOCKED by AI layer
+05:09:29 - IntegratedAttackTest - INFO - ✅ TEST PASSED: Injection attack detected
+
+05:09:29 - IntegratedAttackTest - INFO - ✅ Test completed - cleaning up integrated stack
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - IntegratedAttackTest - INFO - Setting up integrated crypto + AI stack...
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - src.logging_config - DEBUG - Root key loaded
+05:09:29 - src.logging_config - DEBUG - Session key loaded
+05:09:29 - src.logging_config - INFO - Keys loaded successfully
+05:09:29 - src.logging_config - DEBUG - Root key loaded
+05:09:29 - src.logging_config - DEBUG - Session key loaded
+05:09:29 - src.logging_config - INFO - Keys loaded successfully
+05:09:29 - src.logging_config - WARNING - No existing keys found, provisioning new root key
+05:09:29 - src.logging_config - INFO - Provisioning new root key (KR)
+05:09:29 - src.logging_config - INFO - Root key provisioned successfully
+05:09:29 - src.logging_config - INFO - Deriving new session key for session: 18d375dd314117a0aeeac07c2bf2ce69
+05:09:29 - src.logging_config - INFO - Session key derived and activated
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - INFO - CryptoGate initialized
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - IntegratedAttackTest - INFO - ✅ Crypto layer initialized: Encryptor, Decryptor, CryptoGate, KeyManager
+05:09:29 - IntegratedAttackTest - INFO - ✅ AI layer initialized: DoS, Replay, Injection detectors, Feature extractor, Intent labeler
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - IntegratedAttackTest - INFO - 
+================================================================================
+05:09:29 - IntegratedAttackTest - INFO - TEST: Parameter Injection Attack
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - IntegratedAttackTest - INFO - 🚨 ATTACK: Navigation command with extreme altitude
+05:09:29 - src.logging_config - INFO - Encrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Generated nonce for counter: 1
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:29 - src.logging_config - DEBUG - Generated nonce with counter: 1
+05:09:29 - src.logging_config - INFO - Payload encrypted successfully
+05:09:29 - IntegratedAttackTest - INFO -   Injected altitude: 1000m (max allowed: 400m)
+05:09:29 - IntegratedAttackTest - INFO -   🛡️ AI detection:
+05:09:29 - IntegratedAttackTest - INFO -      Is injection: False
+05:09:29 - IntegratedAttackTest - INFO -      Parameter anomaly: True
+05:09:29 - IntegratedAttackTest - INFO -      Confidence: 0.00
+05:09:29 - IntegratedAttackTest - INFO -      Risk score: 0.200
+05:09:29 - IntegratedAttackTest - INFO -      Explanation: No injection detected
+05:09:29 - IntegratedAttackTest - INFO - ✅ TEST PASSED: Parameter injection detected
+
+05:09:29 - IntegratedAttackTest - INFO - ✅ Test completed - cleaning up integrated stack
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - IntegratedAttackTest - INFO - Setting up integrated crypto + AI stack...
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - src.logging_config - DEBUG - Root key loaded
+05:09:29 - src.logging_config - DEBUG - Session key loaded
+05:09:29 - src.logging_config - INFO - Keys loaded successfully
+05:09:29 - src.logging_config - DEBUG - Root key loaded
+05:09:29 - src.logging_config - DEBUG - Session key loaded
+05:09:29 - src.logging_config - INFO - Keys loaded successfully
+05:09:29 - src.logging_config - WARNING - No existing keys found, provisioning new root key
+05:09:29 - src.logging_config - INFO - Provisioning new root key (KR)
+05:09:29 - src.logging_config - INFO - Root key provisioned successfully
+05:09:29 - src.logging_config - INFO - Deriving new session key for session: 0d0adf4e3d170eaa54c69efee6bd208c
+05:09:29 - src.logging_config - INFO - Session key derived and activated
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - INFO - CryptoGate initialized
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - IntegratedAttackTest - INFO - ✅ Crypto layer initialized: Encryptor, Decryptor, CryptoGate, KeyManager
+05:09:29 - IntegratedAttackTest - INFO - ✅ AI layer initialized: DoS, Replay, Injection detectors, Feature extractor, Intent labeler
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - IntegratedAttackTest - INFO - 
+================================================================================
+05:09:29 - IntegratedAttackTest - INFO - TEST: Ciphertext Tampering Attack
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - IntegratedAttackTest - INFO - Original payload: b'LAND'
+05:09:29 - src.logging_config - INFO - Encrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Generated nonce for counter: 1
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:29 - src.logging_config - DEBUG - Generated nonce with counter: 1
+05:09:29 - src.logging_config - INFO - Payload encrypted successfully
+05:09:29 - IntegratedAttackTest - INFO - Encrypted: 08d79a389c18f76e0b0afec47dc1039b...
+05:09:29 - IntegratedAttackTest - INFO - 
+🚨 ATTACK: Flipping bits in ciphertext...
+05:09:29 - IntegratedAttackTest - INFO - Tampered:  f7d79a389c5af76e0b0afec47dc1039b...
+05:09:29 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:29 - src.logging_config - INFO - Decrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1, last seen: 0
+05:09:29 - src.logging_config - ERROR - Decryption failed: 
+05:09:29 - src.logging_config - ERROR - Unexpected crypto error: 
+05:09:29 - src.logging_config - INFO - Risk level updated to: high
+05:09:29 - IntegratedAttackTest - INFO - 
+🛡️ Crypto layer result: success=False
+05:09:29 - IntegratedAttackTest - INFO - Risk level: high
+05:09:29 - IntegratedAttackTest - INFO - ✅ TEST PASSED: Tampering detected by crypto layer
+
+05:09:29 - IntegratedAttackTest - INFO - ✅ Test completed - cleaning up integrated stack
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - IntegratedAttackTest - INFO - Setting up integrated crypto + AI stack...
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - src.logging_config - DEBUG - Root key loaded
+05:09:29 - src.logging_config - DEBUG - Session key loaded
+05:09:29 - src.logging_config - INFO - Keys loaded successfully
+05:09:29 - src.logging_config - DEBUG - Root key loaded
+05:09:29 - src.logging_config - DEBUG - Session key loaded
+05:09:29 - src.logging_config - INFO - Keys loaded successfully
+05:09:29 - src.logging_config - WARNING - No existing keys found, provisioning new root key
+05:09:29 - src.logging_config - INFO - Provisioning new root key (KR)
+05:09:29 - src.logging_config - INFO - Root key provisioned successfully
+05:09:29 - src.logging_config - INFO - Deriving new session key for session: 0a4a10501ad59eab8376566d4e8c554c
+05:09:29 - src.logging_config - INFO - Session key derived and activated
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - INFO - CryptoGate initialized
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - IntegratedAttackTest - INFO - ✅ Crypto layer initialized: Encryptor, Decryptor, CryptoGate, KeyManager
+05:09:29 - IntegratedAttackTest - INFO - ✅ AI layer initialized: DoS, Replay, Injection detectors, Feature extractor, Intent labeler
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - IntegratedAttackTest - INFO - 
+================================================================================
+05:09:29 - IntegratedAttackTest - INFO - TEST: Nonce Tampering Attack
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - src.logging_config - INFO - Encrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Generated nonce for counter: 1
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:29 - src.logging_config - DEBUG - Generated nonce with counter: 1
+05:09:29 - src.logging_config - INFO - Payload encrypted successfully
+05:09:29 - IntegratedAttackTest - INFO - Original nonce: 000000000000000000000001
+05:09:29 - IntegratedAttackTest - INFO - 
+🚨 ATTACK: Modifying nonce...
+05:09:29 - IntegratedAttackTest - INFO - Tampered nonce: ff0000000000000000000001
+05:09:29 - IntegratedAttackTest - INFO - 
+Attempting decryption with tampered nonce...
+05:09:29 - src.logging_config - INFO - Decrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1, last seen: 0
+05:09:29 - src.logging_config - ERROR - Decryption failed: 
+05:09:29 - IntegratedAttackTest - INFO - ✅ TEST PASSED: Nonce tampering detected
+
+05:09:29 - IntegratedAttackTest - INFO - ✅ Test completed - cleaning up integrated stack
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - IntegratedAttackTest - INFO - Setting up integrated crypto + AI stack...
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - src.logging_config - DEBUG - Root key loaded
+05:09:29 - src.logging_config - DEBUG - Session key loaded
+05:09:29 - src.logging_config - INFO - Keys loaded successfully
+05:09:29 - src.logging_config - DEBUG - Root key loaded
+05:09:29 - src.logging_config - DEBUG - Session key loaded
+05:09:29 - src.logging_config - INFO - Keys loaded successfully
+05:09:29 - src.logging_config - WARNING - No existing keys found, provisioning new root key
+05:09:29 - src.logging_config - INFO - Provisioning new root key (KR)
+05:09:29 - src.logging_config - INFO - Root key provisioned successfully
+05:09:29 - src.logging_config - INFO - Deriving new session key for session: 57922a64deb8d99e45e9f6079776ce44
+05:09:29 - src.logging_config - INFO - Session key derived and activated
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - INFO - CryptoGate initialized
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - IntegratedAttackTest - INFO - ✅ Crypto layer initialized: Encryptor, Decryptor, CryptoGate, KeyManager
+05:09:29 - IntegratedAttackTest - INFO - ✅ AI layer initialized: DoS, Replay, Injection detectors, Feature extractor, Intent labeler
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - IntegratedAttackTest - INFO - 
+================================================================================
+05:09:29 - IntegratedAttackTest - INFO - TEST: Navigation Command Hijacking Attack
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - IntegratedAttackTest - INFO - Drone state: AUTO mode, executing mission at 100m
+05:09:29 - IntegratedAttackTest - INFO - 
+Phase 1: Legitimate waypoint command
+05:09:29 - src.logging_config - INFO - Encrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Generated nonce for counter: 1
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:29 - src.logging_config - DEBUG - Generated nonce with counter: 1
+05:09:29 - src.logging_config - INFO - Payload encrypted successfully
+05:09:29 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:29 - src.logging_config - INFO - Decrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1, last seen: 0
+05:09:29 - src.logging_config - INFO - Payload decrypted successfully
+05:09:29 - src.logging_config - INFO - Crypto validation passed
+05:09:29 - IntegratedAttackTest - INFO -   Crypto: True, AI injection: False
+05:09:29 - IntegratedAttackTest - INFO -   ✅ Legitimate command accepted
+05:09:29 - IntegratedAttackTest - INFO - 
+🚨 Phase 2: ATTACK - Navigation hijack to restricted zone
+05:09:29 - src.logging_config - INFO - Encrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Generated nonce for counter: 2
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 2
+05:09:29 - src.logging_config - DEBUG - Generated nonce with counter: 2
+05:09:29 - src.logging_config - INFO - Payload encrypted successfully
+05:09:29 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:29 - src.logging_config - INFO - Decrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 2
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 2, last seen: 1
+05:09:29 - src.logging_config - INFO - Payload decrypted successfully
+05:09:29 - src.logging_config - INFO - Crypto validation passed
+05:09:29 - IntegratedAttackTest - INFO -   Target: x=5000m, y=5000m (far from mission area)
+05:09:29 - IntegratedAttackTest - INFO -   Altitude: 200m (exceeds 150m FAA limit)
+05:09:29 - IntegratedAttackTest - INFO -   Velocity: 30 m/s (exceeds 25 m/s limit)
+05:09:29 - IntegratedAttackTest - INFO -   Crypto check: True
+05:09:29 - IntegratedAttackTest - INFO -   🛡️ AI injection check: True
+05:09:29 - IntegratedAttackTest - INFO -   Parameter anomaly: True
+05:09:29 - IntegratedAttackTest - INFO -   Risk score: 0.200
+05:09:29 - IntegratedAttackTest - INFO -   ✅ Navigation hijack attempt detected
+05:09:29 - IntegratedAttackTest - INFO - ✅ TEST PASSED: Navigation hijacking detected
+
+05:09:29 - IntegratedAttackTest - INFO - ✅ Test completed - cleaning up integrated stack
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - IntegratedAttackTest - INFO - Setting up integrated crypto + AI stack...
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - src.logging_config - DEBUG - Root key loaded
+05:09:29 - src.logging_config - DEBUG - Session key loaded
+05:09:29 - src.logging_config - INFO - Keys loaded successfully
+05:09:29 - src.logging_config - DEBUG - Root key loaded
+05:09:29 - src.logging_config - DEBUG - Session key loaded
+05:09:29 - src.logging_config - INFO - Keys loaded successfully
+05:09:29 - src.logging_config - WARNING - No existing keys found, provisioning new root key
+05:09:29 - src.logging_config - INFO - Provisioning new root key (KR)
+05:09:29 - src.logging_config - INFO - Root key provisioned successfully
+05:09:29 - src.logging_config - INFO - Deriving new session key for session: 6bdc841496ebe6335a72a8f2e4eddfdd
+05:09:29 - src.logging_config - INFO - Session key derived and activated
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - INFO - CryptoGate initialized
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:29 - IntegratedAttackTest - INFO - ✅ Crypto layer initialized: Encryptor, Decryptor, CryptoGate, KeyManager
+05:09:29 - IntegratedAttackTest - INFO - ✅ AI layer initialized: DoS, Replay, Injection detectors, Feature extractor, Intent labeler
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - IntegratedAttackTest - INFO - 
+================================================================================
+05:09:29 - IntegratedAttackTest - INFO - TEST: Combined Replay + DoS Attack
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - src.logging_config - INFO - Encrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Generated nonce for counter: 1
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:29 - src.logging_config - DEBUG - Generated nonce with counter: 1
+05:09:29 - src.logging_config - INFO - Payload encrypted successfully
+05:09:29 - IntegratedAttackTest - INFO - 🚨 ATTACK: Replaying same command rapidly (replay + DoS)
+05:09:29 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:29 - src.logging_config - INFO - Decrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1, last seen: 0
+05:09:29 - src.logging_config - INFO - Payload decrypted successfully
+05:09:29 - src.logging_config - INFO - Crypto validation passed
+05:09:29 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:29 - src.logging_config - INFO - Decrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1, last seen: 1
+05:09:29 - src.logging_config - WARNING - Replay attack detected - escalating risk
+05:09:29 - src.logging_config - INFO - Risk level updated to: high
+05:09:29 - src.logging_config - ERROR - Decryption failed: Replay attack detected
+05:09:29 - src.logging_config - WARNING - Replay attack detected
+05:09:29 - src.logging_config - INFO - Risk level updated to: high
+05:09:29 - IntegratedAttackTest - INFO -   🛡️ Replay detected at iteration 1
+05:09:29 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:29 - src.logging_config - INFO - Decrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1, last seen: 1
+05:09:29 - src.logging_config - WARNING - Replay attack detected - escalating risk
+05:09:29 - src.logging_config - INFO - Risk level updated to: high
+05:09:29 - src.logging_config - ERROR - Decryption failed: Replay attack detected
+05:09:29 - src.logging_config - WARNING - Replay attack detected
+05:09:29 - src.logging_config - INFO - Risk level updated to: high
+05:09:29 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:29 - src.logging_config - INFO - Decrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1, last seen: 1
+05:09:29 - src.logging_config - WARNING - Replay attack detected - escalating risk
+05:09:29 - src.logging_config - INFO - Risk level updated to: high
+05:09:29 - src.logging_config - ERROR - Decryption failed: Replay attack detected
+05:09:29 - src.logging_config - WARNING - Replay attack detected
+05:09:29 - src.logging_config - INFO - Risk level updated to: high
+05:09:29 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:29 - src.logging_config - INFO - Decrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1, last seen: 1
+05:09:29 - src.logging_config - WARNING - Replay attack detected - escalating risk
+05:09:29 - src.logging_config - INFO - Risk level updated to: high
+05:09:29 - src.logging_config - ERROR - Decryption failed: Replay attack detected
+05:09:29 - src.logging_config - WARNING - Replay attack detected
+05:09:29 - src.logging_config - INFO - Risk level updated to: high
+05:09:29 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:29 - src.logging_config - INFO - Decrypting payload with session key
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:29 - src.logging_config - DEBUG - Extracted counter: 1, last seen: 1
+05:09:29 - src.logging_config - WARNING - Replay attack detected - escalating risk
+05:09:29 - src.logging_config - INFO - Risk level updated to: high
+05:09:29 - src.logging_config - ERROR - Decryption failed: Replay attack detected
+05:09:29 - src.logging_config - WARNING - Replay attack detected
+05:09:29 - src.logging_config - INFO - Risk level updated to: high
+05:09:29 - IntegratedAttackTest - INFO -   🛡️ DoS detected at iteration 5
+05:09:29 - IntegratedAttackTest - INFO -      Rate: 23.06 cmds/sec
+05:09:29 - IntegratedAttackTest - INFO - 
+Results:
+05:09:29 - IntegratedAttackTest - INFO -   Replay detected: True
+05:09:29 - IntegratedAttackTest - INFO -   DoS detected: True
+05:09:29 - IntegratedAttackTest - INFO - ✅ TEST PASSED: Both attack vectors detected
+
+05:09:29 - IntegratedAttackTest - INFO - ✅ Test completed - cleaning up integrated stack
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - IntegratedAttackTest - INFO - Setting up integrated crypto + AI stack...
+05:09:29 - IntegratedAttackTest - INFO - ================================================================================
+05:09:29 - src.logging_config - DEBUG - Root key loaded
+05:09:29 - src.logging_config - DEBUG - Session key loaded
+05:09:29 - src.logging_config - INFO - Keys loaded successfully
+05:09:30 - src.logging_config - DEBUG - Root key loaded
+05:09:30 - src.logging_config - DEBUG - Session key loaded
+05:09:30 - src.logging_config - INFO - Keys loaded successfully
+05:09:30 - src.logging_config - WARNING - No existing keys found, provisioning new root key
+05:09:30 - src.logging_config - INFO - Provisioning new root key (KR)
+05:09:30 - src.logging_config - INFO - Root key provisioned successfully
+05:09:30 - src.logging_config - INFO - Deriving new session key for session: 0a3d55d98f46b8efc4c1ceb600d9d452
+05:09:30 - src.logging_config - INFO - Session key derived and activated
+05:09:30 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:30 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:30 - src.logging_config - INFO - CryptoGate initialized
+05:09:30 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:30 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:30 - IntegratedAttackTest - INFO - ✅ Crypto layer initialized: Encryptor, Decryptor, CryptoGate, KeyManager
+05:09:30 - IntegratedAttackTest - INFO - ✅ AI layer initialized: DoS, Replay, Injection detectors, Feature extractor, Intent labeler
+05:09:30 - IntegratedAttackTest - INFO - ================================================================================
+05:09:30 - IntegratedAttackTest - INFO - 
+================================================================================
+05:09:30 - IntegratedAttackTest - INFO - TEST: Combined Tampering + Injection Attack
+05:09:30 - IntegratedAttackTest - INFO - ================================================================================
+05:09:30 - IntegratedAttackTest - INFO - 🚨 ATTACK: Tamper ciphertext AND inject dangerous command
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 1
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 1
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - IntegratedAttackTest - INFO -   Attack vector 1: Ciphertext tampering
+05:09:30 - src.logging_config - INFO - Performing comprehensive crypto validation
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 1, last seen: 0
+05:09:30 - src.logging_config - ERROR - Decryption failed: 
+05:09:30 - src.logging_config - ERROR - Unexpected crypto error: 
+05:09:30 - src.logging_config - INFO - Risk level updated to: high
+05:09:30 - IntegratedAttackTest - INFO -     Crypto layer: blocked=True
+05:09:30 - IntegratedAttackTest - INFO -   Attack vector 2: Dangerous command injection
+05:09:30 - IntegratedAttackTest - INFO -     AI layer: injection=False
+05:09:30 - IntegratedAttackTest - INFO -     Unauthorized: False
+05:09:30 - IntegratedAttackTest - INFO - ✅ TEST PASSED: At least one layer detected attack
+
+05:09:30 - IntegratedAttackTest - INFO - ✅ Test completed - cleaning up integrated stack
+05:09:30 - IntegratedAttackTest - INFO - ================================================================================
+05:09:30 - IntegratedAttackTest - INFO - Setting up integrated crypto + AI stack...
+05:09:30 - IntegratedAttackTest - INFO - ================================================================================
+05:09:30 - src.logging_config - DEBUG - Root key loaded
+05:09:30 - src.logging_config - DEBUG - Session key loaded
+05:09:30 - src.logging_config - INFO - Keys loaded successfully
+05:09:30 - src.logging_config - DEBUG - Root key loaded
+05:09:30 - src.logging_config - DEBUG - Session key loaded
+05:09:30 - src.logging_config - INFO - Keys loaded successfully
+05:09:30 - src.logging_config - WARNING - No existing keys found, provisioning new root key
+05:09:30 - src.logging_config - INFO - Provisioning new root key (KR)
+05:09:30 - src.logging_config - INFO - Root key provisioned successfully
+05:09:30 - src.logging_config - INFO - Deriving new session key for session: 5a184db8f7f0100ec1062b3ac0ae8dad
+05:09:30 - src.logging_config - INFO - Session key derived and activated
+05:09:30 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:30 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:30 - src.logging_config - INFO - CryptoGate initialized
+05:09:30 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:30 - src.logging_config - DEBUG - Initializing NonceManager
+05:09:30 - IntegratedAttackTest - INFO - ✅ Crypto layer initialized: Encryptor, Decryptor, CryptoGate, KeyManager
+05:09:30 - IntegratedAttackTest - INFO - ✅ AI layer initialized: DoS, Replay, Injection detectors, Feature extractor, Intent labeler
+05:09:30 - IntegratedAttackTest - INFO - ================================================================================
+05:09:30 - IntegratedAttackTest - INFO - 
+================================================================================
+05:09:30 - IntegratedAttackTest - INFO - TEST: Performance During DoS Attack
+05:09:30 - IntegratedAttackTest - INFO - ================================================================================
+05:09:30 - IntegratedAttackTest - INFO - Measuring baseline crypto latency...
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 1
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 1
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 1
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 1, last seen: 0
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 2
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 2
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 2
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 2
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 2, last seen: 1
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 3
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 3
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 3
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 3
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 3, last seen: 2
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 4
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 4
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 4
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 4
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 4, last seen: 3
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 5
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 5
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 5
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 5
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 5, last seen: 4
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 6
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 6
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 6
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 6
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 6, last seen: 5
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 7
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 7
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 7
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 7
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 7, last seen: 6
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 8
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 8
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 8
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 8
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 8, last seen: 7
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 9
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 9
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 9
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 9
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 9, last seen: 8
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 10
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 10
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 10
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 10
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 10, last seen: 9
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - IntegratedAttackTest - INFO -   Baseline: 6.765ms per command
+05:09:30 - IntegratedAttackTest - INFO - 
+🚨 Simulating DoS attack while measuring latency...
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 11
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 11
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 11
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 11
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 11, last seen: 10
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 12
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 12
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 12
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 12
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 12, last seen: 11
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 13
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 13
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 13
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 13
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 13, last seen: 12
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 14
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 14
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 14
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 14
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 14, last seen: 13
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 15
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 15
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 15
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 15
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 15, last seen: 14
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 16
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 16
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 16
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 16
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 16, last seen: 15
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 17
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 17
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 17
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 17
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 17, last seen: 16
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 18
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 18
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 18
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 18
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 18, last seen: 17
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 19
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 19
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 19
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 19
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 19, last seen: 18
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 20
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 20
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 20
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 20
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 20, last seen: 19
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 21
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 21
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 21
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 21
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 21, last seen: 20
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 22
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 22
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 22
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 22
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 22, last seen: 21
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 23
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 23
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 23
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 23
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 23, last seen: 22
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 24
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 24
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 24
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 24
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 24, last seen: 23
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 25
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 25
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 25
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 25
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 25, last seen: 24
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 26
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 26
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 26
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 26
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 26, last seen: 25
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 27
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 27
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 27
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 27
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 27, last seen: 26
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 28
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 28
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 28
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 28
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 28, last seen: 27
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 29
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 29
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 29
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 29
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 29, last seen: 28
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 30
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 30
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 30
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 30
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 30, last seen: 29
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 31
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 31
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 31
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 31
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 31, last seen: 30
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 32
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 32
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 32
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 32
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 32, last seen: 31
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 33
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 33
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 33
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 33
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 33, last seen: 32
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 34
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 34
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 34
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 34
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 34, last seen: 33
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 35
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 35
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 35
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 35
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 35, last seen: 34
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 36
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 36
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 36
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 36
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 36, last seen: 35
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 37
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 37
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 37
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 37
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 37, last seen: 36
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 38
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 38
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 38
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 38
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 38, last seen: 37
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 39
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 39
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 39
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 39
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 39, last seen: 38
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 40
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 40
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 40
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 40
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 40, last seen: 39
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 41
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 41
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 41
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 41
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 41, last seen: 40
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 42
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 42
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 42
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 42
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 42, last seen: 41
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 43
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 43
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 43
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 43
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 43, last seen: 42
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 44
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 44
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 44
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 44
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 44, last seen: 43
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 45
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 45
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 45
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 45
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 45, last seen: 44
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 46
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 46
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 46
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 46
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 46, last seen: 45
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 47
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 47
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 47
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 47
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 47, last seen: 46
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 48
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 48
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 48
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 48
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 48, last seen: 47
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 49
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 49
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 49
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 49
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 49, last seen: 48
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 50
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 50
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 50
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 50
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 50, last seen: 49
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 51
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 51
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 51
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 51
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 51, last seen: 50
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 52
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 52
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 52
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 52
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 52, last seen: 51
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 53
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 53
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 53
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 53
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 53, last seen: 52
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 54
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 54
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 54
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 54
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 54, last seen: 53
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 55
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 55
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 55
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 55
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 55, last seen: 54
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 56
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 56
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 56
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 56
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 56, last seen: 55
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 57
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 57
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 57
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 57
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 57, last seen: 56
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 58
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 58
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 58
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 58
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 58, last seen: 57
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 59
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 59
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 59
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 59
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 59, last seen: 58
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - src.logging_config - INFO - Encrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Generated nonce for counter: 60
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 60
+05:09:30 - src.logging_config - DEBUG - Generated nonce with counter: 60
+05:09:30 - src.logging_config - INFO - Payload encrypted successfully
+05:09:30 - src.logging_config - INFO - Decrypting payload with session key
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 60
+05:09:30 - src.logging_config - DEBUG - Extracted counter: 60, last seen: 59
+05:09:30 - src.logging_config - INFO - Payload decrypted successfully
+05:09:30 - IntegratedAttackTest - INFO -   Under attack: 8.849ms per command
+05:09:30 - IntegratedAttackTest - INFO -   Performance degradation: 30.8%
+05:09:30 - IntegratedAttackTest - INFO - ✅ TEST PASSED: Performance acceptable under attack
+
+05:09:30 - IntegratedAttackTest - INFO - ✅ Test completed - cleaning up integrated stack

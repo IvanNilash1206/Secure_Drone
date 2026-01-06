@@ -2,8 +2,8 @@
   "root": {
     "key_type": "root",
     "state": "active",
-    "created_at": 1767607593.5567734,
-    "expires_at": 1799143593.5567734,
+    "created_at": 1767656370.1468847,
+    "expires_at": 1799192370.1468847,
     "session_id": "root",
     "command_count": 0,
     "last_rotation": 0.0,
@@ -12,11 +12,11 @@
   "session": {
     "key_type": "session",
     "state": "active",
-    "created_at": 1767607593.557775,
-    "expires_at": 1767609393.557775,
-    "session_id": "99205cab96e395d1a69053da61d25a02",
-    "command_count": 2,
+    "created_at": 1767656370.1534464,
+    "expires_at": 1767658170.1534464,
+    "session_id": "5a184db8f7f0100ec1062b3ac0ae8dad",
+    "command_count": 120,
     "last_rotation": 0.0,
-    "risk_level": "high"
+    "risk_level": "low"
   }
 }

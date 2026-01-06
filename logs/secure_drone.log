@@ -50,3 +50,5 @@
 2026-01-05 14:48:54,947 - src.logging_config - INFO - Deriving new session key for session: 6ea2087cdbcbeb84651f8da9873c9408
 2026-01-05 14:48:54,948 - src.logging_config - INFO - Session key derived and activated
 2026-01-05 14:48:54,949 - src.logging_config - INFO - Session key rotation completed successfully
+2026-01-06 02:54:14,542 - src.logging_config - INFO - Logging system initialized
+2026-01-06 02:54:15,872 - src.logging_config - INFO - AEGIS Proxy active

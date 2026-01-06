@@ -1,0 +1,18 @@
+2026-01-06 03:05:43,501 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:05:43,505 - INFO - [IntegratedAttackTest] - Setting up integrated crypto + AI stack...
+2026-01-06 03:05:43,507 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:05:45,827 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:05:45,829 - INFO - [IntegratedAttackTest] - 
+================================================================================
+2026-01-06 03:05:45,830 - INFO - [IntegratedAttackTest] - TEST: Navigation Command Hijacking Attack
+2026-01-06 03:05:45,831 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:05:45,832 - INFO - [IntegratedAttackTest] - Drone state: AUTO mode, executing mission at 100m
+2026-01-06 03:05:45,832 - INFO - [IntegratedAttackTest] - 
+Phase 1: Legitimate waypoint command
+2026-01-06 03:05:45,841 - INFO - [IntegratedAttackTest] -   Crypto: True, AI injection: False
+2026-01-06 03:05:45,857 - INFO - [IntegratedAttackTest] -   Target: x=5000m, y=5000m (far from mission area)
+2026-01-06 03:05:45,858 - INFO - [IntegratedAttackTest] -   Altitude: 200m (exceeds 150m FAA limit)
+2026-01-06 03:05:45,859 - INFO - [IntegratedAttackTest] -   Velocity: 30 m/s (exceeds 25 m/s limit)
+2026-01-06 03:05:45,859 - INFO - [IntegratedAttackTest] -   Crypto check: True
+2026-01-06 03:05:45,863 - INFO - [IntegratedAttackTest] -   Parameter anomaly: True
+2026-01-06 03:05:45,863 - INFO - [IntegratedAttackTest] -   Risk score: 0.200

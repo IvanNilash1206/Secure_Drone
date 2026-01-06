@@ -1,16 +1,77 @@
-# Secure Drone - Military-Grade MAVLink Security
+# 🛡️ Secure UAV System with AEGIS Security Gateway
 
-A comprehensive cryptographic security system for drone operations implementing hierarchical key management, real-time threat detection, and commercial UAV security standards.
+## Project Overview
 
-## 🏗️ Architecture Overview
+This project demonstrates a **defense-in-depth security architecture** for MAVLink-based UAV (drone) systems. It protects against real-world attack vectors including GPS spoofing, waypoint injection, command injection, and denial-of-service attacks.
+
+**Key Innovation**: AEGIS (Autonomous sEcurity Gateway for Intelligent Systems) - a multi-layered security proxy that validates MAVLink commands using cryptography, AI-based threat detection, and risk-based decision making.
+
+---
+
+## 🏗️ Repository Structure
 
 ```
-Ground Control Station (GCS) → Companion Computer (Raspberry Pi) → AI Layer → MAVSDK → ArduPilot
-                                      ↓
-                                Crypto Layer
-                                      ↓
-                            MAVLink Proxy Layer
+repo/
+├── attacker/              🟥 Malicious Actor (Separate System)
+│   ├── attacker.py           # Main attack orchestrator
+│   ├── gps_spoof.py          # GPS spoofing module
+│   ├── command_injection.py  # Command injection module
+│   ├── dos_flood.py          # DoS flooding module
+│   ├── README.md             # Attacker documentation
+│   └── requirements.txt      # Dependencies
+│
+├── GCS/                   🟦 Ground Control Station (Operator System)
+│   ├── gcs_client.py         # Main GCS client
+│   ├── mission_sender.py     # Mission upload module
+│   ├── telemetry_viewer.py   # Telemetry display module
+│   ├── config.yaml           # GCS configuration
+│   ├── README.md             # GCS documentation
+│   └── requirements.txt      # Dependencies
+│
+├── companion_comp/        🟩 AEGIS Security Gateway (Drone Hardware)
+│   ├── aegis_proxy.py        # Main security proxy
+│   ├── config.yaml           # AEGIS configuration
+│   ├── README.md             # AEGIS documentation
+│   ├── requirements.txt      # Dependencies
+│   │
+│   ├── intent_firewall/      # Layer 1: Intent Classification
+│   │   ├── intent_classifier.py
+│   │   ├── rules_engine.py
+│   │   └── features.py
+│   │
+│   ├── behavior_ids/         # Layer 2: Behavioral Analysis
+│   │   ├── anomaly_detector.py
+│   │   └── temporal_model.py
+│   │
+│   ├── shadow_execution/     # Layer 3: Predictive Analysis
+│   │   ├── trajectory_predictor.py
+│   │   └── physics_constraints.py
+│   │
+│   ├── decision_engine/      # Layer 4: Decision Making
+│   │   ├── risk_aggregator.py
+│   │   └── response_manager.py
+│   │
+│   ├── logger/               # Layer 5: Audit & Explainability
+│   │   ├── audit_logger.py
+│   │   └── explainability.py
+│   │
+│   └── crypto_layer/         # Cryptographic Operations
+│       ├── encryptor.py
+│       ├── decryptor.py
+│       ├── key_manager.py
+│       └── nonce_manager.py
+│
+├── docs/                  📚 Documentation
+│   ├── architecture.md       # System architecture
+│   ├── threat_model.md       # Security threat analysis
+│   └── demo_flow.md          # Demo execution guide
+│
+└── README.md              📖 This file
 ```
+
+---
+
+## 🎯 System Architecture
 
 ## 🔐 Security Architecture
 

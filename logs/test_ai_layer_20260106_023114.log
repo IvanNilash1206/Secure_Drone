@@ -1,0 +1,209 @@
+2026-01-06 02:31:14,414 - INFO - [AILayerTest] - ================================================================================
+2026-01-06 02:31:14,414 - INFO - [AILayerTest] - AI LAYER TEST SUITE STARTED
+2026-01-06 02:31:14,415 - INFO - [AILayerTest] - Log file: C:\Users\SURIYA\Desktop\Competition\HackSymmetric\Secure_Drone\logs\test_ai_layer_20260106_023114.log
+2026-01-06 02:31:14,415 - INFO - [AILayerTest] - Test start time: 2026-01-06 02:31:14
+2026-01-06 02:31:14,415 - INFO - [AILayerTest] - ================================================================================
+2026-01-06 02:31:16,341 - INFO - [AILayerTest] - All AI layer modules imported successfully
+2026-01-06 02:31:16,351 - INFO - [AILayerTest] - 
+================================================================================
+2026-01-06 02:31:16,352 - INFO - [AILayerTest] - TEST CLASS: TestFeatureExtractor
+2026-01-06 02:31:16,352 - INFO - [AILayerTest] - ================================================================================
+2026-01-06 02:31:16,353 - INFO - [AILayerTest] - Setting up FeatureExtractorV2...
+2026-01-06 02:31:16,353 - INFO - [AILayerTest] - ✅ FeatureExtractorV2 initialized successfully
+2026-01-06 02:31:16,354 - INFO - [AILayerTest] - 
+--- TEST: test_feature_extraction ---
+2026-01-06 02:31:16,355 - INFO - [AILayerTest] - Creating test command context...
+2026-01-06 02:31:16,355 - INFO - [AILayerTest] - Command context: type=SET_POSITION_TARGET, altitude=25.0m, mode=AUTO
+2026-01-06 02:31:16,355 - INFO - [AILayerTest] - Building command history (7 commands)...
+2026-01-06 02:31:16,358 - INFO - [AILayerTest] - History built. Feature vector size: 37
+2026-01-06 02:31:16,359 - INFO - [AILayerTest] - ✅ Feature dimension test passed: 37 features
+2026-01-06 02:31:16,359 - INFO - [AILayerTest] - Running performance test (10 iterations)...
+2026-01-06 02:31:16,360 - INFO - [AILayerTest] -   Iteration 1: 0.754ms
+2026-01-06 02:31:16,365 - INFO - [AILayerTest] -   Iteration 4: 0.632ms
+2026-01-06 02:31:16,368 - INFO - [AILayerTest] -   Iteration 7: 0.377ms
+2026-01-06 02:31:16,370 - INFO - [AILayerTest] -   Iteration 10: 0.354ms
+2026-01-06 02:31:16,370 - INFO - [AILayerTest] - 
+Performance Results:
+2026-01-06 02:31:16,371 - INFO - [AILayerTest] -   Average latency: 0.854ms
+2026-01-06 02:31:16,372 - INFO - [AILayerTest] -   Min latency: 0.354ms
+2026-01-06 02:31:16,372 - INFO - [AILayerTest] -   Max latency: 2.274ms
+2026-01-06 02:31:16,373 - INFO - [AILayerTest] -   Std deviation: 0.538ms
+2026-01-06 02:31:16,373 - INFO - [AILayerTest] - ✅ Performance requirement met: avg < 2.0ms
+2026-01-06 02:31:16,373 - INFO - [AILayerTest] - ✅ TEST PASSED: test_feature_extraction
+
+2026-01-06 02:31:16,378 - INFO - [AILayerTest] - 
+================================================================================
+2026-01-06 02:31:16,379 - INFO - [AILayerTest] - TEST CLASS: TestIntentLabeler
+2026-01-06 02:31:16,379 - INFO - [AILayerTest] - ================================================================================
+2026-01-06 02:31:16,380 - INFO - [AILayerTest] - Setting up IntentLabeler...
+2026-01-06 02:31:16,380 - INFO - [AILayerTest] - ✅ IntentLabeler initialized successfully
+2026-01-06 02:31:16,381 - INFO - [AILayerTest] - 
+--- TEST: test_intent_labeling ---
+2026-01-06 02:31:16,382 - INFO - [AILayerTest] - 
+[Test 1] Navigation command labeling:
+2026-01-06 02:31:16,382 - INFO - [AILayerTest] -   Intent: IntentClass.NAVIGATION
+2026-01-06 02:31:16,382 - INFO - [AILayerTest] -   Risk score: 0.080
+2026-01-06 02:31:16,384 - INFO - [AILayerTest] -   Reasoning: LOW risk for NAVIGATION intent (normal operational context)
+2026-01-06 02:31:16,384 - INFO - [AILayerTest] - ✅ Navigation intent correctly identified
+2026-01-06 02:31:16,384 - INFO - [AILayerTest] - 
+[Test 2] ARM on ground (low risk):
+2026-01-06 02:31:16,386 - INFO - [AILayerTest] -   Intent: IntentClass.ARM_DISARM
+2026-01-06 02:31:16,386 - INFO - [AILayerTest] -   Risk score: 0.445
+2026-01-06 02:31:16,388 - INFO - [AILayerTest] -   Reasoning: MEDIUM risk for ARM_DISARM intent due to: armed transition, parameter magnitude
+2026-01-06 02:31:16,388 - INFO - [AILayerTest] - ✅ ARM intent correctly identified with low risk
+2026-01-06 02:31:16,389 - INFO - [AILayerTest] - ✅ TEST PASSED: test_intent_labeling
+
+2026-01-06 02:31:16,393 - INFO - [AILayerTest] - 
+================================================================================
+2026-01-06 02:31:16,394 - INFO - [AILayerTest] - TEST CLASS: TestDoSDetector
+2026-01-06 02:31:16,395 - INFO - [AILayerTest] - ================================================================================
+2026-01-06 02:31:16,395 - INFO - [AILayerTest] - Setting up DoSDetector...
+2026-01-06 02:31:16,395 - INFO - [AILayerTest] - ✅ DoSDetector initialized (normal=5.0, attack=20.0, burst=50.0 cmds/sec)
+2026-01-06 02:31:16,397 - INFO - [AILayerTest] - 
+--- TEST: test_dos_detection ---
+2026-01-06 02:31:16,397 - INFO - [AILayerTest] - 
+[Test 1] Normal traffic rate (5 commands over 2.5 seconds):
+2026-01-06 02:31:16,398 - INFO - [AILayerTest] -   Commands/sec: 2.50
+2026-01-06 02:31:16,398 - INFO - [AILayerTest] -   DoS detected: False
+2026-01-06 02:31:16,398 - INFO - [AILayerTest] -   Burst score: 0.00
+2026-01-06 02:31:16,398 - INFO - [AILayerTest] - ✅ Normal traffic correctly identified
+2026-01-06 02:31:16,399 - INFO - [AILayerTest] - 
+[Test 2] Attack traffic rate (30 commands in ~1 second):
+2026-01-06 02:31:16,399 - INFO - [AILayerTest] -   Commands/sec: 3.22
+2026-01-06 02:31:16,400 - INFO - [AILayerTest] -   DoS detected: True
+2026-01-06 02:31:16,401 - INFO - [AILayerTest] -   Confidence: 0.60
+2026-01-06 02:31:16,402 - INFO - [AILayerTest] -   Explanation: Burst detected: 3.2 cmds/sec
+2026-01-06 02:31:16,402 - INFO - [AILayerTest] - ✅ DoS attack correctly detected
+2026-01-06 02:31:16,404 - INFO - [AILayerTest] - 
+[Test 3] Performance measurement:
+2026-01-06 02:31:16,406 - INFO - [AILayerTest] -   Average latency: 0.055ms
+2026-01-06 02:31:16,406 - INFO - [AILayerTest] -   Min latency: 0.031ms
+2026-01-06 02:31:16,407 - INFO - [AILayerTest] -   Max latency: 0.230ms
+2026-01-06 02:31:16,407 - INFO - [AILayerTest] - ✅ Performance requirement met: avg < 1.0ms
+2026-01-06 02:31:16,407 - INFO - [AILayerTest] - ✅ TEST PASSED: test_dos_detection
+
+2026-01-06 02:31:16,410 - INFO - [AILayerTest] - 
+================================================================================
+2026-01-06 02:31:16,410 - INFO - [AILayerTest] - TEST CLASS: TestReplayDetector
+2026-01-06 02:31:16,411 - INFO - [AILayerTest] - ================================================================================
+2026-01-06 02:31:16,411 - INFO - [AILayerTest] - Setting up ReplayDetector...
+2026-01-06 02:31:16,411 - INFO - [AILayerTest] - ✅ ReplayDetector initialized successfully
+2026-01-06 02:31:16,412 - INFO - [AILayerTest] - 
+--- TEST: test_replay_detection ---
+2026-01-06 02:31:16,413 - INFO - [AILayerTest] - 
+[Test 1] New nonce acceptance:
+2026-01-06 02:31:16,413 - INFO - [AILayerTest] -   Is replay: False
+2026-01-06 02:31:16,414 - INFO - [AILayerTest] -   Confidence: 0.00
+2026-01-06 02:31:16,414 - INFO - [AILayerTest] - ✅ New nonce correctly accepted
+2026-01-06 02:31:16,414 - INFO - [AILayerTest] - 
+[Test 2] Duplicate nonce detection:
+2026-01-06 02:31:16,415 - INFO - [AILayerTest] -   First occurrence: replay=False
+2026-01-06 02:31:16,415 - INFO - [AILayerTest] -   Second occurrence: replay=True
+2026-01-06 02:31:16,415 - INFO - [AILayerTest] -   Detection method: nonce_duplicate
+2026-01-06 02:31:16,415 - INFO - [AILayerTest] - ✅ Duplicate nonce correctly detected
+2026-01-06 02:31:16,416 - INFO - [AILayerTest] - 
+[Test 3] Performance measurement:
+2026-01-06 02:31:16,416 - INFO - [AILayerTest] -   Average latency: 0.011ms
+2026-01-06 02:31:16,416 - INFO - [AILayerTest] - ✅ Performance requirement met: avg < 1.0ms
+2026-01-06 02:31:16,417 - INFO - [AILayerTest] - ✅ TEST PASSED: test_replay_detection
+
+2026-01-06 02:31:16,424 - INFO - [AILayerTest] - 
+================================================================================
+2026-01-06 02:31:16,426 - INFO - [AILayerTest] - TEST CLASS: TestInjectionDetector
+2026-01-06 02:31:16,427 - INFO - [AILayerTest] - ================================================================================
+2026-01-06 02:31:16,428 - INFO - [AILayerTest] - Setting up InjectionDetector...
+2026-01-06 02:31:16,429 - INFO - [AILayerTest] - ✅ InjectionDetector initialized successfully
+2026-01-06 02:31:16,431 - INFO - [AILayerTest] - 
+--- TEST: test_injection_detection ---
+2026-01-06 02:31:16,431 - INFO - [AILayerTest] - Setting flight state: IN_FLIGHT, altitude=30m, armed=True
+2026-01-06 02:31:16,432 - INFO - [AILayerTest] - 
+[Test 1] Normal navigation command:
+2026-01-06 02:31:16,432 - INFO - [AILayerTest] -   Is injection: False
+2026-01-06 02:31:16,432 - INFO - [AILayerTest] -   Risk score: 0.000
+2026-01-06 02:31:16,433 - INFO - [AILayerTest] - ✅ Normal command correctly accepted
+2026-01-06 02:31:16,434 - INFO - [AILayerTest] - 
+[Test 2] Dangerous command (disarm in flight):
+2026-01-06 02:31:16,435 - INFO - [AILayerTest] -   Is injection: True
+2026-01-06 02:31:16,436 - INFO - [AILayerTest] -   Confidence: 0.95
+2026-01-06 02:31:16,437 - INFO - [AILayerTest] -   Detection method: privilege_context
+2026-01-06 02:31:16,438 - INFO - [AILayerTest] -   Unauthorized: True
+2026-01-06 02:31:16,439 - INFO - [AILayerTest] - ✅ Dangerous command correctly detected
+2026-01-06 02:31:16,440 - INFO - [AILayerTest] - 
+[Test 3] Parameter violation (altitude too high):
+2026-01-06 02:31:16,440 - INFO - [AILayerTest] -   Is injection: False
+2026-01-06 02:31:16,441 - INFO - [AILayerTest] -   Parameter anomaly: True
+2026-01-06 02:31:16,441 - INFO - [AILayerTest] - ✅ Parameter violation correctly detected
+2026-01-06 02:31:16,441 - INFO - [AILayerTest] - 
+[Test 4] Performance measurement:
+2026-01-06 02:31:16,442 - INFO - [AILayerTest] -   Average latency: 0.007ms
+2026-01-06 02:31:16,442 - INFO - [AILayerTest] - ✅ Performance requirement met: avg < 1.0ms
+2026-01-06 02:31:16,442 - INFO - [AILayerTest] - ✅ TEST PASSED: test_injection_detection
+
+2026-01-06 02:31:16,445 - INFO - [AILayerTest] - 
+================================================================================
+2026-01-06 02:31:16,445 - INFO - [AILayerTest] - TEST CLASS: TestIntentFirewall
+2026-01-06 02:31:16,446 - INFO - [AILayerTest] - ================================================================================
+2026-01-06 02:31:16,446 - INFO - [AILayerTest] - Setting up IntentFirewall...
+2026-01-06 02:31:16,446 - INFO - [AILayerTest] - ✅ IntentFirewall initialized successfully
+2026-01-06 02:31:16,447 - INFO - [AILayerTest] - 
+--- TEST: test_firewall_basic ---
+2026-01-06 02:31:16,448 - INFO - [AILayerTest] - Testing state update: mode=AUTO, armed=True, altitude=30m
+2026-01-06 02:31:16,448 - INFO - [AILayerTest] -   Current mode: FlightMode.AUTO
+2026-01-06 02:31:16,448 - INFO - [AILayerTest] -   Armed: True
+2026-01-06 02:31:16,449 - INFO - [AILayerTest] -   Altitude: 30.0m
+2026-01-06 02:31:16,449 - INFO - [AILayerTest] - ✅ State update working correctly
+2026-01-06 02:31:16,450 - INFO - [AILayerTest] - ✅ TEST PASSED: test_firewall_basic
+
+2026-01-06 02:31:16,457 - INFO - [AILayerTest] - 
+================================================================================
+2026-01-06 02:31:16,458 - INFO - [AILayerTest] - TEST CLASS: TestFeatureNormalizer
+2026-01-06 02:31:16,459 - INFO - [AILayerTest] - ================================================================================
+2026-01-06 02:31:16,459 - INFO - [AILayerTest] - Setting up FeatureNormalizer...
+2026-01-06 02:31:16,459 - INFO - [AILayerTest] - ✅ FeatureNormalizer initialized successfully
+2026-01-06 02:31:16,460 - INFO - [AILayerTest] - 
+--- TEST: test_normalization ---
+2026-01-06 02:31:16,461 - INFO - [AILayerTest] - Input data shape: (3, 2)
+2026-01-06 02:31:16,462 - INFO - [AILayerTest] - Input data:
+[[1. 2.]
+ [3. 4.]
+ [5. 6.]]
+2026-01-06 02:31:16,462 - INFO - [AILayerTest] - Fit complete. Mean: [3. 4.], Std: [1.63299416 1.63299416]
+2026-01-06 02:31:16,463 - INFO - [AILayerTest] - ✅ Normalization fit successful
+2026-01-06 02:31:16,463 - INFO - [AILayerTest] - ✅ TEST PASSED: test_normalization
+
+2026-01-06 02:31:16,465 - INFO - [AILayerTest] - 
+================================================================================
+2026-01-06 02:31:16,467 - INFO - [AILayerTest] - TEST CLASS: TestTrustModel
+2026-01-06 02:31:16,468 - INFO - [AILayerTest] - ================================================================================
+2026-01-06 02:31:16,469 - INFO - [AILayerTest] - Setting up TrustModel...
+2026-01-06 02:31:16,470 - INFO - [AILayerTest] - ✅ TrustModel initialized successfully
+2026-01-06 02:31:16,472 - INFO - [AILayerTest] - 
+--- TEST: test_trust_model ---
+2026-01-06 02:31:16,473 - INFO - [AILayerTest] - Test features: [0.001, 0.001, 1.0, 1.0, 0.5, 0]
+2026-01-06 02:31:16,473 - INFO - [AILayerTest] - Trust score: 0.0000
+2026-01-06 02:31:16,474 - INFO - [AILayerTest] - ✅ Trust score calculated successfully
+2026-01-06 02:31:16,474 - INFO - [AILayerTest] - ✅ TEST PASSED: test_trust_model
+
+2026-01-06 02:31:16,477 - INFO - [AILayerTest] - 
+================================================================================
+2026-01-06 02:31:16,478 - INFO - [AILayerTest] - TEST CLASS: TestEndToEndPipeline
+2026-01-06 02:31:16,478 - INFO - [AILayerTest] - ================================================================================
+2026-01-06 02:31:16,479 - INFO - [AILayerTest] - 
+--- TEST: test_minimal_pipeline ---
+2026-01-06 02:31:16,479 - INFO - [AILayerTest] - Initializing all pipeline components...
+2026-01-06 02:31:16,479 - INFO - [AILayerTest] - ✅ All components initialized
+2026-01-06 02:31:16,480 - INFO - [AILayerTest] - 
+Testing complete command flow:
+2026-01-06 02:31:16,481 - INFO - [AILayerTest] - Step 1: DoS detection...
+2026-01-06 02:31:16,481 - INFO - [AILayerTest] -   DoS detected: False, rate: 0.00 cmds/sec
+2026-01-06 02:31:16,482 - INFO - [AILayerTest] - Step 2: Feature extraction...
+2026-01-06 02:31:16,485 - INFO - [AILayerTest] -   Features extracted: 37 dimensions
+2026-01-06 02:31:16,486 - INFO - [AILayerTest] - Step 3: Intent classification...
+2026-01-06 02:31:16,487 - INFO - [AILayerTest] -   Intent: IntentClass.NAVIGATION, Risk: 0.080
+2026-01-06 02:31:16,488 - INFO - [AILayerTest] - 
+✅ Complete pipeline flow successful
+2026-01-06 02:31:16,488 - INFO - [AILayerTest] -   - DoS check: PASS
+2026-01-06 02:31:16,489 - INFO - [AILayerTest] -   - Feature extraction: PASS
+2026-01-06 02:31:16,489 - INFO - [AILayerTest] -   - Intent classification: PASS (IntentClass.NAVIGATION)
+2026-01-06 02:31:16,489 - INFO - [AILayerTest] - ✅ TEST PASSED: test_minimal_pipeline
+
