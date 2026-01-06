@@ -1,2 +1,3 @@
 # Attacker Component Requirements
-pymavlink>=2.4.37
+pymavlink
+pyyaml
