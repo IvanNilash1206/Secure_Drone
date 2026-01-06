@@ -5,7 +5,7 @@
 # ========================================
 
 connection:
-  aegis_ip: "192.168.1.100"     # ⚠️ CHANGE THIS to Raspberry Pi IP (AEGIS proxy)
+  aegis_ip: "10.99.160.126"     # ⚠️ CHANGE THIS to Raspberry Pi IP (AEGIS proxy)
   aegis_port: 14560             # AEGIS listening port
   sitl_host: "127.0.0.1"        # SITL IP (localhost - DO NOT CHANGE)
   sitl_port: 14550              # SITL port (localhost - DO NOT CHANGE)

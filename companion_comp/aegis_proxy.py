@@ -96,6 +96,7 @@ class AEGISProxy:
         listen_port: int = 14560,
         fc_ip: str = "127.0.0.1",
         fc_port: int = 14550,
+        trusted_gcs_ip: str = "127.0.0.1",
         enable_security: bool = True
     ):
         """
@@ -106,12 +107,14 @@ class AEGISProxy:
             listen_port: Port to receive GCS/attacker traffic (default 14560)
             fc_ip: Flight controller IP address (GCS laptop running SITL)
             fc_port: Flight controller listening port (default 14550)
+            trusted_gcs_ip: IP address of authorized GCS (only this IP can send commands)
             enable_security: Enable AEGIS security layers (False = pass-through mode)
         """
         self.listen_host = listen_host
         self.listen_port = listen_port
         self.fc_ip = fc_ip
         self.fc_port = fc_port
+        self.trusted_gcs_ip = trusted_gcs_ip
         self.enable_security = enable_security and AEGIS_AVAILABLE
         
         # Create UDP socket for receiving
@@ -126,15 +129,14 @@ class AEGISProxy:
         self.mav = mavlink2.MAVLink(None)
         self.mav.robust_parsing = True
         
-        # Track connected clients
-        self.clients: Dict[Tuple[str, int], dict] = {}
-        
-        # Statistics
+        # Statistics (NO CLIENT TRACKING - proxy is stateless)
         self.stats = {
             'total_received': 0,
             'total_forwarded': 0,
             'total_blocked': 0,
-            'attacks_detected': 0,
+            'total_dropped': 0,
+            'gcs_commands': 0,
+            'attacker_blocked': 0,
             'messages_by_type': defaultdict(int),
             'blocked_by_type': defaultdict(int)
         }
@@ -172,112 +174,194 @@ class AEGISProxy:
         logger.info("=" * 80)
         logger.info(f"📥 Listening on: {listen_host}:{listen_port}")
         logger.info(f"📤 Forwarding to: {fc_ip}:{fc_port}")
-        logger.info(f"🔒 Security: {'ENABLED' if self.enable_security else 'DISABLED (PASS-THROUGH)'}")
+        logger.info(f"� Trusted GCS IP: {trusted_gcs_ip}")
+        logger.info(f"�🔒 Security: {'ENABLED' if self.enable_security else 'DISABLED (PASS-THROUGH)'}")
         logger.info(f"   - Crypto: {'✅' if self.crypto_enabled else '❌'}")
         logger.info(f"   - AI IDS: {'✅' if self.ai_enabled else '❌'}")
         logger.info("=" * 80)
+    
+    def classify_sender(self, src_ip: str) -> str:
+        """
+        Classify sender based ONLY on source IP address.
+        DO NOT use MAVLink fields (SYS_ID/COMP_ID) for identity.
+        
+        Args:
+            src_ip: Source IP address from recvfrom()
+            
+        Returns:
+            "GCS" if trusted, "UNTRUSTED" otherwise
+        """
+        if src_ip == self.trusted_gcs_ip:
+            return "GCS"
+        else:
+            return "UNTRUSTED"
+    
+    def authorize_message(self, msg, sender_type: str, src_addr: Tuple[str, int]) -> Tuple[bool, Optional[str]]:
+        """
+        Enforce sender-aware authorization rules.
+        
+        Authorization Matrix:
+        - GCS + Any message → Continue to validation/forwarding
+        - UNTRUSTED + HEARTBEAT → DROP (silent)
+        - UNTRUSTED + COMMAND_LONG → BLOCK + LOG
+        - UNTRUSTED + SET_MODE → BLOCK + LOG
+        - UNTRUSTED + MISSION_* → BLOCK + LOG
+        - UNTRUSTED + Others → DROP (silent)
+        
+        Args:
+            msg: Parsed MAVLink message
+            sender_type: "GCS" or "UNTRUSTED"
+            src_addr: Source (IP, port) tuple
+            
+        Returns:
+            (should_process, block_reason)
+            - should_process: True to continue processing, False to drop/block
+            - block_reason: None if allowed, reason string if blocked
+        """
+        msg_type = msg.get_type()
+        src_ip, src_port = src_addr
+        
+        # GCS is authorized for all messages
+        if sender_type == "GCS":
+            return (True, None)
+        
+        # UNTRUSTED sender - apply restrictions
+        # Commands that should be BLOCKED and LOGGED as security events
+        BLOCKED_COMMANDS = [
+            'COMMAND_LONG',
+            'COMMAND_INT',
+            'SET_MODE',
+            'MISSION_ITEM',
+            'MISSION_ITEM_INT',
+            'MISSION_COUNT',
+            'MISSION_CLEAR_ALL',
+            'MISSION_SET_CURRENT',
+            'SET_POSITION_TARGET_LOCAL_NED',
+            'SET_POSITION_TARGET_GLOBAL_INT',
+            'SET_ATTITUDE_TARGET'
+        ]
+        
+        if msg_type in BLOCKED_COMMANDS:
+            reason = f"SECURITY: Command {msg_type} from UNTRUSTED source {src_ip}"
+            return (False, reason)
+        
+        # HEARTBEAT and other messages - DROP silently (don't log spam)
+        return (False, None)
         
     def process_message(self, data: bytes, src_addr: Tuple[str, int]) -> bool:
         """
-        Process incoming MAVLink message with security checks
+        Process incoming MAVLink message with CORRECT packet order:
+        1. Extract src_ip, src_port from recvfrom()
+        2. Classify sender (GCS / UNTRUSTED) based on IP
+        3. Parse MAVLink message
+        4. Apply sender-aware authorization
+        5. (Optional) AI / anomaly detection
+        6. Forward or drop
         
         Args:
             data: Raw MAVLink message bytes
             src_addr: Source (IP, port) tuple
             
         Returns:
-            True if message should be forwarded, False if blocked
+            True if message should be forwarded, False if blocked/dropped
         """
+        # ============================================================
+        # STEP 1: Extract source address
+        # ============================================================
         src_ip, src_port = src_addr
         
-        # Update client tracking
-        if src_addr not in self.clients:
-            self.clients[src_addr] = {
-                'first_seen': time.time(),
-                'last_seen': time.time(),
-                'msg_count': 0
-            }
-            logger.info(f"🆕 New client: {src_ip}:{src_port}")
-        
-        self.clients[src_addr]['last_seen'] = time.time()
-        self.clients[src_addr]['msg_count'] += 1
-        
         # Log RAW packet reception
-        logger.info(f"[AEGIS][RAW] Received {len(data)} bytes from {src_ip}:{src_port}")
+        logger.debug(f"[AEGIS][RAW] Received {len(data)} bytes from {src_ip}:{src_port}")
         
-        # Parse MAVLink message using stream-safe buffer parsing
+        # ============================================================
+        # STEP 2: Classify sender (NETWORK-BASED IDENTITY ONLY)
+        # ============================================================
+        sender_type = self.classify_sender(src_ip)
+        
+        # ============================================================
+        # STEP 3: Parse MAVLink message
+        # ============================================================
         try:
             # Use parse_buffer for stream-safe parsing (handles partial/multiple frames)
             messages = self.mav.parse_buffer(data)
             
             if not messages:
-                logger.warning(f"[AEGIS] Received UDP packet but no valid MAVLink frame parsed from {src_ip}:{src_port}")
+                logger.debug(f"[AEGIS] No valid MAVLink frame parsed from {src_ip}:{src_port}")
+                self.stats['total_dropped'] += 1
                 return False
             
             # Process each parsed MAVLink message
+            all_forwarded = True
             for msg in messages:
                 msg_type = msg.get_type()
                 self.stats['messages_by_type'][msg_type] += 1
                 
-                # Log incoming message
-                logger.info(f"📨 [{src_ip}:{src_port}] → {msg_type} (ID: {msg.get_msgId()})")
-                
                 # ============================================================
-                # 🔒 SECURITY CHECKPOINT - Insert Security Logic Here
+                # STEP 4: Apply sender-aware authorization
                 # ============================================================
+                should_process, block_reason = self.authorize_message(msg, sender_type, src_addr)
                 
-                if self.enable_security:
-                    # Step 1: Crypto validation (if encrypted)
-                    if self.crypto_enabled:
-                        # Check for encrypted payload (custom implementation)
-                        # For now, we assume messages are plaintext MAVLink
-                        pass
-                    
-                    # Step 2: AI-based anomaly detection and intent classification
-                    if self.ai_enabled:
-                        try:
-                            # Analyze command intent using IntentFirewall
-                            intent_result = self.intent_firewall.analyze(msg)
-                            
-                            # Check if intent is suspicious or blocked
-                            if not intent_result.allowed:
-                                self.stats['attacks_detected'] += 1
-                                logger.warning(f"🚨 [{src_ip}] INTENT BLOCKED: {intent_result.intent}")
-                                logger.warning(f"   Reason: {intent_result.reason}")
-                                logger.warning(f"   Message: {msg_type}")
-                                self.stats['blocked_by_type'][msg_type] += 1
-                                return False  # BLOCK suspicious intent
-                        except Exception as e:
-                            logger.debug(f"Intent analysis skipped: {e}")
-                    
-                    # Step 3: Command-specific validation
-                    block_reason = self._validate_command(msg, src_addr)
+                if not should_process:
                     if block_reason:
-                        logger.warning(f"🚫 [{src_ip}] BLOCKED: {block_reason}")
+                        # SECURITY EVENT - Log blocked command
+                        logger.warning("=" * 70)
+                        logger.warning(f"🚨 SECURITY EVENT - COMMAND BLOCKED")
+                        logger.warning(f"   Source IP: {src_ip}:{src_port}")
+                        logger.warning(f"   Sender Type: {sender_type}")
+                        logger.warning(f"   Message Type: {msg_type}")
+                        logger.warning(f"   Reason: {block_reason}")
+                        logger.warning("=" * 70)
                         self.stats['blocked_by_type'][msg_type] += 1
-                        return False
+                        self.stats['attacker_blocked'] += 1
+                    else:
+                        # Silently dropped (e.g., HEARTBEAT from untrusted)
+                        logger.debug(f"[AEGIS] Dropped {msg_type} from {sender_type} {src_ip}")
+                        self.stats['total_dropped'] += 1
+                    
+                    all_forwarded = False
+                    continue
+                
+                # Log accepted GCS command
+                logger.info(f"✅ [{sender_type}] {src_ip}:{src_port} → {msg_type}")
+                self.stats['gcs_commands'] += 1
+                
+                # ============================================================
+                # STEP 5: (Optional) AI-based validation
+                # ============================================================
+                if self.enable_security and self.ai_enabled:
+                    try:
+                        # Analyze command intent using IntentFirewall
+                        intent_result = self.intent_firewall.analyze(msg)
+                        
+                        # Check if intent is suspicious or blocked
+                        if not intent_result.allowed:
+                            logger.warning(f"🚨 AI-BASED BLOCK: {intent_result.intent}")
+                            logger.warning(f"   Reason: {intent_result.reason}")
+                            logger.warning(f"   Message: {msg_type}")
+                            self.stats['blocked_by_type'][msg_type] += 1
+                            all_forwarded = False
+                            continue
+                    except Exception as e:
+                        logger.debug(f"Intent analysis skipped: {e}")
             
             # ============================================================
-            # ✅ Message Approved - Forward to SITL
+            # STEP 6: Forward if all messages approved
             # ============================================================
-            
-            return True
+            return all_forwarded
             
         except Exception as e:
             logger.error(f"❌ Error processing message from {src_ip}: {e}")
             return False
     
     def _extract_features(self, msg, src_addr: Tuple[str, int]) -> dict:
-        """Extract features from MAVLink message for AI analysis"""
+        """Extract features from MAVLink message for AI analysis (NO CLIENT STATE)"""
         features = {
             'msg_type': msg.get_type(),
             'msg_id': msg.get_msgId(),
             'src_system': msg.get_srcSystem(),
             'src_component': msg.get_srcComponent(),
             'timestamp': time.time(),
-            'src_ip': src_addr[0],
-            'msg_rate': self.clients[src_addr]['msg_count'] / 
-                       (time.time() - self.clients[src_addr]['first_seen'] + 0.001)
+            'src_ip': src_addr[0]
         }
         
         # Extract message-specific fields
@@ -304,62 +388,7 @@ class AEGISProxy:
         
         return features
     
-    def _classify_attack(self, msg, features: dict) -> Optional[str]:
-        """Classify type of attack based on message and features"""
-        msg_type = msg.get_type()
-        msg_rate = features.get('msg_rate', 0)
-        
-        # DoS Detection: High message rate
-        if msg_rate > 50:  # More than 50 msgs/sec
-            return f"DoS Flooding ({msg_rate:.1f} msgs/sec)"
-        
-        # GPS Spoofing Detection
-        if msg_type == 'GPS_RAW_INT':
-            lat = features.get('lat', 0)
-            lon = features.get('lon', 0)
-            sats = features.get('satellites', 0)
-            
-            # Check for suspicious GPS values
-            if abs(lat) > 90 or abs(lon) > 180:
-                return "GPS Spoofing (Invalid coordinates)"
-            if sats > 30:  # Unrealistic satellite count
-                return "GPS Spoofing (Impossible satellite count)"
-        
-        # Unauthorized Waypoint Injection
-        if msg_type == 'MISSION_ITEM':
-            # Could check against authorized mission boundaries
-            alt = features.get('alt', 0)
-            if alt > 500:  # Above 500m
-                return "Waypoint Injection (Excessive altitude)"
-        
-        # Unauthorized Command Injection
-        if msg_type == 'COMMAND_LONG':
-            cmd = features.get('command', 0)
-            dangerous_commands = [
-                400,  # MAV_CMD_COMPONENT_ARM_DISARM
-                20,   # MAV_CMD_NAV_RETURN_TO_LAUNCH
-                21,   # MAV_CMD_NAV_LAND
-            ]
-            if cmd in dangerous_commands:
-                return f"Command Injection (Dangerous command: {cmd})"
-        
-        return None
-    
-    def _validate_command(self, msg, src_addr: Tuple[str, int]) -> Optional[str]:
-        """Validate specific command logic"""
-        msg_type = msg.get_type()
-        
-        # Example: Block SET_MODE from unknown sources
-        if msg_type == 'SET_MODE':
-            # Could implement whitelist of authorized IPs
-            pass
-        
-        # Example: Validate RTL commands
-        if msg_type == 'COMMAND_LONG' and msg.command == 20:  # RTL
-            # Could check if conditions are appropriate for RTL
-            logger.info(f"⚠️  RTL command received from {src_addr[0]}")
-        
-        return None  # No blocking by default
+
     
     def forward_to_sitl(self, data: bytes):
         """Forward approved message to SITL"""
@@ -374,11 +403,12 @@ class AEGISProxy:
         logger.info("=" * 80)
         logger.info("📊 AEGIS Proxy Statistics")
         logger.info("=" * 80)
-        logger.info(f"Total Received:  {self.stats['total_received']}")
-        logger.info(f"Total Forwarded: {self.stats['total_forwarded']}")
-        logger.info(f"Total Blocked:   {self.stats['total_blocked']}")
-        logger.info(f"Attacks Detected: {self.stats['attacks_detected']}")
-        logger.info(f"Active Clients:  {len(self.clients)}")
+        logger.info(f"Total Received:    {self.stats['total_received']}")
+        logger.info(f"Total Forwarded:   {self.stats['total_forwarded']}")
+        logger.info(f"Total Blocked:     {self.stats['total_blocked']}")
+        logger.info(f"Total Dropped:     {self.stats['total_dropped']}")
+        logger.info(f"GCS Commands:      {self.stats['gcs_commands']}")
+        logger.info(f"Attacker Blocked:  {self.stats['attacker_blocked']}")
         
         if self.stats['messages_by_type']:
             logger.info("\nMessages by Type:")
@@ -505,6 +535,7 @@ Configuration:
     listen_port = args.listen_port or net_config.get('listen_port', 14560)
     fc_ip = args.fc_ip or net_config.get('fc_ip', '127.0.0.1')
     fc_port = args.fc_port or net_config.get('fc_port', 14550)
+    trusted_gcs_ip = net_config.get('trusted_gcs_ip', '127.0.0.1')
     
     # Print startup banner
     print("="*70)
@@ -513,12 +544,14 @@ Configuration:
     print("="*70)
     print(f"Listening on: {listen_host}:{listen_port}")
     print(f"Forwarding to: {fc_ip}:{fc_port}")
+    print(f"Trusted GCS IP: {trusted_gcs_ip}")
     print(f"Security: {'ENABLED' if not args.no_security else 'DISABLED (pass-through)'}")
     print("="*70)
     print()
     print("⚠️  TRUST BOUNDARY ENFORCEMENT:")
+    print("   - Identity based on SOURCE IP ONLY (not MAVLink fields)")
+    print("   - Only trusted GCS IP can send commands")
     print("   - OS firewall MUST block direct access to :14550")
-    print("   - Only AEGIS can communicate with flight controller")
     print("   - AEGIS enforces decision governance (ALLOW/BLOCK)")
     print("="*70)
     print()
@@ -529,6 +562,7 @@ Configuration:
         listen_port=listen_port,
         fc_ip=fc_ip,
         fc_port=fc_port,
+        trusted_gcs_ip=trusted_gcs_ip,
         enable_security=not args.no_security
     )
     

