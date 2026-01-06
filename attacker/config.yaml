@@ -2,7 +2,7 @@
 # ⚠️ FOR EDUCATIONAL AND DEMONSTRATION PURPOSES ONLY ⚠️
 
 connection:
-  target_host: "192.168.1.100"  # AEGIS proxy IP (Raspberry Pi)
+  target_host: "10.99.160.120"  # AEGIS proxy IP (Raspberry Pi)
   target_port: 14560             # AEGIS listening port
   # For direct SITL attack (bypassing AEGIS): use target_port: 14550
 
