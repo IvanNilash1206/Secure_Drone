@@ -88,3 +88,372 @@
 2026-01-06 18:32:35,017 - INFO - DoS Flooding:       321
 2026-01-06 18:32:35,017 - INFO - Total Attacks:      321
 2026-01-06 18:32:35,017 - INFO - ======================================================================
+2026-01-06 19:03:07,492 - ERROR - Failed to load config: 'charmap' codec can't decode byte 0x8f in position 33: character maps to <undefined>
+2026-01-06 19:03:07,577 - INFO - ======================================================================
+2026-01-06 19:03:07,579 - INFO - ======================================================================
+2026-01-06 19:03:07,583 - INFO - Target: 127.0.0.1:14560
+2026-01-06 19:03:07,586 - INFO - ======================================================================
+2026-01-06 19:05:40,614 - INFO - ======================================================================
+2026-01-06 19:05:40,619 - INFO - ======================================================================
+2026-01-06 19:05:40,619 - INFO - Flooding for 3s at 50 msgs/sec
+2026-01-06 19:05:42,187 - INFO -   Flooding... 50 msgs sent (31.9 msgs/sec)
+2026-01-06 21:37:54,752 - INFO - ======================================================================
+2026-01-06 21:37:54,762 - INFO - ======================================================================
+2026-01-06 21:37:54,762 - INFO - GPS Spoofing:      0
+2026-01-06 21:37:54,762 - INFO - Waypoint Injection: 0
+2026-01-06 21:37:54,762 - INFO - Command Injection:  0
+2026-01-06 21:37:54,762 - INFO - DoS Flooding:       97
+2026-01-06 21:37:54,762 - INFO - Total Attacks:      97
+2026-01-06 21:37:54,762 - INFO - ======================================================================
+2026-01-06 21:38:10,576 - ERROR - Failed to load config: 'charmap' codec can't decode byte 0x8f in position 33: character maps to <undefined>
+2026-01-06 21:38:10,665 - INFO - ======================================================================
+2026-01-06 21:38:10,665 - INFO - ======================================================================
+2026-01-06 21:38:10,671 - INFO - Target: 127.0.0.1:14560
+2026-01-06 21:38:10,675 - INFO - ======================================================================
+2026-01-06 21:38:23,355 - INFO - ======================================================================
+2026-01-06 21:38:23,358 - INFO - ======================================================================
+2026-01-06 21:38:23,358 - INFO - Flooding for 3s at 50 msgs/sec
+2026-01-06 21:38:24,961 - INFO -   Flooding... 50 msgs sent (31.3 msgs/sec)
+2026-01-06 21:42:23,635 - INFO - ======================================================================
+2026-01-06 21:42:23,639 - INFO - ======================================================================
+2026-01-06 21:42:23,639 - INFO - Forcing RTL (Return to Launch)...
+2026-01-06 22:04:48,992 - INFO - ======================================================================
+2026-01-06 22:04:48,996 - INFO - ======================================================================
+2026-01-06 22:04:48,997 - INFO - GPS Spoofing:      0
+2026-01-06 22:04:48,997 - INFO - Waypoint Injection: 0
+2026-01-06 22:04:49,007 - INFO - Command Injection:  1
+2026-01-06 22:04:49,010 - INFO - DoS Flooding:       95
+2026-01-06 22:04:49,012 - INFO - Total Attacks:      96
+2026-01-06 22:04:49,012 - INFO - ======================================================================
+2026-01-06 23:06:44,794 - ERROR - Failed to load config: 'charmap' codec can't decode byte 0x8f in position 33: character maps to <undefined>
+2026-01-06 23:06:44,811 - INFO - ======================================================================
+2026-01-06 23:06:44,818 - INFO - ======================================================================
+2026-01-06 23:06:44,818 - INFO - Target: 127.0.0.1:14560
+2026-01-06 23:06:44,818 - INFO - ======================================================================
+2026-01-06 23:07:03,930 - INFO - ======================================================================
+2026-01-06 23:07:03,934 - INFO - ======================================================================
+2026-01-06 23:07:03,934 - INFO - Injecting waypoint #99: Lat=23456789.0, Lon=2345678.0, Alt=345678.0m
+2026-01-06 23:07:09,471 - INFO - ======================================================================
+2026-01-06 23:07:09,477 - INFO - ======================================================================
+2026-01-06 23:07:09,478 - INFO - Forcing RTL (Return to Launch)...
+2026-01-06 23:07:21,644 - ERROR - Attack error: MAVLinkAttacker.attack_gps_spoofing() got an unexpected keyword argument 'duration'
+2026-01-06 23:07:49,853 - INFO - ======================================================================
+2026-01-06 23:07:49,859 - INFO - ======================================================================
+2026-01-06 23:07:49,860 - INFO - Flooding for 43s at 100 msgs/sec
+2026-01-06 23:07:50,653 - INFO -   Flooding... 50 msgs sent (63.4 msgs/sec)
+2026-01-06 23:07:51,447 - INFO -   Flooding... 100 msgs sent (63.1 msgs/sec)
+2026-01-06 23:07:52,270 - INFO -   Flooding... 150 msgs sent (62.3 msgs/sec)
+2026-01-06 23:07:53,092 - INFO -   Flooding... 200 msgs sent (62.0 msgs/sec)
+2026-01-06 23:07:53,895 - INFO -   Flooding... 250 msgs sent (62.0 msgs/sec)
+2026-01-06 23:07:54,715 - INFO -   Flooding... 300 msgs sent (61.8 msgs/sec)
+2026-01-06 23:07:55,542 - INFO -   Flooding... 350 msgs sent (61.6 msgs/sec)
+2026-01-06 23:07:56,356 - INFO -   Flooding... 400 msgs sent (61.6 msgs/sec)
+2026-01-06 23:07:57,153 - INFO -   Flooding... 450 msgs sent (61.7 msgs/sec)
+2026-01-06 23:07:57,935 - INFO -   Flooding... 500 msgs sent (62.0 msgs/sec)
+2026-01-06 23:07:58,728 - INFO -   Flooding... 550 msgs sent (62.0 msgs/sec)
+2026-01-06 23:07:59,520 - INFO -   Flooding... 600 msgs sent (62.1 msgs/sec)
+2026-01-06 23:08:00,331 - INFO -   Flooding... 650 msgs sent (62.1 msgs/sec)
+2026-01-06 23:08:01,115 - INFO -   Flooding... 700 msgs sent (62.2 msgs/sec)
+2026-01-06 23:08:01,915 - INFO -   Flooding... 750 msgs sent (62.2 msgs/sec)
+2026-01-06 23:08:02,723 - INFO -   Flooding... 800 msgs sent (62.2 msgs/sec)
+2026-01-06 23:08:03,525 - INFO -   Flooding... 850 msgs sent (62.2 msgs/sec)
+2026-01-06 23:08:04,325 - INFO -   Flooding... 900 msgs sent (62.2 msgs/sec)
+2026-01-06 23:08:05,123 - INFO -   Flooding... 950 msgs sent (62.3 msgs/sec)
+2026-01-06 23:08:05,917 - INFO -   Flooding... 1000 msgs sent (62.3 msgs/sec)
+2026-01-06 23:08:06,755 - INFO -   Flooding... 1050 msgs sent (62.2 msgs/sec)
+2026-01-06 23:08:07,546 - INFO -   Flooding... 1100 msgs sent (62.2 msgs/sec)
+2026-01-06 23:08:08,345 - INFO -   Flooding... 1150 msgs sent (62.2 msgs/sec)
+2026-01-06 23:08:09,157 - INFO -   Flooding... 1200 msgs sent (62.2 msgs/sec)
+2026-01-06 23:08:10,007 - INFO -   Flooding... 1250 msgs sent (62.1 msgs/sec)
+2026-01-06 23:08:10,817 - INFO -   Flooding... 1300 msgs sent (62.0 msgs/sec)
+2026-01-06 23:08:11,626 - INFO -   Flooding... 1350 msgs sent (62.0 msgs/sec)
+2026-01-06 23:08:12,445 - INFO -   Flooding... 1400 msgs sent (62.0 msgs/sec)
+2026-01-06 23:08:13,264 - INFO -   Flooding... 1450 msgs sent (62.0 msgs/sec)
+2026-01-06 23:08:14,011 - INFO -   Flooding... 1500 msgs sent (62.1 msgs/sec)
+2026-01-06 23:08:14,818 - INFO -   Flooding... 1550 msgs sent (62.1 msgs/sec)
+2026-01-06 23:08:15,508 - INFO -   Flooding... 1600 msgs sent (62.4 msgs/sec)
+2026-01-06 23:08:16,328 - INFO -   Flooding... 1650 msgs sent (62.3 msgs/sec)
+2026-01-06 23:08:17,049 - INFO -   Flooding... 1700 msgs sent (62.5 msgs/sec)
+2026-01-06 23:08:17,844 - INFO -   Flooding... 1750 msgs sent (62.5 msgs/sec)
+2026-01-06 23:08:18,654 - INFO -   Flooding... 1800 msgs sent (62.5 msgs/sec)
+2026-01-06 23:08:19,456 - INFO -   Flooding... 1850 msgs sent (62.5 msgs/sec)
+2026-01-06 23:08:20,239 - INFO -   Flooding... 1900 msgs sent (62.6 msgs/sec)
+2026-01-06 23:08:21,062 - INFO -   Flooding... 1950 msgs sent (62.5 msgs/sec)
+2026-01-06 23:08:21,902 - INFO -   Flooding... 2000 msgs sent (62.4 msgs/sec)
+2026-01-06 23:08:22,723 - INFO -   Flooding... 2050 msgs sent (62.4 msgs/sec)
+2026-01-06 23:08:23,498 - INFO -   Flooding... 2100 msgs sent (62.4 msgs/sec)
+2026-01-06 23:08:24,311 - INFO -   Flooding... 2150 msgs sent (62.4 msgs/sec)
+2026-01-06 23:08:25,091 - INFO -   Flooding... 2200 msgs sent (62.5 msgs/sec)
+2026-01-06 23:08:25,890 - INFO -   Flooding... 2250 msgs sent (62.5 msgs/sec)
+2026-01-06 23:08:26,709 - INFO -   Flooding... 2300 msgs sent (62.4 msgs/sec)
+2026-01-06 23:08:27,513 - INFO -   Flooding... 2350 msgs sent (62.4 msgs/sec)
+2026-01-06 23:08:28,338 - INFO -   Flooding... 2400 msgs sent (62.4 msgs/sec)
+2026-01-06 23:08:29,112 - INFO -   Flooding... 2450 msgs sent (62.4 msgs/sec)
+2026-01-06 23:08:29,916 - INFO -   Flooding... 2500 msgs sent (62.4 msgs/sec)
+2026-01-06 23:08:30,661 - INFO -   Flooding... 2550 msgs sent (62.5 msgs/sec)
+2026-01-06 23:08:31,495 - INFO -   Flooding... 2600 msgs sent (62.5 msgs/sec)
+2026-01-06 23:08:32,305 - INFO -   Flooding... 2650 msgs sent (62.4 msgs/sec)
+2026-01-06 23:24:37,730 - INFO - ======================================================================
+2026-01-06 23:24:37,730 - INFO - ======================================================================
+2026-01-06 23:24:37,730 - INFO - GPS Spoofing:      0
+2026-01-06 23:24:37,730 - INFO - Waypoint Injection: 1
+2026-01-06 23:24:37,736 - INFO - Command Injection:  1
+2026-01-06 23:24:37,736 - INFO - DoS Flooding:       2686
+2026-01-06 23:24:37,736 - INFO - Total Attacks:      2688
+2026-01-06 23:24:37,736 - INFO - ======================================================================
+2026-01-06 23:26:57,321 - ERROR - Failed to load config: 'charmap' codec can't decode byte 0x8f in position 33: character maps to <undefined>
+2026-01-06 23:26:57,328 - INFO - ======================================================================
+2026-01-06 23:26:57,330 - INFO - ======================================================================
+2026-01-06 23:26:57,331 - INFO - Target: 127.0.0.1:14560
+2026-01-06 23:26:57,338 - INFO - ======================================================================
+2026-01-06 23:26:59,343 - INFO - [ATTACKER] Sent HEARTBEAT to 127.0.0.1:14560 (21 bytes)
+2026-01-06 23:27:29,825 - INFO - ======================================================================
+2026-01-06 23:27:29,829 - INFO - ======================================================================
+2026-01-06 23:27:29,829 - INFO - Flooding for 30s at 100 msgs/sec
+2026-01-06 23:27:30,622 - INFO -   Flooding... 50 msgs sent (63.4 msgs/sec)
+2026-01-06 23:27:30,622 - INFO - [ATTACKER] Sent HEARTBEAT #50 to 127.0.0.1:14560
+2026-01-06 23:27:31,401 - INFO -   Flooding... 100 msgs sent (63.8 msgs/sec)
+2026-01-06 23:27:31,402 - INFO - [ATTACKER] Sent HEARTBEAT #100 to 127.0.0.1:14560
+2026-01-06 23:27:32,179 - INFO -   Flooding... 150 msgs sent (63.9 msgs/sec)
+2026-01-06 23:27:32,181 - INFO - [ATTACKER] Sent HEARTBEAT #150 to 127.0.0.1:14560
+2026-01-06 23:27:32,959 - INFO -   Flooding... 200 msgs sent (64.0 msgs/sec)
+2026-01-06 23:27:32,960 - INFO - [ATTACKER] Sent HEARTBEAT #200 to 127.0.0.1:14560
+2026-01-06 23:27:33,739 - INFO -   Flooding... 250 msgs sent (64.0 msgs/sec)
+2026-01-06 23:27:33,741 - INFO - [ATTACKER] Sent HEARTBEAT #250 to 127.0.0.1:14560
+2026-01-06 23:27:34,517 - INFO -   Flooding... 300 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:34,518 - INFO - [ATTACKER] Sent HEARTBEAT #300 to 127.0.0.1:14560
+2026-01-06 23:27:35,293 - INFO -   Flooding... 350 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:35,294 - INFO - [ATTACKER] Sent HEARTBEAT #350 to 127.0.0.1:14560
+2026-01-06 23:27:36,072 - INFO -   Flooding... 400 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:36,073 - INFO - [ATTACKER] Sent HEARTBEAT #400 to 127.0.0.1:14560
+2026-01-06 23:27:36,852 - INFO -   Flooding... 450 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:36,854 - INFO - [ATTACKER] Sent HEARTBEAT #450 to 127.0.0.1:14560
+2026-01-06 23:27:37,637 - INFO -   Flooding... 500 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:37,638 - INFO - [ATTACKER] Sent HEARTBEAT #500 to 127.0.0.1:14560
+2026-01-06 23:27:38,416 - INFO -   Flooding... 550 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:38,419 - INFO - [ATTACKER] Sent HEARTBEAT #550 to 127.0.0.1:14560
+2026-01-06 23:27:39,201 - INFO -   Flooding... 600 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:39,202 - INFO - [ATTACKER] Sent HEARTBEAT #600 to 127.0.0.1:14560
+2026-01-06 23:27:39,979 - INFO -   Flooding... 650 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:39,979 - INFO - [ATTACKER] Sent HEARTBEAT #650 to 127.0.0.1:14560
+2026-01-06 23:27:40,759 - INFO -   Flooding... 700 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:40,761 - INFO - [ATTACKER] Sent HEARTBEAT #700 to 127.0.0.1:14560
+2026-01-06 23:27:41,538 - INFO -   Flooding... 750 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:41,540 - INFO - [ATTACKER] Sent HEARTBEAT #750 to 127.0.0.1:14560
+2026-01-06 23:27:42,321 - INFO -   Flooding... 800 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:42,323 - INFO - [ATTACKER] Sent HEARTBEAT #800 to 127.0.0.1:14560
+2026-01-06 23:27:43,102 - INFO -   Flooding... 850 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:43,103 - INFO - [ATTACKER] Sent HEARTBEAT #850 to 127.0.0.1:14560
+2026-01-06 23:27:43,877 - INFO -   Flooding... 900 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:43,878 - INFO - [ATTACKER] Sent HEARTBEAT #900 to 127.0.0.1:14560
+2026-01-06 23:27:44,652 - INFO -   Flooding... 950 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:44,653 - INFO - [ATTACKER] Sent HEARTBEAT #950 to 127.0.0.1:14560
+2026-01-06 23:27:45,430 - INFO -   Flooding... 1000 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:45,431 - INFO - [ATTACKER] Sent HEARTBEAT #1000 to 127.0.0.1:14560
+2026-01-06 23:27:46,210 - INFO -   Flooding... 1050 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:46,212 - INFO - [ATTACKER] Sent HEARTBEAT #1050 to 127.0.0.1:14560
+2026-01-06 23:27:46,987 - INFO -   Flooding... 1100 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:46,988 - INFO - [ATTACKER] Sent HEARTBEAT #1100 to 127.0.0.1:14560
+2026-01-06 23:27:47,766 - INFO -   Flooding... 1150 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:47,766 - INFO - [ATTACKER] Sent HEARTBEAT #1150 to 127.0.0.1:14560
+2026-01-06 23:27:48,543 - INFO -   Flooding... 1200 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:48,544 - INFO - [ATTACKER] Sent HEARTBEAT #1200 to 127.0.0.1:14560
+2026-01-06 23:27:49,321 - INFO -   Flooding... 1250 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:49,323 - INFO - [ATTACKER] Sent HEARTBEAT #1250 to 127.0.0.1:14560
+2026-01-06 23:27:50,102 - INFO -   Flooding... 1300 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:50,102 - INFO - [ATTACKER] Sent HEARTBEAT #1300 to 127.0.0.1:14560
+2026-01-06 23:27:50,881 - INFO -   Flooding... 1350 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:50,882 - INFO - [ATTACKER] Sent HEARTBEAT #1350 to 127.0.0.1:14560
+2026-01-06 23:27:51,657 - INFO -   Flooding... 1400 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:51,658 - INFO - [ATTACKER] Sent HEARTBEAT #1400 to 127.0.0.1:14560
+2026-01-06 23:27:52,439 - INFO -   Flooding... 1450 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:52,439 - INFO - [ATTACKER] Sent HEARTBEAT #1450 to 127.0.0.1:14560
+2026-01-06 23:27:53,218 - INFO -   Flooding... 1500 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:53,218 - INFO - [ATTACKER] Sent HEARTBEAT #1500 to 127.0.0.1:14560
+2026-01-06 23:27:53,996 - INFO -   Flooding... 1550 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:53,996 - INFO - [ATTACKER] Sent HEARTBEAT #1550 to 127.0.0.1:14560
+2026-01-06 23:27:54,775 - INFO -   Flooding... 1600 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:54,775 - INFO - [ATTACKER] Sent HEARTBEAT #1600 to 127.0.0.1:14560
+2026-01-06 23:27:55,554 - INFO -   Flooding... 1650 msgs sent (64.2 msgs/sec)
+2026-01-06 23:27:55,554 - INFO - [ATTACKER] Sent HEARTBEAT #1650 to 127.0.0.1:14560
+2026-01-06 23:27:56,367 - INFO -   Flooding... 1700 msgs sent (64.1 msgs/sec)
+2026-01-06 23:27:56,369 - INFO - [ATTACKER] Sent HEARTBEAT #1700 to 127.0.0.1:14560
+2026-01-06 23:27:57,077 - INFO -   Flooding... 1750 msgs sent (64.2 msgs/sec)
+2026-01-06 23:27:57,077 - INFO - [ATTACKER] Sent HEARTBEAT #1750 to 127.0.0.1:14560
+2026-01-06 23:27:57,788 - INFO -   Flooding... 1800 msgs sent (64.4 msgs/sec)
+2026-01-06 23:27:57,788 - INFO - [ATTACKER] Sent HEARTBEAT #1800 to 127.0.0.1:14560
+2026-01-06 23:27:58,554 - INFO -   Flooding... 1850 msgs sent (64.4 msgs/sec)
+2026-01-06 23:27:58,554 - INFO - [ATTACKER] Sent HEARTBEAT #1850 to 127.0.0.1:14560
+2026-01-06 23:27:59,337 - INFO -   Flooding... 1900 msgs sent (64.4 msgs/sec)
+2026-01-06 23:27:59,340 - INFO - [ATTACKER] Sent HEARTBEAT #1900 to 127.0.0.1:14560
+2026-01-06 23:29:05,564 - INFO - ======================================================================
+2026-01-06 23:29:05,608 - INFO - ======================================================================
+2026-01-06 23:29:05,608 - INFO - Flooding for 30s at 100 msgs/sec
+2026-01-06 23:29:06,427 - INFO -   Flooding... 50 msgs sent (61.3 msgs/sec)
+2026-01-06 23:29:06,427 - INFO - [ATTACKER] Sent HEARTBEAT #50 to 127.0.0.1:14560
+2026-01-06 23:29:07,191 - INFO -   Flooding... 100 msgs sent (63.3 msgs/sec)
+2026-01-06 23:29:07,193 - INFO - [ATTACKER] Sent HEARTBEAT #100 to 127.0.0.1:14560
+2026-01-06 23:29:07,950 - INFO -   Flooding... 150 msgs sent (64.2 msgs/sec)
+2026-01-06 23:29:07,950 - INFO - [ATTACKER] Sent HEARTBEAT #150 to 127.0.0.1:14560
+2026-01-06 23:29:08,665 - INFO -   Flooding... 200 msgs sent (65.5 msgs/sec)
+2026-01-06 23:29:08,665 - INFO - [ATTACKER] Sent HEARTBEAT #200 to 127.0.0.1:14560
+2026-01-06 23:29:09,402 - INFO -   Flooding... 250 msgs sent (65.9 msgs/sec)
+2026-01-06 23:29:09,402 - INFO - [ATTACKER] Sent HEARTBEAT #250 to 127.0.0.1:14560
+2026-01-06 23:29:10,135 - INFO -   Flooding... 300 msgs sent (66.3 msgs/sec)
+2026-01-06 23:29:10,135 - INFO - [ATTACKER] Sent HEARTBEAT #300 to 127.0.0.1:14560
+2026-01-06 23:29:10,861 - INFO -   Flooding... 350 msgs sent (66.7 msgs/sec)
+2026-01-06 23:29:10,862 - INFO - [ATTACKER] Sent HEARTBEAT #350 to 127.0.0.1:14560
+2026-01-06 23:29:11,611 - INFO -   Flooding... 400 msgs sent (66.7 msgs/sec)
+2026-01-06 23:29:11,611 - INFO - [ATTACKER] Sent HEARTBEAT #400 to 127.0.0.1:14560
+2026-01-06 23:29:12,364 - INFO -   Flooding... 450 msgs sent (66.6 msgs/sec)
+2026-01-06 23:29:12,365 - INFO - [ATTACKER] Sent HEARTBEAT #450 to 127.0.0.1:14560
+2026-01-06 23:29:13,148 - INFO -   Flooding... 500 msgs sent (66.3 msgs/sec)
+2026-01-06 23:29:13,148 - INFO - [ATTACKER] Sent HEARTBEAT #500 to 127.0.0.1:14560
+2026-01-06 23:29:13,976 - INFO -   Flooding... 550 msgs sent (65.8 msgs/sec)
+2026-01-06 23:29:13,977 - INFO - [ATTACKER] Sent HEARTBEAT #550 to 127.0.0.1:14560
+2026-01-06 23:29:14,728 - INFO -   Flooding... 600 msgs sent (65.8 msgs/sec)
+2026-01-06 23:29:14,729 - INFO - [ATTACKER] Sent HEARTBEAT #600 to 127.0.0.1:14560
+2026-01-06 23:29:15,468 - INFO -   Flooding... 650 msgs sent (65.9 msgs/sec)
+2026-01-06 23:29:15,468 - INFO - [ATTACKER] Sent HEARTBEAT #650 to 127.0.0.1:14560
+2026-01-06 23:29:16,300 - INFO -   Flooding... 700 msgs sent (65.5 msgs/sec)
+2026-01-06 23:29:16,300 - INFO - [ATTACKER] Sent HEARTBEAT #700 to 127.0.0.1:14560
+2026-01-06 23:29:17,049 - INFO -   Flooding... 750 msgs sent (65.6 msgs/sec)
+2026-01-06 23:29:17,049 - INFO - [ATTACKER] Sent HEARTBEAT #750 to 127.0.0.1:14560
+2026-01-06 23:29:17,766 - INFO -   Flooding... 800 msgs sent (65.8 msgs/sec)
+2026-01-06 23:29:17,766 - INFO - [ATTACKER] Sent HEARTBEAT #800 to 127.0.0.1:14560
+2026-01-06 23:29:18,522 - INFO -   Flooding... 850 msgs sent (65.8 msgs/sec)
+2026-01-06 23:29:18,522 - INFO - [ATTACKER] Sent HEARTBEAT #850 to 127.0.0.1:14560
+2026-01-06 23:29:19,216 - INFO -   Flooding... 900 msgs sent (66.2 msgs/sec)
+2026-01-06 23:29:19,216 - INFO - [ATTACKER] Sent HEARTBEAT #900 to 127.0.0.1:14560
+2026-01-06 23:29:19,967 - INFO -   Flooding... 950 msgs sent (66.2 msgs/sec)
+2026-01-06 23:29:19,967 - INFO - [ATTACKER] Sent HEARTBEAT #950 to 127.0.0.1:14560
+2026-01-06 23:29:20,746 - INFO -   Flooding... 1000 msgs sent (66.1 msgs/sec)
+2026-01-06 23:29:20,746 - INFO - [ATTACKER] Sent HEARTBEAT #1000 to 127.0.0.1:14560
+2026-01-06 23:29:21,450 - INFO -   Flooding... 1050 msgs sent (66.3 msgs/sec)
+2026-01-06 23:29:21,452 - INFO - [ATTACKER] Sent HEARTBEAT #1050 to 127.0.0.1:14560
+2026-01-06 23:29:22,167 - INFO -   Flooding... 1100 msgs sent (66.4 msgs/sec)
+2026-01-06 23:29:22,168 - INFO - [ATTACKER] Sent HEARTBEAT #1100 to 127.0.0.1:14560
+2026-01-06 23:29:22,890 - INFO -   Flooding... 1150 msgs sent (66.6 msgs/sec)
+2026-01-06 23:29:22,890 - INFO - [ATTACKER] Sent HEARTBEAT #1150 to 127.0.0.1:14560
+2026-01-06 23:29:23,605 - INFO -   Flooding... 1200 msgs sent (66.7 msgs/sec)
+2026-01-06 23:29:23,606 - INFO - [ATTACKER] Sent HEARTBEAT #1200 to 127.0.0.1:14560
+2026-01-06 23:29:24,347 - INFO -   Flooding... 1250 msgs sent (66.7 msgs/sec)
+2026-01-06 23:29:24,347 - INFO - [ATTACKER] Sent HEARTBEAT #1250 to 127.0.0.1:14560
+2026-01-06 23:29:25,063 - INFO -   Flooding... 1300 msgs sent (66.8 msgs/sec)
+2026-01-06 23:29:25,064 - INFO - [ATTACKER] Sent HEARTBEAT #1300 to 127.0.0.1:14560
+2026-01-06 23:29:25,840 - INFO -   Flooding... 1350 msgs sent (66.7 msgs/sec)
+2026-01-06 23:29:25,840 - INFO - [ATTACKER] Sent HEARTBEAT #1350 to 127.0.0.1:14560
+2026-01-06 23:29:26,549 - INFO -   Flooding... 1400 msgs sent (66.9 msgs/sec)
+2026-01-06 23:29:26,549 - INFO - [ATTACKER] Sent HEARTBEAT #1400 to 127.0.0.1:14560
+2026-01-06 23:29:27,243 - INFO -   Flooding... 1450 msgs sent (67.0 msgs/sec)
+2026-01-06 23:29:27,245 - INFO - [ATTACKER] Sent HEARTBEAT #1450 to 127.0.0.1:14560
+2026-01-06 23:29:27,981 - INFO -   Flooding... 1500 msgs sent (67.1 msgs/sec)
+2026-01-06 23:29:27,981 - INFO - [ATTACKER] Sent HEARTBEAT #1500 to 127.0.0.1:14560
+2026-01-06 23:29:28,732 - INFO -   Flooding... 1550 msgs sent (67.0 msgs/sec)
+2026-01-06 23:29:28,732 - INFO - [ATTACKER] Sent HEARTBEAT #1550 to 127.0.0.1:14560
+2026-01-06 23:29:29,497 - INFO -   Flooding... 1600 msgs sent (67.0 msgs/sec)
+2026-01-06 23:29:29,497 - INFO - [ATTACKER] Sent HEARTBEAT #1600 to 127.0.0.1:14560
+2026-01-06 23:29:30,278 - INFO -   Flooding... 1650 msgs sent (66.9 msgs/sec)
+2026-01-06 23:29:30,278 - INFO - [ATTACKER] Sent HEARTBEAT #1650 to 127.0.0.1:14560
+2026-01-06 23:29:31,090 - INFO -   Flooding... 1700 msgs sent (66.7 msgs/sec)
+2026-01-06 23:29:31,090 - INFO - [ATTACKER] Sent HEARTBEAT #1700 to 127.0.0.1:14560
+2026-01-06 23:29:31,862 - INFO -   Flooding... 1750 msgs sent (66.7 msgs/sec)
+2026-01-06 23:29:31,862 - INFO - [ATTACKER] Sent HEARTBEAT #1750 to 127.0.0.1:14560
+2026-01-06 23:29:32,676 - INFO -   Flooding... 1800 msgs sent (66.5 msgs/sec)
+2026-01-06 23:29:32,676 - INFO - [ATTACKER] Sent HEARTBEAT #1800 to 127.0.0.1:14560
+2026-01-06 23:29:33,488 - INFO -   Flooding... 1850 msgs sent (66.4 msgs/sec)
+2026-01-06 23:29:33,488 - INFO - [ATTACKER] Sent HEARTBEAT #1850 to 127.0.0.1:14560
+2026-01-06 23:29:34,301 - INFO -   Flooding... 1900 msgs sent (66.2 msgs/sec)
+2026-01-06 23:29:34,301 - INFO - [ATTACKER] Sent HEARTBEAT #1900 to 127.0.0.1:14560
+2026-01-06 23:29:35,114 - INFO -   Flooding... 1950 msgs sent (66.1 msgs/sec)
+2026-01-06 23:29:35,114 - INFO - [ATTACKER] Sent HEARTBEAT #1950 to 127.0.0.1:14560
+2026-01-06 23:30:17,318 - INFO - ======================================================================
+2026-01-06 23:30:17,353 - INFO - ======================================================================
+2026-01-06 23:30:17,353 - INFO - Forcing RTL (Return to Launch)...
+2026-01-06 23:30:17,353 - INFO - [ATTACKER] Sent COMMAND_LONG (RTL) to 127.0.0.1:14560 (44 bytes)
+2026-01-06 23:30:38,802 - INFO - ======================================================================
+2026-01-06 23:30:38,802 - INFO - ======================================================================
+2026-01-06 23:30:38,815 - INFO - Flooding for 4s at 30 msgs/sec
+2026-01-06 23:30:41,147 - INFO -   Flooding... 50 msgs sent (21.5 msgs/sec)
+2026-01-06 23:30:41,147 - INFO - [ATTACKER] Sent HEARTBEAT #50 to 127.0.0.1:14560
+2026-01-06 23:31:03,754 - INFO - ======================================================================
+2026-01-06 23:31:03,759 - INFO - ======================================================================
+2026-01-06 23:31:03,759 - INFO - Flooding for 30s at 100 msgs/sec
+2026-01-06 23:31:04,562 - INFO -   Flooding... 50 msgs sent (62.6 msgs/sec)
+2026-01-06 23:31:04,562 - INFO - [ATTACKER] Sent HEARTBEAT #50 to 127.0.0.1:14560
+2026-01-06 23:31:05,335 - INFO -   Flooding... 100 msgs sent (63.6 msgs/sec)
+2026-01-06 23:31:05,337 - INFO - [ATTACKER] Sent HEARTBEAT #100 to 127.0.0.1:14560
+2026-01-06 23:31:06,044 - INFO -   Flooding... 150 msgs sent (65.8 msgs/sec)
+2026-01-06 23:31:06,044 - INFO - [ATTACKER] Sent HEARTBEAT #150 to 127.0.0.1:14560
+2026-01-06 23:31:06,835 - INFO -   Flooding... 200 msgs sent (65.1 msgs/sec)
+2026-01-06 23:31:06,835 - INFO - [ATTACKER] Sent HEARTBEAT #200 to 127.0.0.1:14560
+2026-01-06 23:31:07,513 - INFO -   Flooding... 250 msgs sent (66.7 msgs/sec)
+2026-01-06 23:31:07,513 - INFO - [ATTACKER] Sent HEARTBEAT #250 to 127.0.0.1:14560
+2026-01-06 23:31:08,242 - INFO -   Flooding... 300 msgs sent (67.0 msgs/sec)
+2026-01-06 23:31:08,244 - INFO - [ATTACKER] Sent HEARTBEAT #300 to 127.0.0.1:14560
+2026-01-06 23:31:09,018 - INFO -   Flooding... 350 msgs sent (66.6 msgs/sec)
+2026-01-06 23:31:09,018 - INFO - [ATTACKER] Sent HEARTBEAT #350 to 127.0.0.1:14560
+2026-01-06 23:31:09,789 - INFO -   Flooding... 400 msgs sent (66.4 msgs/sec)
+2026-01-06 23:31:09,790 - INFO - [ATTACKER] Sent HEARTBEAT #400 to 127.0.0.1:14560
+2026-01-06 23:31:10,531 - INFO -   Flooding... 450 msgs sent (66.5 msgs/sec)
+2026-01-06 23:31:10,532 - INFO - [ATTACKER] Sent HEARTBEAT #450 to 127.0.0.1:14560
+2026-01-06 23:31:11,312 - INFO -   Flooding... 500 msgs sent (66.2 msgs/sec)
+2026-01-06 23:31:11,313 - INFO - [ATTACKER] Sent HEARTBEAT #500 to 127.0.0.1:14560
+2026-01-06 23:31:12,109 - INFO -   Flooding... 550 msgs sent (65.9 msgs/sec)
+2026-01-06 23:31:12,109 - INFO - [ATTACKER] Sent HEARTBEAT #550 to 127.0.0.1:14560
+2026-01-06 23:31:12,895 - INFO -   Flooding... 600 msgs sent (65.7 msgs/sec)
+2026-01-06 23:31:12,895 - INFO - [ATTACKER] Sent HEARTBEAT #600 to 127.0.0.1:14560
+2026-01-06 23:31:13,706 - INFO -   Flooding... 650 msgs sent (65.4 msgs/sec)
+2026-01-06 23:31:13,706 - INFO - [ATTACKER] Sent HEARTBEAT #650 to 127.0.0.1:14560
+2026-01-06 23:31:14,450 - INFO -   Flooding... 700 msgs sent (65.5 msgs/sec)
+2026-01-06 23:31:14,450 - INFO - [ATTACKER] Sent HEARTBEAT #700 to 127.0.0.1:14560
+2026-01-06 23:31:15,258 - INFO -   Flooding... 750 msgs sent (65.2 msgs/sec)
+2026-01-06 23:31:15,258 - INFO - [ATTACKER] Sent HEARTBEAT #750 to 127.0.0.1:14560
+2026-01-06 23:31:15,997 - INFO -   Flooding... 800 msgs sent (65.4 msgs/sec)
+2026-01-06 23:31:15,999 - INFO - [ATTACKER] Sent HEARTBEAT #800 to 127.0.0.1:14560
+2026-01-06 23:31:16,782 - INFO -   Flooding... 850 msgs sent (65.3 msgs/sec)
+2026-01-06 23:31:16,782 - INFO - [ATTACKER] Sent HEARTBEAT #850 to 127.0.0.1:14560
+2026-01-06 23:31:17,518 - INFO -   Flooding... 900 msgs sent (65.4 msgs/sec)
+2026-01-06 23:31:17,519 - INFO - [ATTACKER] Sent HEARTBEAT #900 to 127.0.0.1:14560
+2026-01-06 23:31:18,260 - INFO -   Flooding... 950 msgs sent (65.5 msgs/sec)
+2026-01-06 23:31:18,261 - INFO - [ATTACKER] Sent HEARTBEAT #950 to 127.0.0.1:14560
+2026-01-06 23:31:18,981 - INFO -   Flooding... 1000 msgs sent (65.7 msgs/sec)
+2026-01-06 23:31:18,981 - INFO - [ATTACKER] Sent HEARTBEAT #1000 to 127.0.0.1:14560
+2026-01-06 23:31:19,748 - INFO -   Flooding... 1050 msgs sent (65.7 msgs/sec)
+2026-01-06 23:31:19,748 - INFO - [ATTACKER] Sent HEARTBEAT #1050 to 127.0.0.1:14560
+2026-01-06 23:31:20,480 - INFO -   Flooding... 1100 msgs sent (65.8 msgs/sec)
+2026-01-06 23:31:20,481 - INFO - [ATTACKER] Sent HEARTBEAT #1100 to 127.0.0.1:14560
+2026-01-06 23:31:21,189 - INFO -   Flooding... 1150 msgs sent (66.0 msgs/sec)
+2026-01-06 23:31:21,190 - INFO - [ATTACKER] Sent HEARTBEAT #1150 to 127.0.0.1:14560
+2026-01-06 23:31:21,925 - INFO -   Flooding... 1200 msgs sent (66.1 msgs/sec)
+2026-01-06 23:31:21,926 - INFO - [ATTACKER] Sent HEARTBEAT #1200 to 127.0.0.1:14560
+2026-01-06 23:31:22,642 - INFO -   Flooding... 1250 msgs sent (66.2 msgs/sec)
+2026-01-06 23:31:22,642 - INFO - [ATTACKER] Sent HEARTBEAT #1250 to 127.0.0.1:14560
+2026-01-06 23:31:23,401 - INFO -   Flooding... 1300 msgs sent (66.2 msgs/sec)
+2026-01-06 23:31:23,401 - INFO - [ATTACKER] Sent HEARTBEAT #1300 to 127.0.0.1:14560
+2026-01-06 23:31:24,129 - INFO -   Flooding... 1350 msgs sent (66.3 msgs/sec)
+2026-01-06 23:31:24,129 - INFO - [ATTACKER] Sent HEARTBEAT #1350 to 127.0.0.1:14560
+2026-01-06 23:31:24,929 - INFO -   Flooding... 1400 msgs sent (66.1 msgs/sec)
+2026-01-06 23:31:24,929 - INFO - [ATTACKER] Sent HEARTBEAT #1400 to 127.0.0.1:14560
+2026-01-06 23:31:25,710 - INFO -   Flooding... 1450 msgs sent (66.1 msgs/sec)
+2026-01-06 23:31:25,710 - INFO - [ATTACKER] Sent HEARTBEAT #1450 to 127.0.0.1:14560
+2026-01-06 23:31:26,492 - INFO -   Flooding... 1500 msgs sent (66.0 msgs/sec)
+2026-01-06 23:31:26,493 - INFO - [ATTACKER] Sent HEARTBEAT #1500 to 127.0.0.1:14560
+2026-01-06 23:31:27,262 - INFO -   Flooding... 1550 msgs sent (66.0 msgs/sec)
+2026-01-06 23:31:27,262 - INFO - [ATTACKER] Sent HEARTBEAT #1550 to 127.0.0.1:14560
+2026-01-06 23:31:28,056 - INFO -   Flooding... 1600 msgs sent (65.9 msgs/sec)
+2026-01-06 23:31:28,056 - INFO - [ATTACKER] Sent HEARTBEAT #1600 to 127.0.0.1:14560
+2026-01-06 23:31:28,838 - INFO -   Flooding... 1650 msgs sent (65.8 msgs/sec)
+2026-01-06 23:31:28,838 - INFO - [ATTACKER] Sent HEARTBEAT #1650 to 127.0.0.1:14560
+2026-01-06 23:31:29,604 - INFO -   Flooding... 1700 msgs sent (65.8 msgs/sec)
+2026-01-06 23:31:29,604 - INFO - [ATTACKER] Sent HEARTBEAT #1700 to 127.0.0.1:14560
+2026-01-06 23:31:30,416 - INFO -   Flooding... 1750 msgs sent (65.7 msgs/sec)
+2026-01-06 23:31:30,417 - INFO - [ATTACKER] Sent HEARTBEAT #1750 to 127.0.0.1:14560
+2026-01-06 23:31:31,198 - INFO -   Flooding... 1800 msgs sent (65.6 msgs/sec)
+2026-01-06 23:31:31,198 - INFO - [ATTACKER] Sent HEARTBEAT #1800 to 127.0.0.1:14560
+2026-01-06 23:31:31,963 - INFO -   Flooding... 1850 msgs sent (65.6 msgs/sec)
+2026-01-06 23:31:31,964 - INFO - [ATTACKER] Sent HEARTBEAT #1850 to 127.0.0.1:14560
+2026-01-06 23:31:32,677 - INFO -   Flooding... 1900 msgs sent (65.7 msgs/sec)
+2026-01-06 23:31:32,678 - INFO - [ATTACKER] Sent HEARTBEAT #1900 to 127.0.0.1:14560
+2026-01-06 23:31:33,459 - INFO -   Flooding... 1950 msgs sent (65.7 msgs/sec)
+2026-01-06 23:31:33,459 - INFO - [ATTACKER] Sent HEARTBEAT #1950 to 127.0.0.1:14560

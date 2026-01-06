@@ -22,3 +22,4 @@ rad.json
 TestResults.xml
 .pytest_cache/
 __pycache__/
+venv/

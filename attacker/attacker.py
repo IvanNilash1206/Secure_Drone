@@ -48,15 +48,28 @@ except ImportError:
     print("Install with: pip install pymavlink")
     sys.exit(1)
 
+# Fix Windows console encoding for emoji support
+# Wrap stdout with UTF-8 encoding to prevent UnicodeEncodeError
+if sys.platform == 'win32':
+    import codecs
+    sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer, 'strict')
+    sys.stderr = codecs.getwriter('utf-8')(sys.stderr.buffer, 'strict')
+
 # Configure logging
 os.makedirs('logs', exist_ok=True)
+
+# Create handlers with UTF-8 encoding to support emoji on Windows
+file_handler = logging.FileHandler('logs/attacker.log', encoding='utf-8')
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+
+stream_handler = logging.StreamHandler(sys.stdout)
+stream_handler.setLevel(logging.INFO)
+stream_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('logs/attacker.log'),
-        logging.StreamHandler(sys.stdout)
-    ]
+    handlers=[file_handler, stream_handler]
 )
 logger = logging.getLogger('Attacker')
 
