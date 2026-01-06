@@ -205,55 +205,57 @@ class AEGISProxy:
         # Log RAW packet reception
         logger.info(f"[AEGIS][RAW] Received {len(data)} bytes from {src_ip}:{src_port}")
         
-        # Parse MAVLink message
+        # Parse MAVLink message using stream-safe buffer parsing
         try:
-            # Decode MAVLink packet manually (no network binding)
-            msg = self.mav.decode(data)
+            # Use parse_buffer for stream-safe parsing (handles partial/multiple frames)
+            messages = self.mav.parse_buffer(data)
             
-            if msg is None:
-                logger.warning(f"⚠️  [{src_ip}] Invalid MAVLink message (length: {len(data)})")
+            if not messages:
+                logger.warning(f"[AEGIS] Received UDP packet but no valid MAVLink frame parsed from {src_ip}:{src_port}")
                 return False
             
-            msg_type = msg.get_type()
-            self.stats['messages_by_type'][msg_type] += 1
-            
-            # Log incoming message
-            logger.info(f"📨 [{src_ip}:{src_port}] → {msg_type} (ID: {msg.get_msgId()})")
-            
-            # ============================================================
-            # 🔒 SECURITY CHECKPOINT - Insert Security Logic Here
-            # ============================================================
-            
-            if self.enable_security:
-                # Step 1: Crypto validation (if encrypted)
-                if self.crypto_enabled:
-                    # Check for encrypted payload (custom implementation)
-                    # For now, we assume messages are plaintext MAVLink
-                    pass
+            # Process each parsed MAVLink message
+            for msg in messages:
+                msg_type = msg.get_type()
+                self.stats['messages_by_type'][msg_type] += 1
                 
-                # Step 2: AI-based anomaly detection and intent classification
-                if self.ai_enabled:
-                    try:
-                        # Analyze command intent using IntentFirewall
-                        intent_result = self.intent_firewall.analyze(msg)
-                        
-                        # Check if intent is suspicious or blocked
-                        if not intent_result.allowed:
-                            self.stats['attacks_detected'] += 1
-                            logger.warning(f"🚨 [{src_ip}] INTENT BLOCKED: {intent_result.intent}")
-                            logger.warning(f"   Reason: {intent_result.reason}")
-                            logger.warning(f"   Message: {msg_type}")
-                            self.stats['blocked_by_type'][msg_type] += 1
-                            return False  # BLOCK suspicious intent
-                    except Exception as e:
-                        logger.debug(f"Intent analysis skipped: {e}")
+                # Log incoming message
+                logger.info(f"📨 [{src_ip}:{src_port}] → {msg_type} (ID: {msg.get_msgId()})")
                 
-                # Step 3: Command-specific validation
-                block_reason = self._validate_command(msg, src_addr)
-                if block_reason:
-                    logger.warning(f"🚫 [{src_ip}] BLOCKED: {block_reason}")
-                    self.stats['blocked_by_type'][msg_type] += 1
-                    return False
+                # ============================================================
+                # 🔒 SECURITY CHECKPOINT - Insert Security Logic Here
+                # ============================================================
+                
+                if self.enable_security:
+                    # Step 1: Crypto validation (if encrypted)
+                    if self.crypto_enabled:
+                        # Check for encrypted payload (custom implementation)
+                        # For now, we assume messages are plaintext MAVLink
+                        pass
+                    
+                    # Step 2: AI-based anomaly detection and intent classification
+                    if self.ai_enabled:
+                        try:
+                            # Analyze command intent using IntentFirewall
+                            intent_result = self.intent_firewall.analyze(msg)
+                            
+                            # Check if intent is suspicious or blocked
+                            if not intent_result.allowed:
+                                self.stats['attacks_detected'] += 1
+                                logger.warning(f"🚨 [{src_ip}] INTENT BLOCKED: {intent_result.intent}")
+                                logger.warning(f"   Reason: {intent_result.reason}")
+                                logger.warning(f"   Message: {msg_type}")
+                                self.stats['blocked_by_type'][msg_type] += 1
+                                return False  # BLOCK suspicious intent
+                        except Exception as e:
+                            logger.debug(f"Intent analysis skipped: {e}")
+                    
+                    # Step 3: Command-specific validation
+                    block_reason = self._validate_command(msg, src_addr)
+                    if block_reason:
+                        logger.warning(f"🚫 [{src_ip}] BLOCKED: {block_reason}")
+                        self.stats['blocked_by_type'][msg_type] += 1
+                        return False
             
             # ============================================================
             # ✅ Message Approved - Forward to SITL

