@@ -1,9 +1,14 @@
 # GCS Configuration
+# ========================================
+# DEPLOYMENT: Run on Laptop 1 (with SITL)
+# TRUST LEVEL: ⚠️ Semi-trusted (validated by AEGIS)
+# ========================================
+
 connection:
-  aegis_host: "192.168.1.100"  # AEGIS proxy IP
+  aegis_ip: "192.168.1.100"     # ⚠️ CHANGE THIS to Raspberry Pi IP (AEGIS proxy)
   aegis_port: 14560             # AEGIS listening port
-  sitl_host: "127.0.0.1"        # SITL IP (for direct connection - not recommended)
-  sitl_port: 14550              # SITL port (for direct connection - not recommended)
+  sitl_host: "127.0.0.1"        # SITL IP (localhost - DO NOT CHANGE)
+  sitl_port: 14550              # SITL port (localhost - DO NOT CHANGE)
 
 mission:
   default_altitude: 10          # Default takeoff altitude (meters)

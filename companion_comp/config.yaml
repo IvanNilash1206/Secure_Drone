@@ -1,9 +1,14 @@
 # AEGIS Companion Computer Configuration
+# ========================================
+# DEPLOYMENT: Run on Raspberry Pi
+# TRUST LEVEL: ✅ Trusted Security Gateway
+# ========================================
+
 network:
-  listen_host: "0.0.0.0"        # Listen on all interfaces
-  listen_port: 14560            # Public-facing port (GCS/attacker)
-  sitl_host: "127.0.0.1"        # SITL IP (localhost only)
-  sitl_port: 14550              # SITL port (protected)
+  listen_host: "0.0.0.0"        # Listen on all interfaces (DO NOT CHANGE)
+  listen_port: 14560            # Public-facing port (GCS/attacker connect here)
+  fc_ip: "192.168.1.50"         # ⚠️ CHANGE THIS to GCS laptop IP running SITL
+  fc_port: 14550                # Flight controller SITL port (protected)
 
 security:
   enable_crypto: true           # Enable cryptographic validation

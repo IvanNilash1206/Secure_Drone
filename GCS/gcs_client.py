@@ -2,10 +2,16 @@
 """
 Ground Control Station (GCS) Client - Legitimate UAV Operator
 
+DEPLOYMENT: Run on Laptop 1 (with SITL)
+TRUST LEVEL: ⚠️ Semi-trusted (validated by AEGIS)
+
 This script simulates a legitimate GCS sending authorized commands to the UAV.
 All commands go through AEGIS proxy for security validation.
 
 Usage:
+    # Interactive mode (recommended for demo)
+    python gcs_client.py --interactive
+    
     # Connect through AEGIS proxy (recommended)
     python gcs_client.py --target <AEGIS_IP> --port 14560
     
@@ -21,7 +27,9 @@ import sys
 import argparse
 import logging
 import os
+import yaml
 from typing import Optional
+from pathlib import Path
 
 # Import pymavlink
 try:
@@ -378,6 +386,109 @@ class GCSClient:
         
         logger.info("\n✅ Mission complete!")
         logger.info(f"📊 Total commands sent: {self.commands_sent}")
+    
+    def interactive_mode(self):
+        """Interactive GCS control menu"""
+        print("\n" + "="*70)
+        print("   GCS – Ground Control Station")
+        print("   MAVLink Command Interface")
+        print("="*70)
+        print(f"Connected to AEGIS Gateway: {self.target_host}:{self.target_port}")
+        print("="*70)
+        
+        while True:
+            print("\nSelect an operation:")
+            print()
+            print("[1] Arm Vehicle")
+            print("[2] Takeoff")
+            print("[3] Send Waypoint")
+            print("[4] Change Flight Mode")
+            print("[5] Return to Launch (RTL)")
+            print("[6] Land")
+            print("[7] Request Telemetry")
+            print("[0] Exit GCS")
+            print()
+            
+            try:
+                choice = input("Enter choice: ").strip()
+                
+                if choice == '0':
+                    print("\n🛑 Exiting GCS...")
+                    break
+                
+                elif choice == '1':
+                    self.arm_vehicle()
+                
+                elif choice == '2':
+                    try:
+                        alt = input("Enter takeoff altitude (default 10m): ").strip()
+                        altitude = float(alt) if alt else 10
+                        self.takeoff(altitude)
+                    except ValueError:
+                        logger.error("Invalid altitude value")
+                
+                elif choice == '3':
+                    try:
+                        lat = input("Enter latitude (default 47.64042): ").strip()
+                        lon = input("Enter longitude (default -122.14030): ").strip()
+                        alt = input("Enter altitude (default 10): ").strip()
+                        
+                        latitude = float(lat) if lat else 47.64042
+                        longitude = float(lon) if lon else -122.14030
+                        altitude = float(alt) if alt else 10
+                        
+                        self.goto_position(latitude, longitude, altitude)
+                    except ValueError:
+                        logger.error("Invalid coordinate values")
+                
+                elif choice == '4':
+                    print("\nAvailable modes:")
+                    print("  STABILIZE, GUIDED, LOITER, RTL, LAND, AUTO")
+                    mode = input("Enter mode (default GUIDED): ").strip().upper()
+                    if not mode:
+                        mode = "GUIDED"
+                    self.change_mode(mode)
+                
+                elif choice == '5':
+                    self.return_to_launch()
+                
+                elif choice == '6':
+                    self.land()
+                
+                elif choice == '7':
+                    self.request_telemetry()
+                
+                else:
+                    print("❌ Invalid choice. Please try again.")
+                
+                time.sleep(1)
+                
+            except KeyboardInterrupt:
+                print("\n\n🛑 GCS interrupted by user")
+                break
+            except Exception as e:
+                logger.error(f"Error: {e}")
+        
+        print(f"\n📊 Session complete. Commands sent: {self.commands_sent}")
+
+
+def load_config(config_path: str = "config.yaml") -> dict:
+    """Load configuration from YAML file"""
+    config_file = Path(__file__).parent / config_path
+    
+    if not config_file.exists():
+        logger.warning(f"Config file not found: {config_file}")
+        logger.info("Using command line arguments")
+        return {}
+    
+    try:
+        with open(config_file, 'r') as f:
+            config = yaml.safe_load(f)
+            logger.info(f"✅ Configuration loaded from {config_file}")
+            return config
+    except Exception as e:
+        logger.error(f"Failed to load config: {e}")
+        return {}
 
 
 def main():
@@ -387,6 +498,9 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
+  # Interactive mode (recommended for demo)
+  python gcs_client.py --interactive
+  
   # Connect through AEGIS proxy (recommended)
   python gcs_client.py --target 192.168.1.100 --port 14560 --mission
   
@@ -401,26 +515,36 @@ Examples:
         """
     )
     
-    parser.add_argument('--target', required=True,
+    parser.add_argument('--config', default='config.yaml',
+                       help='Path to config file (default: config.yaml)')
+    parser.add_argument('--target',
                        help='Target IP address (AEGIS proxy or SITL)')
-    parser.add_argument('--port', type=int, default=14560,
+    parser.add_argument('--port', type=int,
                        help='Target port (14560=AEGIS, 14550=SITL)')
     parser.add_argument('--mission', action='store_true',
                        help='Run automated mission scenario')
     parser.add_argument('--test', action='store_true',
                        help='Just test connection (heartbeat)')
     parser.add_argument('--interactive', action='store_true',
-                       help='Interactive mode (not yet implemented)')
+                       help='Interactive control menu')
     
     args = parser.parse_args()
     
+    # Load configuration
+    config = load_config(args.config)
+    conn_config = config.get('connection', {})
+    
+    # Get target from CLI or config
+    target_host = args.target or conn_config.get('aegis_ip', '127.0.0.1')
+    target_port = args.port or conn_config.get('aegis_port', 14560)
+    
     # Create GCS client
-    gcs = GCSClient(args.target, args.port)
+    gcs = GCSClient(target_host, target_port)
     
     logger.info("=" * 70)
     logger.info("🎮 GCS Client Started")
     logger.info("=" * 70)
-    logger.info(f"Target: {args.target}:{args.port}")
+    logger.info(f"Target: {target_host}:{target_port}")
     logger.info("=" * 70)
     
     try:
@@ -434,13 +558,15 @@ Examples:
             gcs.run_mission_scenario()
         
         elif args.interactive:
-            logger.error("❌ Interactive mode not yet implemented")
-            logger.info("Use --mission for automated scenario")
+            # Interactive control menu
+            gcs.interactive_mode()
         
         else:
-            # Default: just establish connection
-            logger.info("No action specified. Use --mission or --test")
-            gcs.wait_heartbeat()
+            # Default: interactive mode
+            logger.info("No action specified. Starting interactive mode...")
+            logger.info("Use --mission for automated scenario or --test to check connection")
+            time.sleep(2)
+            gcs.interactive_mode()
             
     except KeyboardInterrupt:
         logger.info("\n🛑 GCS client stopped by user")

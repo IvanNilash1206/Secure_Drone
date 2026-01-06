@@ -26,9 +26,12 @@ import select
 import time
 import logging
 import sys
+import os
+import yaml
 from datetime import datetime
 from collections import defaultdict
 from typing import Dict, Tuple, Optional
+from pathlib import Path
 
 # Import pymavlink for MAVLink message parsing
 try:
@@ -81,8 +84,8 @@ class AEGISProxy:
         self,
         listen_host: str = "0.0.0.0",
         listen_port: int = 14560,
-        sitl_host: str = "127.0.0.1",
-        sitl_port: int = 14550,
+        fc_ip: str = "127.0.0.1",
+        fc_port: int = 14550,
         enable_security: bool = True
     ):
         """
@@ -91,14 +94,14 @@ class AEGISProxy:
         Args:
             listen_host: Interface to bind to (0.0.0.0 = all interfaces)
             listen_port: Port to receive GCS/attacker traffic (default 14560)
-            sitl_host: SITL IP address (default 127.0.0.1 for local)
-            sitl_port: SITL listening port (default 14550)
+            fc_ip: Flight controller IP address (GCS laptop running SITL)
+            fc_port: Flight controller listening port (default 14550)
             enable_security: Enable AEGIS security layers (False = pass-through mode)
         """
         self.listen_host = listen_host
         self.listen_port = listen_port
-        self.sitl_host = sitl_host
-        self.sitl_port = sitl_port
+        self.fc_ip = fc_ip
+        self.fc_port = fc_port
         self.enable_security = enable_security and AEGIS_AVAILABLE
         
         # Create UDP socket for receiving
@@ -162,7 +165,7 @@ class AEGISProxy:
         logger.info(f"🛡️  AEGIS MAVLink Security Proxy Started")
         logger.info("=" * 80)
         logger.info(f"📥 Listening on: {listen_host}:{listen_port}")
-        logger.info(f"📤 Forwarding to: {sitl_host}:{sitl_port}")
+        logger.info(f"📤 Forwarding to: {fc_ip}:{fc_port}")
         logger.info(f"🔒 Security: {'ENABLED' if self.enable_security else 'DISABLED (PASS-THROUGH)'}")
         logger.info(f"   - Crypto: {'✅' if self.crypto_enabled else '❌'}")
         logger.info(f"   - AI IDS: {'✅' if self.ai_enabled else '❌'}")
@@ -356,7 +359,7 @@ class AEGISProxy:
     def forward_to_sitl(self, data: bytes):
         """Forward approved message to SITL"""
         try:
-            self.send_socket.sendto(data, (self.sitl_host, self.sitl_port))
+            self.send_socket.sendto(data, (self.fc_ip, self.fc_port))
             self.stats['total_forwarded'] += 1
         except Exception as e:
             logger.error(f"❌ Failed to forward to SITL: {e}")
@@ -427,48 +430,100 @@ class AEGISProxy:
             self.send_socket.close()
 
 
+def load_config(config_path: str = "config.yaml") -> dict:
+    """Load configuration from YAML file"""
+    config_file = Path(__file__).parent / config_path
+    
+    if not config_file.exists():
+        logger.warning(f"Config file not found: {config_file}")
+        logger.info("Using default configuration")
+        return {}
+    
+    try:
+        with open(config_file, 'r') as f:
+            config = yaml.safe_load(f)
+            logger.info(f"✅ Configuration loaded from {config_file}")
+            return config
+    except Exception as e:
+        logger.error(f"Failed to load config: {e}")
+        return {}
+
+
 def main():
     """Main entry point"""
     import argparse
     
     parser = argparse.ArgumentParser(
-        description='AEGIS MAVLink Security Proxy',
+        description='AEGIS MAVLink Security Proxy - Companion Computer',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  # Run with full security (default)
+  # Run with config.yaml (recommended)
   python aegis_proxy.py
   
   # Run in pass-through mode (no security)
   python aegis_proxy.py --no-security
   
-  # Custom ports
-  python aegis_proxy.py --listen-port 14560 --sitl-port 14550
+  # Override config with command line
+  python aegis_proxy.py --fc-ip 192.168.1.50 --fc-port 14550
   
-  # Allow external connections
-  python aegis_proxy.py --listen-host 0.0.0.0
+Configuration:
+  Edit config.yaml to set Flight Controller IP address.
+  Default config assumes 3-machine deployment:
+    - This machine (Raspberry Pi): Runs AEGIS
+    - GCS Laptop: Runs ArduPilot SITL on :14550
+    - Attacker Laptop: Sends malicious traffic
         """
     )
     
-    parser.add_argument('--listen-host', default='0.0.0.0',
-                       help='Host to listen on (default: 0.0.0.0)')
-    parser.add_argument('--listen-port', type=int, default=14560,
-                       help='Port to listen on (default: 14560)')
-    parser.add_argument('--sitl-host', default='127.0.0.1',
-                       help='SITL host (default: 127.0.0.1)')
-    parser.add_argument('--sitl-port', type=int, default=14550,
-                       help='SITL port (default: 14550)')
+    parser.add_argument('--config', default='config.yaml',
+                       help='Path to config file (default: config.yaml)')
+    parser.add_argument('--listen-host', 
+                       help='Host to listen on (default: from config)')
+    parser.add_argument('--listen-port', type=int,
+                       help='Port to listen on (default: from config)')
+    parser.add_argument('--fc-ip',
+                       help='Flight controller IP (default: from config)')
+    parser.add_argument('--fc-port', type=int,
+                       help='Flight controller port (default: from config)')
     parser.add_argument('--no-security', action='store_true',
                        help='Disable security checks (pass-through mode)')
     
     args = parser.parse_args()
     
+    # Load configuration
+    config = load_config(args.config)
+    
+    # Get network config with CLI override
+    net_config = config.get('network', {})
+    listen_host = args.listen_host or net_config.get('listen_host', '0.0.0.0')
+    listen_port = args.listen_port or net_config.get('listen_port', 14560)
+    fc_ip = args.fc_ip or net_config.get('fc_ip', '127.0.0.1')
+    fc_port = args.fc_port or net_config.get('fc_port', 14550)
+    
+    # Print startup banner
+    print("="*70)
+    print("    AEGIS MAVLink Security Proxy")
+    print("    Companion Computer Security Gateway")
+    print("="*70)
+    print(f"Listening on: {listen_host}:{listen_port}")
+    print(f"Forwarding to: {fc_ip}:{fc_port}")
+    print(f"Security: {'ENABLED' if not args.no_security else 'DISABLED (pass-through)'}")
+    print("="*70)
+    print()
+    print("⚠️  TRUST BOUNDARY ENFORCEMENT:")
+    print("   - OS firewall MUST block direct access to :14550")
+    print("   - Only AEGIS can communicate with flight controller")
+    print("   - AEGIS enforces decision governance (ALLOW/BLOCK)")
+    print("="*70)
+    print()
+    
     # Create and run proxy
     proxy = AEGISProxy(
-        listen_host=args.listen_host,
-        listen_port=args.listen_port,
-        sitl_host=args.sitl_host,
-        sitl_port=args.sitl_port,
+        listen_host=listen_host,
+        listen_port=listen_port,
+        fc_ip=fc_ip,
+        fc_port=fc_port,
         enable_security=not args.no_security
     )
     

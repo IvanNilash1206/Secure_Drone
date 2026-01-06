@@ -1,10 +1,38 @@
 # 🛡️ Secure UAV System with AEGIS Security Gateway
 
+## 🎯 3-Machine Interactive Demo
+
+**NEW:** This project is now configured for realistic **3-machine deployment** with **interactive control**.
+
+### Quick Start
+```bash
+# Machine 1 (GCS Laptop): Start SITL + Interactive GCS
+cd GCS
+python3 gcs_client.py --interactive
+
+# Machine 2 (Raspberry Pi): Start AEGIS Security Gateway
+cd companion_comp
+python3 aegis_proxy.py
+
+# Machine 3 (Attacker Laptop): Launch Interactive Attacks
+cd attacker
+python3 attacker.py --interactive
+```
+
+📖 **[Complete Deployment Guide](docs/deployment_guide.md)** - Step-by-step 3-machine setup
+
+---
+
 ## Project Overview
 
 This project demonstrates a **defense-in-depth security architecture** for MAVLink-based UAV (drone) systems. It protects against real-world attack vectors including GPS spoofing, waypoint injection, command injection, and denial-of-service attacks.
 
 **Key Innovation**: AEGIS (Autonomous sEcurity Gateway for Intelligent Systems) - a multi-layered security proxy that validates MAVLink commands using cryptography, AI-based threat detection, and risk-based decision making.
+
+### Trust Boundary Enforcement
+- **OS Firewall**: Enforces network-level access control (WHO can connect)
+- **AEGIS Gateway**: Enforces application-level decision governance (WHAT commands are allowed)
+- **Defense-in-Depth**: Both layers work together for complete protection
 
 ---
 
@@ -64,7 +92,8 @@ repo/
 ├── docs/                  📚 Documentation
 │   ├── architecture.md       # System architecture
 │   ├── threat_model.md       # Security threat analysis
-│   └── demo_flow.md          # Demo execution guide
+│   ├── demo_flow.md          # Demo execution guide
+│   └── deployment_guide.md   # 🆕 3-machine deployment setup
 │
 └── README.md              📖 This file
 ```
