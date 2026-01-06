@@ -45,14 +45,24 @@ except ImportError:
 # Import AEGIS security layers (optional - will work without them)
 AEGIS_AVAILABLE = False
 try:
-    from src.crypto_layer.decryptor import Decryptor
-    from src.crypto_layer.encryptor import Encryptor
-    from src.ai_layer.mode_aware_ids import ModeAwareIDS
-    from src.decision_engine.decision_engine import DecisionEngine
+    # Add parent directory to path for local imports
+    sys.path.insert(0, str(Path(__file__).parent.parent))
+    
+    # Import crypto layer from companion_comp
+    from companion_comp.crypto_layer.decryptor import decrypt_payload
+    from companion_comp.crypto_layer.encryptor import encrypt_payload
+    from companion_comp.crypto_layer.crypto_gate import CryptoGate
+    
+    # Import AI/decision layer from companion_comp  
+    from companion_comp.intent_firewall.intent_classifier import IntentFirewall
+    from companion_comp.decision_engine.risk_aggregator import RiskProportionalDecisionEngine
+    from companion_comp.logger.audit_logger import ExplainableLogger
+    
     AEGIS_AVAILABLE = True
     print("[AEGIS] ✅ Security layers loaded successfully")
-except ImportError:
-    print("[AEGIS] ⚠️  Running in PASS-THROUGH mode (security layers not available)")
+except ImportError as e:
+    print(f"[AEGIS] ⚠️  Running in PASS-THROUGH mode (security layers not available)")
+    print(f"[AEGIS] ⚠️  Import error: {e}")
     print("[AEGIS] ⚠️  All messages will be forwarded without security checks")
 
 
@@ -139,25 +149,24 @@ class AEGISProxy:
         if self.enable_security:
             try:
                 # Initialize crypto layer
-                self.decryptor = Decryptor()
-                self.encryptor = Encryptor()
+                self.crypto_gate = CryptoGate()
                 self.crypto_enabled = True
                 logger.info("🔐 Crypto layer initialized")
             except Exception as e:
                 logger.warning(f"⚠️  Crypto layer failed: {e}")
             
             try:
-                # Initialize AI-based IDS
-                self.ids = ModeAwareIDS()
+                # Initialize AI-based IDS and Intent Firewall
+                self.intent_firewall = IntentFirewall()
                 self.ai_enabled = True
-                logger.info("🧠 AI-based IDS initialized")
+                logger.info("🧠 AI-based Intent Firewall initialized")
             except Exception as e:
                 logger.warning(f"⚠️  AI layer failed: {e}")
             
             try:
                 # Initialize decision engine
-                self.decision_engine = DecisionEngine()
-                logger.info("⚖️  Decision engine initialized")
+                self.decision_engine = RiskProportionalDecisionEngine()
+                logger.info("⚖️  Risk-proportional decision engine initialized")
             except Exception as e:
                 logger.warning(f"⚠️  Decision engine failed: {e}")
         
@@ -225,25 +234,22 @@ class AEGISProxy:
                     # For now, we assume messages are plaintext MAVLink
                     pass
                 
-                # Step 2: AI-based anomaly detection
+                # Step 2: AI-based anomaly detection and intent classification
                 if self.ai_enabled:
-                    # Extract features from MAVLink message
-                    features = self._extract_features(msg, src_addr)
-                    
-                    # Run through IDS
-                    is_anomaly = self.ids.detect_anomaly(features)
-                    
-                    if is_anomaly:
-                        self.stats['attacks_detected'] += 1
-                        logger.warning(f"🚨 [{src_ip}] ANOMALY DETECTED: {msg_type}")
-                        logger.warning(f"   Message details: {msg}")
+                    try:
+                        # Analyze command intent using IntentFirewall
+                        intent_result = self.intent_firewall.analyze(msg)
                         
-                        # Specific attack detection
-                        attack_type = self._classify_attack(msg, features)
-                        if attack_type:
-                            logger.error(f"🔴 [{src_ip}] ATTACK: {attack_type}")
+                        # Check if intent is suspicious or blocked
+                        if not intent_result.allowed:
+                            self.stats['attacks_detected'] += 1
+                            logger.warning(f"🚨 [{src_ip}] INTENT BLOCKED: {intent_result.intent}")
+                            logger.warning(f"   Reason: {intent_result.reason}")
+                            logger.warning(f"   Message: {msg_type}")
                             self.stats['blocked_by_type'][msg_type] += 1
-                            return False  # BLOCK malicious message
+                            return False  # BLOCK suspicious intent
+                    except Exception as e:
+                        logger.debug(f"Intent analysis skipped: {e}")
                 
                 # Step 3: Command-specific validation
                 block_reason = self._validate_command(msg, src_addr)

@@ -1,5 +1,8 @@
-from src.crypto_layer.decryptor import decrypt_payload
-from src.crypto_layer.key_manager import key_manager
+from .decryptor import decrypt_payload
+from .key_manager import key_manager
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from src.logging_config import logger
 import time
 

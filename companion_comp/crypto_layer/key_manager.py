@@ -10,6 +10,9 @@ import secrets
 from enum import Enum
 from typing import Optional, Tuple, Dict, Any
 from dataclasses import dataclass
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from src.logging_config import logger
 
 # Key file paths

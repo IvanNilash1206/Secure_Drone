@@ -1,5 +1,8 @@
 import os
 import struct
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from src.logging_config import logger
 
 NONCE_SIZE = 12  # AES-GCM standard

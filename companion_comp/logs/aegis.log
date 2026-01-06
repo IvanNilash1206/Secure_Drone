@@ -1,0 +1,8 @@
+2026-01-06 15:54:12,159 - AEGIS - WARNING - No existing keys found, provisioning new root key
+2026-01-06 15:54:12,161 - AEGIS - INFO - Provisioning new root key (KR)
+2026-01-06 15:54:12,168 - AEGIS - INFO - Root key provisioned successfully
+2026-01-06 15:54:12,170 - AEGIS - INFO - Deriving new session key for session: 1a076b64f9b5280ec8b6bffc26b0b7cb
+2026-01-06 15:54:12,174 - AEGIS - INFO - Session key derived and activated
+2026-01-06 15:54:12,183 - AEGIS - INFO - CryptoGate initialized
+2026-01-06 15:54:21,877 - AEGIS - INFO - Keys loaded successfully
+2026-01-06 15:54:21,879 - AEGIS - INFO - CryptoGate initialized
