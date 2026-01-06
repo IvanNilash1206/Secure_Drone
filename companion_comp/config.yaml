@@ -7,7 +7,7 @@
 network:
   listen_host: "0.0.0.0"        # Listen on all interfaces (DO NOT CHANGE)
   listen_port: 14560            # Public-facing port (GCS/attacker connect here)
-  fc_ip: "197.168.137.175"         # ⚠️ CHANGE THIS to GCS laptop IP running SITL
+  fc_ip: "10.99.160.132"         # ⚠️ CHANGE THIS to GCS laptop IP running SITL
   fc_port: 14550                # Flight controller SITL port (protected)
 
 security:
