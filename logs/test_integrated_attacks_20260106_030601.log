@@ -1,0 +1,174 @@
+2026-01-06 03:06:01,814 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:01,816 - INFO - [IntegratedAttackTest] - Setting up integrated crypto + AI stack...
+2026-01-06 03:06:01,817 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:03,711 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:03,714 - INFO - [IntegratedAttackTest] - 
+================================================================================
+2026-01-06 03:06:03,716 - INFO - [IntegratedAttackTest] - TEST: Crypto-level Replay Attack Detection
+2026-01-06 03:06:03,717 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:03,718 - INFO - [IntegratedAttackTest] - Creating payload: b'ARM'
+2026-01-06 03:06:03,745 - INFO - [IntegratedAttackTest] - Risk level escalated to: high
+2026-01-06 03:06:03,761 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:03,763 - INFO - [IntegratedAttackTest] - Setting up integrated crypto + AI stack...
+2026-01-06 03:06:03,764 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:03,799 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:03,801 - INFO - [IntegratedAttackTest] - 
+================================================================================
+2026-01-06 03:06:03,802 - INFO - [IntegratedAttackTest] - TEST: AI-level Replay Attack Detection
+2026-01-06 03:06:03,803 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:03,805 - INFO - [IntegratedAttackTest] - Command: nonce=746573745f6e6f6e..., timestamp=1767648963.805133
+2026-01-06 03:06:03,806 - INFO - [IntegratedAttackTest] - First attempt: replay=False, method=none
+2026-01-06 03:06:03,812 - INFO - [IntegratedAttackTest] - Replay attempt: replay=True, confidence=1.00
+2026-01-06 03:06:03,813 - INFO - [IntegratedAttackTest] - Detection method: nonce_duplicate
+2026-01-06 03:06:03,813 - INFO - [IntegratedAttackTest] - Explanation: Cryptographic nonce reused (definitive replay)
+2026-01-06 03:06:03,825 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:03,826 - INFO - [IntegratedAttackTest] - Setting up integrated crypto + AI stack...
+2026-01-06 03:06:03,827 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:03,860 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:03,862 - INFO - [IntegratedAttackTest] - 
+================================================================================
+2026-01-06 03:06:03,863 - INFO - [IntegratedAttackTest] - TEST: Dual-Layer Replay Protection (Crypto + AI)
+2026-01-06 03:06:03,863 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:03,864 - INFO - [IntegratedAttackTest] - Creating secure command: b'TAKEOFF'
+2026-01-06 03:06:03,867 - INFO - [IntegratedAttackTest] - Encrypted command with nonce: 0000000000000000...
+2026-01-06 03:06:03,901 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:03,903 - INFO - [IntegratedAttackTest] - Setting up integrated crypto + AI stack...
+2026-01-06 03:06:03,903 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:03,922 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:03,923 - INFO - [IntegratedAttackTest] - 
+================================================================================
+2026-01-06 03:06:03,924 - INFO - [IntegratedAttackTest] - TEST: Command Flooding Attack Detection
+2026-01-06 03:06:03,924 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:03,924 - INFO - [IntegratedAttackTest] - Phase 1: Normal traffic (2 commands in 1 second)
+2026-01-06 03:06:03,926 - INFO - [IntegratedAttackTest] -   Command 0: rate=0.00 cmds/sec, dos=False
+2026-01-06 03:06:03,928 - INFO - [IntegratedAttackTest] -   Command 1: rate=2.00 cmds/sec, dos=False
+2026-01-06 03:06:04,969 - INFO - [IntegratedAttackTest] -      Rate: 7.71 cmds/sec
+2026-01-06 03:06:04,970 - INFO - [IntegratedAttackTest] -      Burst score: 0.50
+2026-01-06 03:06:04,971 - INFO - [IntegratedAttackTest] -      Confidence: 0.60
+2026-01-06 03:06:04,972 - INFO - [IntegratedAttackTest] -      Explanation: Burst detected: 7.7 cmds/sec
+2026-01-06 03:06:04,974 - INFO - [IntegratedAttackTest] - 
+Attack detected in 0.035 seconds
+2026-01-06 03:06:04,994 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:04,998 - INFO - [IntegratedAttackTest] - Setting up integrated crypto + AI stack...
+2026-01-06 03:06:05,000 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,060 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,062 - INFO - [IntegratedAttackTest] - 
+================================================================================
+2026-01-06 03:06:05,063 - INFO - [IntegratedAttackTest] - TEST: Encrypted DoS Attack Detection
+2026-01-06 03:06:05,065 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,422 - INFO - [IntegratedAttackTest] -    Valid encryptions: 6/6
+2026-01-06 03:06:05,423 - INFO - [IntegratedAttackTest] -    Rate: 17.96 cmds/sec
+2026-01-06 03:06:05,424 - INFO - [IntegratedAttackTest] -    Confidence: 0.60
+2026-01-06 03:06:05,425 - INFO - [IntegratedAttackTest] - 
+Result: 6 commands had valid crypto
+2026-01-06 03:06:05,426 - INFO - [IntegratedAttackTest] - But AI layer detected flooding pattern: True
+2026-01-06 03:06:05,444 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,447 - INFO - [IntegratedAttackTest] - Setting up integrated crypto + AI stack...
+2026-01-06 03:06:05,448 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,532 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,535 - INFO - [IntegratedAttackTest] - 
+================================================================================
+2026-01-06 03:06:05,538 - INFO - [IntegratedAttackTest] - TEST: Dangerous Command Injection Detection
+2026-01-06 03:06:05,539 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,541 - INFO - [IntegratedAttackTest] - Flight state: IN_FLIGHT, altitude=50m, armed=True
+2026-01-06 03:06:05,542 - INFO - [IntegratedAttackTest] - 
+Phase 1: Normal navigation command
+2026-01-06 03:06:05,547 - INFO - [IntegratedAttackTest] -   Crypto check: True
+2026-01-06 03:06:05,548 - INFO - [IntegratedAttackTest] -   AI injection check: False
+2026-01-06 03:06:05,549 - INFO - [IntegratedAttackTest] -   Risk score: 0.000
+2026-01-06 03:06:05,560 - INFO - [IntegratedAttackTest] -   Crypto check: True (encryption valid)
+2026-01-06 03:06:05,562 - INFO - [IntegratedAttackTest] -   Confidence: 0.65
+2026-01-06 03:06:05,563 - INFO - [IntegratedAttackTest] -   Detection method: unauthorized
+2026-01-06 03:06:05,563 - INFO - [IntegratedAttackTest] -   Unauthorized: True
+2026-01-06 03:06:05,564 - INFO - [IntegratedAttackTest] -   Context violation: False
+2026-01-06 03:06:05,564 - INFO - [IntegratedAttackTest] -   Risk score: 0.300
+2026-01-06 03:06:05,565 - INFO - [IntegratedAttackTest] -   Explanation: Command not authorized in IN_FLIGHT state
+2026-01-06 03:06:05,586 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,589 - INFO - [IntegratedAttackTest] - Setting up integrated crypto + AI stack...
+2026-01-06 03:06:05,591 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,635 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,637 - INFO - [IntegratedAttackTest] - 
+================================================================================
+2026-01-06 03:06:05,637 - INFO - [IntegratedAttackTest] - TEST: Parameter Injection Attack
+2026-01-06 03:06:05,638 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,641 - INFO - [IntegratedAttackTest] -   Injected altitude: 1000m (max allowed: 400m)
+2026-01-06 03:06:05,645 - INFO - [IntegratedAttackTest] -      Is injection: False
+2026-01-06 03:06:05,646 - INFO - [IntegratedAttackTest] -      Parameter anomaly: True
+2026-01-06 03:06:05,647 - INFO - [IntegratedAttackTest] -      Confidence: 0.00
+2026-01-06 03:06:05,649 - INFO - [IntegratedAttackTest] -      Risk score: 0.200
+2026-01-06 03:06:05,650 - INFO - [IntegratedAttackTest] -      Explanation: No injection detected
+2026-01-06 03:06:05,664 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,667 - INFO - [IntegratedAttackTest] - Setting up integrated crypto + AI stack...
+2026-01-06 03:06:05,669 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,708 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,710 - INFO - [IntegratedAttackTest] - 
+================================================================================
+2026-01-06 03:06:05,710 - INFO - [IntegratedAttackTest] - TEST: Ciphertext Tampering Attack
+2026-01-06 03:06:05,710 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,712 - INFO - [IntegratedAttackTest] - Original payload: b'LAND'
+2026-01-06 03:06:05,714 - INFO - [IntegratedAttackTest] - Encrypted: ecab24b533af89d23c738825d73e23f6...
+2026-01-06 03:06:05,718 - INFO - [IntegratedAttackTest] - Tampered:  13ab24b533ed89d23c738825d73e23f6...
+2026-01-06 03:06:05,730 - INFO - [IntegratedAttackTest] - Risk level: high
+2026-01-06 03:06:05,743 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,744 - INFO - [IntegratedAttackTest] - Setting up integrated crypto + AI stack...
+2026-01-06 03:06:05,744 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,776 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,778 - INFO - [IntegratedAttackTest] - 
+================================================================================
+2026-01-06 03:06:05,779 - INFO - [IntegratedAttackTest] - TEST: Nonce Tampering Attack
+2026-01-06 03:06:05,779 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,781 - INFO - [IntegratedAttackTest] - Original nonce: 000000000000000000000001
+2026-01-06 03:06:05,784 - INFO - [IntegratedAttackTest] - Tampered nonce: ff0000000000000000000001
+2026-01-06 03:06:05,786 - INFO - [IntegratedAttackTest] - 
+Attempting decryption with tampered nonce...
+2026-01-06 03:06:05,813 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,818 - INFO - [IntegratedAttackTest] - Setting up integrated crypto + AI stack...
+2026-01-06 03:06:05,821 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,894 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,898 - INFO - [IntegratedAttackTest] - 
+================================================================================
+2026-01-06 03:06:05,901 - INFO - [IntegratedAttackTest] - TEST: Navigation Command Hijacking Attack
+2026-01-06 03:06:05,902 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,904 - INFO - [IntegratedAttackTest] - Drone state: AUTO mode, executing mission at 100m
+2026-01-06 03:06:05,905 - INFO - [IntegratedAttackTest] - 
+Phase 1: Legitimate waypoint command
+2026-01-06 03:06:05,915 - INFO - [IntegratedAttackTest] -   Crypto: True, AI injection: False
+2026-01-06 03:06:05,927 - INFO - [IntegratedAttackTest] -   Target: x=5000m, y=5000m (far from mission area)
+2026-01-06 03:06:05,928 - INFO - [IntegratedAttackTest] -   Altitude: 200m (exceeds 150m FAA limit)
+2026-01-06 03:06:05,929 - INFO - [IntegratedAttackTest] -   Velocity: 30 m/s (exceeds 25 m/s limit)
+2026-01-06 03:06:05,930 - INFO - [IntegratedAttackTest] -   Crypto check: True
+2026-01-06 03:06:05,934 - INFO - [IntegratedAttackTest] -   Parameter anomaly: True
+2026-01-06 03:06:05,935 - INFO - [IntegratedAttackTest] -   Risk score: 0.200
+2026-01-06 03:06:05,952 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,954 - INFO - [IntegratedAttackTest] - Setting up integrated crypto + AI stack...
+2026-01-06 03:06:05,955 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,986 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:05,988 - INFO - [IntegratedAttackTest] - 
+================================================================================
+2026-01-06 03:06:05,990 - INFO - [IntegratedAttackTest] - TEST: Combined Replay + DoS Attack
+2026-01-06 03:06:05,992 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:06,276 - INFO - [IntegratedAttackTest] -      Rate: 24.07 cmds/sec
+2026-01-06 03:06:06,278 - INFO - [IntegratedAttackTest] - 
+Results:
+2026-01-06 03:06:06,280 - INFO - [IntegratedAttackTest] -   Replay detected: True
+2026-01-06 03:06:06,283 - INFO - [IntegratedAttackTest] -   DoS detected: True
+2026-01-06 03:06:06,324 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:06,329 - INFO - [IntegratedAttackTest] - Setting up integrated crypto + AI stack...
+2026-01-06 03:06:06,331 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:06,390 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:06,392 - INFO - [IntegratedAttackTest] - 
+================================================================================
+2026-01-06 03:06:06,393 - INFO - [IntegratedAttackTest] - TEST: Combined Tampering + Injection Attack
+2026-01-06 03:06:06,394 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:06,811 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:06,812 - INFO - [IntegratedAttackTest] - Setting up integrated crypto + AI stack...
+2026-01-06 03:06:06,813 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:06,841 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:06,842 - INFO - [IntegratedAttackTest] - 
+================================================================================
+2026-01-06 03:06:06,844 - INFO - [IntegratedAttackTest] - TEST: Performance During DoS Attack
+2026-01-06 03:06:06,844 - INFO - [IntegratedAttackTest] - ================================================================================
+2026-01-06 03:06:06,845 - INFO - [IntegratedAttackTest] - Measuring baseline crypto latency...
+2026-01-06 03:06:06,935 - INFO - [IntegratedAttackTest] -   Baseline: 8.886ms per command
+2026-01-06 03:06:07,311 - INFO - [IntegratedAttackTest] -   Under attack: 7.306ms per command
+2026-01-06 03:06:07,312 - INFO - [IntegratedAttackTest] -   Performance degradation: -17.8%

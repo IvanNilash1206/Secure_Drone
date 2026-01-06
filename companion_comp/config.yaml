@@ -1,0 +1,45 @@
+# AEGIS Companion Computer Configuration
+# ========================================
+# DEPLOYMENT: Run on Raspberry Pi
+# TRUST LEVEL: ✅ Trusted Security Gateway
+# ========================================
+
+network:
+  listen_host: "0.0.0.0"        # Listen on all interfaces (DO NOT CHANGE)
+  listen_port: 14560            # Public-facing port (GCS/attacker connect here)
+  fc_ip: "192.168.1.50"         # ⚠️ CHANGE THIS to GCS laptop IP running SITL
+  fc_port: 14550                # Flight controller SITL port (protected)
+
+security:
+  enable_crypto: true           # Enable cryptographic validation
+  enable_ai: true               # Enable AI-based threat detection
+  enable_decision_engine: true  # Enable decision engine
+  
+crypto:
+  key_rotation_hours: 24        # Rotate keys every 24 hours
+  nonce_window: 300             # Nonce validity window (seconds)
+
+ai_layer:
+  intent_firewall:
+    model_path: "models/intent_model"
+    confidence_threshold: 0.85
+  
+  behavior_ids:
+    anomaly_threshold: 0.7
+    window_size: 100            # Message window for temporal analysis
+  
+  shadow_execution:
+    enable: true
+    physics_checks: true
+    trajectory_prediction: true
+
+decision_engine:
+  risk_threshold_block: 0.8     # Block if risk >= 0.8
+  risk_threshold_warn: 0.5      # Warn if risk >= 0.5
+  safe_mode_trigger: 0.9        # Trigger safe mode if risk >= 0.9
+
+logging:
+  log_file: "logs/aegis_proxy.log"
+  log_level: "INFO"
+  audit_log: "logs/aegis_audit.log"
+  explainability_log: "logs/aegis_explainability.log"

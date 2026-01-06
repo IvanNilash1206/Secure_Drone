@@ -1,0 +1,3 @@
+# GCS Component Requirements
+pymavlink>=2.4.37
+pyyaml>=6.0

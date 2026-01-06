@@ -50,6 +50,7 @@
 2026-01-05 14:48:54,947 - src.logging_config - INFO - Deriving new session key for session: 6ea2087cdbcbeb84651f8da9873c9408
 2026-01-05 14:48:54,948 - src.logging_config - INFO - Session key derived and activated
 2026-01-05 14:48:54,949 - src.logging_config - INFO - Session key rotation completed successfully
+<<<<<<< HEAD
 2026-01-06 02:41:21,231 - src.logging_config - INFO - Logging system initialized
 2026-01-06 02:45:03,122 - src.logging_config - INFO - Logging system initialized
 2026-01-06 02:45:03,261 - src.logging_config - INFO - Starting MAVSDK connection
@@ -114,3 +115,7 @@
 2026-01-06 02:47:36,147 - src.logging_config - INFO - Arming drone
 2026-01-06 02:54:46,614 - src.logging_config - INFO - Logging system initialized
 2026-01-06 02:54:46,693 - src.logging_config - INFO - AEGIS Proxy active
+=======
+2026-01-06 02:54:14,542 - src.logging_config - INFO - Logging system initialized
+2026-01-06 02:54:15,872 - src.logging_config - INFO - AEGIS Proxy active
+>>>>>>> 2f5054f32fce7431010039d609b7f9fd756af0b8

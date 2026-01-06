@@ -1,0 +1,26 @@
+# Attacker Configuration
+# ⚠️ FOR EDUCATIONAL AND DEMONSTRATION PURPOSES ONLY ⚠️
+
+connection:
+  target_host: "192.168.1.100"  # AEGIS proxy IP (Raspberry Pi)
+  target_port: 14560             # AEGIS listening port
+  # For direct SITL attack (bypassing AEGIS): use target_port: 14550
+
+attack_parameters:
+  gps_spoof:
+    latitude: 37.7749           # San Francisco coordinates
+    longitude: -122.4194
+    altitude: 1000              # Meters above sea level
+  
+  dos:
+    duration_seconds: 5         # DoS attack duration
+    message_rate: 100           # Messages per second
+  
+  waypoint:
+    sequence: 99                # Waypoint sequence number
+    altitude: 50                # Waypoint altitude (meters)
+
+logging:
+  log_file: "logs/attacker.log"
+  log_level: "INFO"             # DEBUG, INFO, WARNING, ERROR
+

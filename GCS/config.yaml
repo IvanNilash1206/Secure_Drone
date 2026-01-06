@@ -1,0 +1,24 @@
+# GCS Configuration
+# ========================================
+# DEPLOYMENT: Run on Laptop 1 (with SITL)
+# TRUST LEVEL: ⚠️ Semi-trusted (validated by AEGIS)
+# ========================================
+
+connection:
+  aegis_ip: "192.168.1.100"     # ⚠️ CHANGE THIS to Raspberry Pi IP (AEGIS proxy)
+  aegis_port: 14560             # AEGIS listening port
+  sitl_host: "127.0.0.1"        # SITL IP (localhost - DO NOT CHANGE)
+  sitl_port: 14550              # SITL port (localhost - DO NOT CHANGE)
+
+mission:
+  default_altitude: 10          # Default takeoff altitude (meters)
+  waypoint_radius: 5            # Waypoint acceptance radius (meters)
+  rtl_altitude: 20              # Return to launch altitude (meters)
+
+telemetry:
+  update_rate_hz: 1             # Telemetry update rate
+  timeout_seconds: 10           # Connection timeout
+
+logging:
+  log_file: "logs/gcs_client.log"
+  log_level: "INFO"             # DEBUG, INFO, WARNING, ERROR
