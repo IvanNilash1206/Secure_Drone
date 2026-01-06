@@ -50,3 +50,67 @@
 2026-01-05 14:48:54,947 - src.logging_config - INFO - Deriving new session key for session: 6ea2087cdbcbeb84651f8da9873c9408
 2026-01-05 14:48:54,948 - src.logging_config - INFO - Session key derived and activated
 2026-01-05 14:48:54,949 - src.logging_config - INFO - Session key rotation completed successfully
+2026-01-06 02:41:21,231 - src.logging_config - INFO - Logging system initialized
+2026-01-06 02:45:03,122 - src.logging_config - INFO - Logging system initialized
+2026-01-06 02:45:03,261 - src.logging_config - INFO - Starting MAVSDK connection
+2026-01-06 02:45:03,363 - mavsdk_server - INFO - MAVSDK version: v3.10.2 (D:\a\MAVSDK\MAVSDK\src\mavsdk\core\mavsdk_impl.cpp:32)
+2026-01-06 02:45:03,369 - mavsdk_server - INFO - Waiting to discover system on udpin://0.0.0.0:14550... (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\connection_initiator.h:20)
+2026-01-06 02:45:03,544 - mavsdk_server - INFO - New system on: 172.27.108.169:60006 (with system ID: 1) (D:\a\MAVSDK\MAVSDK\src\mavsdk\core\udp_connection.cpp:263)
+2026-01-06 02:45:03,937 - mavsdk_server - WARNING - Vehicle type changed (new type: 2, old type: 0) (D:\a\MAVSDK\MAVSDK\src\mavsdk\core\system_impl.cpp:323)
+2026-01-06 02:45:03,939 - mavsdk_server - INFO - System discovered (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\connection_initiator.h:62)
+2026-01-06 02:45:03,973 - mavsdk_server - INFO - Server started (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\grpc_server.cpp:177)
+2026-01-06 02:45:03,974 - mavsdk_server - INFO - Server set to listen on 0.0.0.0:50051 (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\grpc_server.cpp:178)
+2026-01-06 02:45:04,149 - src.logging_config - INFO - Connecting to ArduPilot...
+2026-01-06 02:45:04,155 - src.logging_config - INFO - Connected to ArduPilot SITL
+2026-01-06 02:45:25,873 - src.logging_config - INFO - Logging system initialized
+2026-01-06 02:45:26,011 - src.logging_config - INFO - Launching telemetry reader
+2026-01-06 02:45:26,012 - src.logging_config - INFO - Starting telemetry reader
+2026-01-06 02:45:26,035 - mavsdk_server - INFO - MAVSDK version: v3.10.2 (D:\a\MAVSDK\MAVSDK\src\mavsdk\core\mavsdk_impl.cpp:32)
+2026-01-06 02:45:26,050 - mavsdk_server - INFO - Waiting to discover system on udpin://0.0.0.0:14550... (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\connection_initiator.h:20)
+2026-01-06 02:45:26,108 - mavsdk_server - INFO - New system on: 172.27.108.169:60006 (with system ID: 1) (D:\a\MAVSDK\MAVSDK\src\mavsdk\core\udp_connection.cpp:263)
+2026-01-06 02:45:26,110 - mavsdk_server - WARNING - Vehicle type changed (new type: 2, old type: 0) (D:\a\MAVSDK\MAVSDK\src\mavsdk\core\system_impl.cpp:323)
+2026-01-06 02:45:26,111 - mavsdk_server - INFO - System discovered (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\connection_initiator.h:62)
+2026-01-06 02:45:26,112 - mavsdk_server - INFO - Server started (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\grpc_server.cpp:177)
+2026-01-06 02:45:26,113 - mavsdk_server - INFO - Server set to listen on 0.0.0.0:50051 (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\grpc_server.cpp:178)
+2026-01-06 02:45:26,290 - src.logging_config - INFO - Reading position telemetry...
+2026-01-06 02:45:26,436 - src.logging_config - INFO - Telemetry reading completed
+2026-01-06 02:45:41,278 - src.logging_config - INFO - Logging system initialized
+2026-01-06 02:45:41,411 - src.logging_config - INFO - Launching telemetry reader
+2026-01-06 02:45:41,412 - src.logging_config - INFO - Starting telemetry reader
+2026-01-06 02:45:41,435 - mavsdk_server - INFO - MAVSDK version: v3.10.2 (D:\a\MAVSDK\MAVSDK\src\mavsdk\core\mavsdk_impl.cpp:32)
+2026-01-06 02:45:41,448 - mavsdk_server - INFO - Waiting to discover system on udpin://0.0.0.0:14550... (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\connection_initiator.h:20)
+2026-01-06 02:45:41,526 - mavsdk_server - INFO - New system on: 172.27.108.169:60006 (with system ID: 1) (D:\a\MAVSDK\MAVSDK\src\mavsdk\core\udp_connection.cpp:263)
+2026-01-06 02:45:41,529 - mavsdk_server - WARNING - Vehicle type changed (new type: 2, old type: 0) (D:\a\MAVSDK\MAVSDK\src\mavsdk\core\system_impl.cpp:323)
+2026-01-06 02:45:41,529 - mavsdk_server - INFO - System discovered (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\connection_initiator.h:62)
+2026-01-06 02:45:41,531 - mavsdk_server - INFO - Server started (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\grpc_server.cpp:177)
+2026-01-06 02:45:41,531 - mavsdk_server - INFO - Server set to listen on 0.0.0.0:50051 (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\grpc_server.cpp:178)
+2026-01-06 02:45:41,689 - src.logging_config - INFO - Reading position telemetry...
+2026-01-06 02:45:41,848 - src.logging_config - INFO - Telemetry reading completed
+2026-01-06 02:46:12,442 - src.logging_config - INFO - Logging system initialized
+2026-01-06 02:46:12,589 - src.logging_config - INFO - Launching telemetry reader
+2026-01-06 02:46:12,590 - src.logging_config - INFO - Starting telemetry reader
+2026-01-06 02:46:12,613 - mavsdk_server - INFO - MAVSDK version: v3.10.2 (D:\a\MAVSDK\MAVSDK\src\mavsdk\core\mavsdk_impl.cpp:32)
+2026-01-06 02:46:12,627 - mavsdk_server - INFO - Waiting to discover system on udpin://0.0.0.0:14550... (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\connection_initiator.h:20)
+2026-01-06 02:46:12,687 - mavsdk_server - INFO - New system on: 172.27.108.169:60006 (with system ID: 1) (D:\a\MAVSDK\MAVSDK\src\mavsdk\core\udp_connection.cpp:263)
+2026-01-06 02:46:13,323 - mavsdk_server - WARNING - Vehicle type changed (new type: 2, old type: 0) (D:\a\MAVSDK\MAVSDK\src\mavsdk\core\system_impl.cpp:323)
+2026-01-06 02:46:13,324 - mavsdk_server - INFO - System discovered (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\connection_initiator.h:62)
+2026-01-06 02:46:13,325 - mavsdk_server - INFO - Server started (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\grpc_server.cpp:177)
+2026-01-06 02:46:13,326 - mavsdk_server - INFO - Server set to listen on 0.0.0.0:50051 (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\grpc_server.cpp:178)
+2026-01-06 02:46:13,384 - src.logging_config - INFO - Reading position telemetry...
+2026-01-06 02:46:13,409 - src.logging_config - INFO - Telemetry reading completed
+2026-01-06 02:47:34,188 - src.logging_config - INFO - Logging system initialized
+2026-01-06 02:47:34,325 - src.logging_config - INFO - Starting arm and takeoff sequence
+2026-01-06 02:47:34,347 - mavsdk_server - INFO - MAVSDK version: v3.10.2 (D:\a\MAVSDK\MAVSDK\src\mavsdk\core\mavsdk_impl.cpp:32)
+2026-01-06 02:47:34,361 - mavsdk_server - INFO - Waiting to discover system on udpin://0.0.0.0:14550... (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\connection_initiator.h:20)
+2026-01-06 02:47:34,548 - mavsdk_server - INFO - New system on: 172.27.108.169:60006 (with system ID: 1) (D:\a\MAVSDK\MAVSDK\src\mavsdk\core\udp_connection.cpp:263)
+2026-01-06 02:47:35,185 - mavsdk_server - WARNING - Vehicle type changed (new type: 2, old type: 0) (D:\a\MAVSDK\MAVSDK\src\mavsdk\core\system_impl.cpp:323)
+2026-01-06 02:47:35,186 - mavsdk_server - INFO - System discovered (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\connection_initiator.h:62)
+2026-01-06 02:47:35,187 - mavsdk_server - INFO - Server started (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\grpc_server.cpp:177)
+2026-01-06 02:47:35,187 - mavsdk_server - INFO - Server set to listen on 0.0.0.0:50051 (D:\a\MAVSDK\MAVSDK\src\mavsdk_server\src\grpc_server.cpp:178)
+2026-01-06 02:47:35,373 - src.logging_config - INFO - Waiting for connection...
+2026-01-06 02:47:35,374 - src.logging_config - INFO - Connected
+2026-01-06 02:47:35,375 - src.logging_config - INFO - Waiting for drone to be ready...
+2026-01-06 02:47:36,147 - src.logging_config - INFO - Drone ready
+2026-01-06 02:47:36,147 - src.logging_config - INFO - Arming drone
+2026-01-06 02:54:46,614 - src.logging_config - INFO - Logging system initialized
+2026-01-06 02:54:46,693 - src.logging_config - INFO - AEGIS Proxy active

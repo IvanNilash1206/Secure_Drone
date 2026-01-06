@@ -9,7 +9,7 @@ COMMAND_MESSAGES = {
     "COMMAND_LONG"
 }
 
-master = mavutil.mavlink_connection('udp:127.0.0.1:14550')
+master = mavutil.mavlink_connection('udp:0.0.0.0:14550')
 
 logger.info("AEGIS Proxy active")
 print("🔐 AEGIS Proxy active...")
