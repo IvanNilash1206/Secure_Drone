@@ -122,12 +122,9 @@ class AEGISProxy:
         # Create UDP socket for forwarding to SITL
         self.send_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         
-        # MAVLink parser
-        self.mav = mavutil.mavlink_connection(
-            f'udpin:{listen_host}:{listen_port}',
-            dialect='common',
-            robust_parsing=True
-        )
+        # MAVLink parser (NO network binding - pure parser only)
+        self.mav = mavlink2.MAVLink(None)
+        self.mav.robust_parsing = True
         
         # Track connected clients
         self.clients: Dict[Tuple[str, int], dict] = {}
@@ -205,13 +202,13 @@ class AEGISProxy:
         self.clients[src_addr]['last_seen'] = time.time()
         self.clients[src_addr]['msg_count'] += 1
         
+        # Log RAW packet reception
+        logger.info(f"[AEGIS][RAW] Received {len(data)} bytes from {src_ip}:{src_port}")
+        
         # Parse MAVLink message
         try:
-            # Try to parse as MAVLink
-            msg = None
-            for m in self.mav.parse_buffer(data):
-                msg = m
-                break
+            # Decode MAVLink packet manually (no network binding)
+            msg = self.mav.decode(data)
             
             if msg is None:
                 logger.warning(f"⚠️  [{src_ip}] Invalid MAVLink message (length: {len(data)})")
